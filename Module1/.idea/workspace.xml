@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfd2e-06ac-473b-8e3b-f2637ca852c0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/Bai_Tap/CV_Ca_Nhan.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,11 +52,17 @@
       <workItem from="1603685320528" duration="443000" />
       <workItem from="1603685781982" duration="89000" />
       <workItem from="1604029986725" duration="2232000" />
-      <workItem from="1604039424971" duration="569000" />
+      <workItem from="1604039424971" duration="5547000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="433" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604040381813">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="433" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604040381813" />
   </component>
 </project>

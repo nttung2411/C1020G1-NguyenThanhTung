@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfd2e-06ac-473b-8e3b-f2637ca852c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NhapMonLapTrinh/Bai_Tap/CV_Ca_Nhan.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,6 +53,7 @@
       <workItem from="1603685781982" duration="89000" />
       <workItem from="1604029986725" duration="2232000" />
       <workItem from="1604039424971" duration="5547000" />
+      <workItem from="1604280324697" duration="1010000" />
     </task>
     <servers />
   </component>

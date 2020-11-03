@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfd2e-06ac-473b-8e3b-f2637ca852c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/Tao_Form_Co_Ban.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/Tao_Form_Google.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/simpleform.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Dang_Ky.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +58,7 @@
       <workItem from="1604280324697" duration="6753000" />
       <workItem from="1604298178883" duration="6528000" />
       <workItem from="1604304727937" duration="8138000" />
+      <workItem from="1604365941091" duration="2624000" />
     </task>
     <servers />
   </component>

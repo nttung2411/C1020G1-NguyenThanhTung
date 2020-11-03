@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfd2e-06ac-473b-8e3b-f2637ca852c0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/Tao_Form_Co_Ban.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/Tao_Form_Google.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/simpleform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +59,9 @@
       <workItem from="1603685781982" duration="89000" />
       <workItem from="1604029986725" duration="2232000" />
       <workItem from="1604039424971" duration="5547000" />
-      <workItem from="1604280324697" duration="1010000" />
+      <workItem from="1604280324697" duration="6753000" />
+      <workItem from="1604298178883" duration="6528000" />
+      <workItem from="1604304727937" duration="8138000" />
     </task>
     <servers />
   </component>
@@ -65,5 +73,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="433" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604040381813" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604290931881">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604290931881" />
   </component>
 </project>

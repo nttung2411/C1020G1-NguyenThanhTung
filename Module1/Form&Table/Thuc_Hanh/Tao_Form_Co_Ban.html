@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    .wufoo{
+        font-family: "Lucida Gr","Lucida Sans Unicode",Tahoma,sans-serif;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Thực Hành Tạo Form</title>
+</head>
+<body>
+<form action="simpleform.html" method="get" class="wufoo">
+    <h2>0der Form</h2>
+    <fieldset>
+        <legend>Oder</legend>
+    <p>What would you like to buy?</p>
+    <select>
+        <option value="">A</option>
+        <option>B (+ 0.5$)</option>
+        <option>C (+ 0.5$)</option>
+    </select>
+    <p>How many would you like to oder?</p>
+    <input type="radio" name="money">1 - $10<br>
+    <input type="radio" name="money">2 - $20<br>
+    <input type="radio" name="money">3 - $30<br>
+    </fieldset>
+    <fieldset>
+        <legend>Personal Information</legend>
+    <p>Name<span style="color: red">*</span></p>
+        <input type="text" name="firstName" placeholder="First Name" size="15px">
+        <input type="text" name="lastName" placeholder="Last Name" size="15px">
+    <p>Email</p>
+        <input type="email" name="emailUser" size="35px">
+    <p>Phone Number</p>
+        <input type="text" name="phone1" size="5"> -
+        <input type="text" name="phone2" size="5"> -
+        <input type="text" name="phone3" size="5"><br>
+    </fieldset>
+    <p><input type="submit" name="btSubmit" value="Submit"/></p>
+
+</form>
+</body>
+</html>

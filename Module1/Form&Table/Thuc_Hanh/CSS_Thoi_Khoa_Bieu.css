@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    font-family:cursive;
+}
+td{
+    text-align: center;
+    border: 1px solid darkgray;;
+    font-size: 12px;
+    color: #888888;
+}
+td,th{
+    padding: 20px;
+}
+th{
+    border: 1px solid white;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+}

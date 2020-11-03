@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfd2e-06ac-473b-8e3b-f2637ca852c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Dang_Ky.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Tao_Bang_Nang_Cao2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Tao_Bang_Nang_Cao2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/CSS_Thoi_Khoa_Bieu.css" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/CSS_Thoi_Khoa_Bieu.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +37,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Bien&amp;KieuDuLieu/Thuc_Hanh/Bai_Tap" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C1020G1_NguyenThanhTung\Module1\Bien&amp;KieuDuLieu\Thuc_Hanh\Bai_Tap" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,7 +67,7 @@
       <workItem from="1604280324697" duration="6753000" />
       <workItem from="1604298178883" duration="6528000" />
       <workItem from="1604304727937" duration="8138000" />
-      <workItem from="1604365941091" duration="2624000" />
+      <workItem from="1604365941091" duration="7961000" />
     </task>
     <servers />
   </component>
@@ -74,5 +83,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604290931881" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604376014536">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604376014536" />
   </component>
 </project>

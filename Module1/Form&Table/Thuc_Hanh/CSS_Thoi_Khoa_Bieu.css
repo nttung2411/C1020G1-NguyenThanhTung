@@ -15,7 +15,10 @@ td,th{
 }
 th{
     border: 1px solid white;
-    background-color: red;
     color: white;
     font-size: 15px;
+    background-color: red;
+}
+tr:hover{
+    background-color: red;
 }

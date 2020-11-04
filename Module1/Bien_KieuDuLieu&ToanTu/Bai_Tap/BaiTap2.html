@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table{
+        width: 50%;
+    }
+    td{
+        text-align: center;
+    }
+    p{
+        color: blue;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+    </tr>
+    <tr>
+        <td><input type="number" name="number" id="money"></td>
+        <td>
+          <select id="sl1">
+              <option>VietNam</option>
+              <option>USD</option>
+          </select>
+        </td>
+        <td>
+            <select id="sl2">
+                <option>USD</option>
+                <option>VietNam</option>
+            </select>
+        </td>
+        <td></td>
+        <td><input type="button" onclick="changeMoney()" value="Convert"></td>
+    </tr>
+
+</table>
+<p id = "result"></p>
+<script>
+    let money = document.getElementById("money");
+    let list_1 = document.getElementById("sl1");
+    let list_2 = document.getElementById("sl2");
+    function changeMoney() {
+        let result;
+        if (list_1.value == "VietNam" && list_2.value == "USD"){
+            result = parseInt(money.value) / 25000 + " USD";
+        }
+        if (list_1.value == "USD" && list_2.value == "VietNam"){
+            result = parseInt(money.value) * 25000 + " VNĐ";
+        }
+        if (list_1.value == list_2.value){
+            alert("Không đổi nữa , dỗi rồi");
+            result = "Dỗi không đổi"
+        }
+        document.getElementById("result").innerText = "Result :" + result;
+    }
+</script>
+</body>
+</html>

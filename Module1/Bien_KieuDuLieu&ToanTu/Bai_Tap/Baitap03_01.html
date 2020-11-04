@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy Tính Đơn Giản</title>
+</head>
+<body>
+<form>
+    <h2>Caculator</h2>
+    <input type="text" id="number1">
+    <input type="text" id="number2">
+    <br>
+    <br>
+    <button type="button" onclick="calculator('add')">Addition(+)</button>
+    <button type="button" onclick="calculator('sub')">Subtraction(-)</button>
+    <button type="button" onclick="calculator('mul')">Multiplication(*)</button>
+    <button type="button" onclick="calculator('div')">Division(/)</button>
+</form>
+<p id="result"></p>
+<script>
+    let num1 = document.getElementById('number1');
+    let num2 = document.getElementById('number2');
+  /* Code riêng từng hàng
+   function calculator1() {
+        let add = parseInt(num1.value) + parseInt(num2.value);
+        document.getElementById("result").innerHTML = "<b>Result Addition</b>: " + add;
+    }
+
+    function calculator2() {
+        let sub = (num1.value) - (num2.value)
+        document.getElementById("result").innerHTML = "<b>Result Subtraction</b>: " + sub;
+    }
+
+    function calculator3() {
+        let sub = (num1.value) * (num2.value)
+        document.getElementById("result").innerHTML = "<b>Result Multiplication</b>: " + sub;
+    }
+
+    function calculator4() {
+        let sub = (num1.value) / (num2.value)
+        document.getElementById("result").innerHTML = "<b>Result Division</b>: " + sub;
+    }
+*/
+  // Code làm 1 hàm
+    function calculator(operator) {
+        let result;
+        if (operator === 'add') {
+            result = parseInt(num1.value) + parseInt(num2.value);
+        }
+
+        if (operator === 'sub') {
+            result = parseInt(num1.value) - parseInt(num2.value);
+        }
+        if (operator === 'mul') {
+            result = parseInt(num1.value) * parseInt(num2.value);
+        }
+        if (operator === 'div') {
+            result = parseInt(num1.value) / parseInt(num2.value);
+        }
+        document.getElementById("result").innerHTML = "Result:   " + result;
+    }
+</script>
+</body>
+</html>

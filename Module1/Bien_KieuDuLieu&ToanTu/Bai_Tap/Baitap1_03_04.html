@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chu vi và diện tích hình tròn</title>
+</head>
+<body>
+     <script>
+         let radius;
+         let perimeter;
+         let acreage;
+         PI = 3.14;
+         radius = prompt("Nhập vào bán kính hình tròn :")
+         perimeter = radius*radius*PI;
+         acreage = 2*radius*PI;
+         document.write("Bán kính hình tròn là :" + radius + '<br>')
+         document.write("Diện tích hình tròn là :" + perimeter + '<br>')
+         document.write("Chu vi hình tròn là :" + acreage.toFixed(2))
+     </script>
+</body>
+</html>

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfd2e-06ac-473b-8e3b-f2637ca852c0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Bai_Tap/BaiTap2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Bai_Tap/Baitap03_01.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Bai_Tap/Baitap1_01.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Bai_Tap/Baitap1_02.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Bai_Tap/Baitap1_03_04.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Thuc_Hanh/ThucHanh1_Bai2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Thuc_Hanh/ThucHanh1_Bai3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bien_KieuDuLieu&amp;ToanTu/Thuc_Hanh/ThucHanh2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TongQuan_JS/Thuc_Hanh/Hien_Thi01.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TongQuan_JS/Thuc_Hanh/JavaNhung.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Don_Gian2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Form_Survey_KH.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Tao_Bang_Nang_Cao2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Bai_Tap/Tao_Bang_Nang_Cao2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/CSS_Thoi_Khoa_Bieu.css" beforeDir="false" afterPath="$PROJECT_DIR$/Form&amp;Table/Thuc_Hanh/CSS_Thoi_Khoa_Bieu.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -68,6 +74,9 @@
       <workItem from="1604298178883" duration="6528000" />
       <workItem from="1604304727937" duration="8138000" />
       <workItem from="1604365941091" duration="7961000" />
+      <workItem from="1604385161520" duration="7928000" />
+      <workItem from="1604460310175" duration="3846000" />
+      <workItem from="1604467164808" duration="12735000" />
     </task>
     <servers />
   </component>
@@ -75,17 +84,17 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="433" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604040381813">
+    <state x="433" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604474713582">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="433" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604040381813" />
+    <state x="433" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604474713582" />
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604290931881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604290931881" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604376014536">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604462429427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604376014536" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604462429427" />
   </component>
 </project>

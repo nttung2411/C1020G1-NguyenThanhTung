@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị 01</title>
+</head>
+<body>
+    <p>Hiển thị kết quả dùng hàm alert();</p>
+    <button type="button" onclick="hello();">Click Me!</button>
+    <br>
+    <br>
+    <p>Hiển thị kết quả dùng thẻ HTML</p>
+    <div id="hello1"></div>
+    <button type="button" onclick="hello1();">Click Me!</button>
+    <br>
+    <br>
+    <p>Hiển thị kết quả dùng document.write</p>
+    <button type="button" onclick="hello2();">Click Me!</button>
+    <br>
+    <br>
+    <p>Hiển thị kết quả dùng hàm console.log()</p>
+    <button type="button" onclick="hello3();">Click Me!</button>
+    <script>
+        function hello() {
+            alert("Xin chào!");
+        }
+        function hello1() {
+            document.getElementById("hello1").innerHTML="Xin Chào!"
+        }
+        function hello2() {
+            document.write("Xin chào!")
+        }
+        function hello3() {
+            console.log("Xin chào!")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm Trung Bình & Tổng Điểm</title>
+</head>
+<body>
+<script>
+    let inputPhysics;
+    let inputChemistry;
+    let inputBiology;
+    inputPhysics = prompt ("Điểm vật lý");
+    inputChemistry = prompt ("Điểm hoá học");
+    inputBiology = prompt ("Điểm sinh học");
+    let pointPhysics = parseInt(inputPhysics);
+    let pointChemistry = parseInt(inputChemistry);
+    let pointBiology = parseInt(inputBiology);
+    let average = ( pointBiology + pointChemistry + pointPhysics) / 3
+    let sum = pointPhysics + pointChemistry + pointBiology
+    document.write("Điểm vật lý là :" + pointPhysics + '<br>')
+    document.write("Điểm hoá học là :" + pointChemistry + '<br>')
+    document.write("Điểm sinh học là :" + pointBiology + '<br>')
+    document.write("Điểm trung bình: " + average + '<br>')
+    document.write("Điểm tổng: " + sum)
+
+</script>
+</body>
+</html>

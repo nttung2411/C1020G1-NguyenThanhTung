@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu đăng nhập</title>
+</head>
+<body>
+<script>
+    let login = prompt("Hãy điền tên đăng nhập :");
+    if (login == "Tung") {
+        let password = prompt("Hãy nhập mật khẩu");
+        if (password == "deptrai") {
+            alert("Welcome");
+        } else if (password == null) {
+            alert("Chúc bạn may mắn lần sau!");
+        } else {
+            alert("Sai Mật Khẩu")
+        }
+    }
+        else if (login == null) {
+            alert("Hẹn gặp lại!");
+        }
+    else {
+        alert("Tui không biết bạn!");
+    }
+
+
+</script>
+</body>
+</html>

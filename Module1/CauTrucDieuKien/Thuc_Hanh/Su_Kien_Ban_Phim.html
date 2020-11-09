@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện bàn phím</title>
+</head>
+<body onload="doReady()">
+    <img id='nobita'style="position:absolute;left:0; top:0;" src="https://vignette.wikia.nocookie.net/the-gioi-anime-anime-world/images/a/aa/Download-1525567810.jpg/revision/latest?cb=20180506005010&path-prefix=vi">
+
+<script>
+    function upArrow() {
+        let arrow = document.getElementById('nobita');
+        arrow.style.top = parseInt(arrow.style.top) - 5 + 'px';
+    }
+    function downArrow() {
+        let arrow = document.getElementById('nobita');
+        arrow.style.top = parseInt(arrow.style.top) + 5 + 'px';
+    }
+    function leftArrow() {
+        let arrow = document.getElementById('nobita');
+        arrow.style.left = parseInt(arrow.style.left) - 5 + 'px'
+    }
+    function rightArrow() {
+        let arrow = document.getElementById('nobita');
+        arrow.style.left = parseInt(arrow.style.left) + 5 + 'px'
+    }
+    function moveNobita(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrow();
+                break;
+            case 39:
+                rightArrow();
+                break;
+            case 38:
+                upArrow();
+                break;
+            case 40:
+                downArrow();
+                break;
+        }
+    }
+    function doReady() {
+        window.addEventListener('keydown',moveNobita)
+    }
+</script>
+</body>
+</html>

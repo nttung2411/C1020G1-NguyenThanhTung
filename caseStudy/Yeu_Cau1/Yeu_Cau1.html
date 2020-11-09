@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="CSS_CST.css">
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 1</title>
+</head>
+<body>
+<form id="infor">
+    <label>Họ và tên:</label>
+    <input type="text" name = "fullname" value="123123">
+    <br><br>
+    <label>Số CMND:</label>
+    <input type="number" name="number">
+    <br><br>
+    <label>Ngày Sinh:</label>
+    <input type="date" name="birthDay">
+    <br><br>
+    <label>Email:</label>
+    <input type="email" name="email">
+    <br><br>
+    <label>Địa chỉ:</label>
+    <textarea cols="30" rows="5" name="address"></textarea>
+    <br><br>
+    <label>Loại Customer</label>
+    <select name="member">
+        <option>Member</option>
+        <option>Silver</option>
+        <option>Gold</option>
+        <option>Platinum</option>
+        <option>Diamond</option>
+    </select>
+    <br><br>
+    <label>Giảm giá</label>
+    <input type="number" name="sale">
+    <br><br>
+    <label>Số người đi cùng:</label>
+    <input type="number" name="human">
+    <br><br>
+    <label>Số ngày thuê</label>
+    <input type="number" name="date" >
+    <br><br>
+    <label>Loại dịch vụ</label>
+    <select name="room">
+        <option value="100">Room 100$/1 ngày</option>
+        <option value="300">House 300$/1 ngày</option>
+        <option value="500">Villa 500$/1 ngày</option>
+    </select>
+    <br><br>
+    <input type="button" onclick="sendinfor()" value="Gửi !">
+</form>
+<script src="JS_CST.js"></script>
+</body>
+</html>

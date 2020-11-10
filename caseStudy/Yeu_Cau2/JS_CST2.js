@@ -1,5 +1,5 @@
 function sendinfor() {
-    let infor  = document.getElementById('infor');
+    let infor  = document.getElementById('infor2');
     let giaDichvu = parseInt(infor.room.value);
     let rentDay = parseInt(infor.date.value);
     let sale = parseInt(infor.sale.value);
@@ -16,4 +16,9 @@ function sendinfor() {
     document.write("Loại dịch vụ: " + infor.room.value  + "<br>");
     document.write("Số tiền phải trả =" + money);
 
+}
+    function edit() {
+    document.getElementById('infor2').style.display = 'block';
+} function close1() {
+    document.getElementById('infor2').style.display = 'none';
 }

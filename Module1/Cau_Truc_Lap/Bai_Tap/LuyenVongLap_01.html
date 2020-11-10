@@ -115,25 +115,21 @@
     function baiTap8() {
         let num1 = parseInt(prompt("Hãy nhập vào số bắt đầu"));
         let num2 = parseInt(prompt("Hãy nhập vào số kết thúc"));
+        let i;
         while (num1 > num2){
             num1 = parseInt(prompt("Nhập lại số bắt đầu"));
             num2 = parseInt(prompt("Nhập lại số kết thúc"));
     }
         let numRandom = Math.floor((Math.random()*(num2-num1))+num1);
-        alert(numRandom);
-        let numResult = prompt("Hãy nhập số dự đoán");
-        let i;
-        for(i=0;i<2;i++){
-            if (numRandom != numResult){
-                numResult = prompt("Hãy đoán lại")
-
-            }
-            else if (numRandom == numResult){
+        alert(numRandom)
+        for(i=0;i<3;i++){
+            let numResult = prompt("Hãy nhập số dự đoán");
+            if (numRandom == numResult) {
                 alert("Chúc mừng");
                 break;
-        }
-        } if (i==2){
-            alert("You die")
+            }
+        } if (i == 3){
+            alert("Game Over")
         }
         }
 </script>

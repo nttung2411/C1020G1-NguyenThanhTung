@@ -11,6 +11,8 @@
 <button type="button" onclick="baiTap4()">Bài tập 4</button>
 <button type="button" onclick="baiTap5()">Bài tập 5</button>
 <button type="button" onclick="baiTap6()">Bài tập 6</button>
+<button type="button" onclick="baiTap7()">Bài tập 7</button>
+<button type="button" onclick="baiTap8()">Bài tập 8</button>
 <script>
     function baiTap1() {
         let i;
@@ -70,11 +72,13 @@
         let num1 = 0;
         let num2 = 1;
         let sum;
-        for(num = 1 ; num <= 20 ; num++){
+        let sumPlus = 1;
+        for(num = 3 ; num <= 20 ; num++){
             sum = num1 + num2;
             num1 = num2;
             num2 = sum;
-        } document.write(sum);
+            sumPlus += sum;
+        } document.write(sumPlus);
     }
 
     function baiTap6() {
@@ -82,13 +86,56 @@
         let num;
         let num2 = 0;
         let sum;
-        for (num = 7,round=1;round<=30;round++,num+=7){
+        for (num = 7,round = 1;round <= 30; round++ , num += 7 ){
             sum = num2 + num;
             num2 = sum
         } document.write(sum)
     }
 
 
+    function baiTap7() {
+        let number;
+        for (number = 1 ; number < 101 ; number++){
+            if (number % 3 == 0){
+                if (number % 5 == 0){
+                document.write("FizzBuzz" + "<br>");
+                    continue;
+                }
+            document.write("Fizz" + "<br>");
+                continue;
+            }
+            else if (number % 5 ==0){
+                document.write("Buzz" + "<br>");
+                continue;
+            }
+            document.write(number + "<br>")
+        }
+    }
+
+    function baiTap8() {
+        let num1 = parseInt(prompt("Hãy nhập vào số bắt đầu"));
+        let num2 = parseInt(prompt("Hãy nhập vào số kết thúc"));
+        while (num1 > num2){
+            num1 = parseInt(prompt("Nhập lại số bắt đầu"));
+            num2 = parseInt(prompt("Nhập lại số kết thúc"));
+    }
+        let numRandom = Math.floor((Math.random()*(num2-num1))+num1);
+        alert(numRandom);
+        let numResult = prompt("Hãy nhập số dự đoán");
+        let i;
+        for(i=0;i<2;i++){
+            if (numRandom != numResult){
+                numResult = prompt("Hãy đoán lại")
+
+            }
+            else if (numRandom == numResult){
+                alert("Chúc mừng");
+                break;
+        }
+        } if (i==2){
+            alert("You die")
+        }
+        }
 </script>
 </body>
 </html>

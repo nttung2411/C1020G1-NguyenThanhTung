@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let flag = true;
+    let stars = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus'];
+    let constellation = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major' , 'Leo'];
+    let search = prompt("Hãy nhập vào ngôi sao bạn muốn tìm");
+    function searchStar(star){
+        for (let i = 0 ; i < stars.length ; i++){
+            if (star === stars[i]){
+                alert(constellation[i]);
+                flag = false;
+                break;
+            }
+        }
+    }   searchStar(search);
+    if (flag){
+        alert("Không tìm ra chòm sao cho ngôi sao bạn vừa nhập")
+    }
+</script>
+</body>
+</html>

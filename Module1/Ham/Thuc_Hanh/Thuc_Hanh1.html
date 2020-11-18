@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực Hành 1</title>
+</head>
+<body>
+<script>
+    let confirmAnswer = confirm("Shall we play a game?");
+    let theAnswer = processConfirm(confirmAnswer);
+    alert(theAnswer);
+    function processConfirm(answer) {
+        let result = "";
+        if (answer){
+             result = "Tuyệt zời , chúng ta cùng chơi cờ vua nào"
+        } else {
+            result = "Có lẻ để sau vậy"
+        }
+        return result;
+    }
+</script>
+</body>
+</html>

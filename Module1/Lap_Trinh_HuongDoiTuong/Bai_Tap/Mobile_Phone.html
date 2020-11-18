@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+    class Mobile_Phone{
+        constructor(id,name) {
+            this.id = id;
+            this.name = name;
+            this.pin = 100;
+            this.status = false;
+            this.message = [];
+        }
+
+        check(){
+            if(this.status === false){
+                alert("Điện thoại đang tắt")
+            } else {
+                alert("Điện thoại đang bật \n" + "Pin = " + this.pin + "%")
+            }
+            this.mobile();
+        }
+
+        on_off(inputNumber) {
+            if (inputNumber === 1) {
+                alert("Đã bật điện thoại");
+                this.status = true;
+            } else {
+                alert("Đã tắt điện thoại");
+                this.status = false;
+            }
+            this.mobile();
+        }
+
+        Message(){
+            let mess = prompt("Nhập tin nhắn muốn gửi");
+            this.message.push(mess);
+            this.mobile()
+        }
+        mobile(){
+            let chosse = parseInt(prompt("1.Kiểm tra tình trạng điện thoại \n 2.Bật/Tắt điện thoại \n 3.Soạn tin nhắn \n 4.Xem tin nhắn đã gửi"));
+                if (chosse === 1){
+                   this.check()
+                } else if (chosse === 2){
+                    let inputNumber = parseInt(prompt("Ấn 1 để bật 2 để tắt"));
+                    this.on_off(inputNumber);
+                } else if (chosse === 3 && this.status === true){
+                    this.Message()
+                } else if (chosse===4 && this.status === true){
+                    alert(this.message);
+                    this.mobile()
+                } else if (this.status === false){
+                    alert("Hãy bật điện thoại");
+                    this.mobile()
+                }
+        }
+    }
+    let iphone = new Mobile_Phone(1,"Iphone");
+    let samsung = new Mobile_Phone(2,"SamSung");
+    let chosse = prompt("1.Iphone 2.SamSung");
+    while(chosse == 1 || chosse == 2){
+        if (chosse == 1){
+            iphone.mobile();
+        } else if (chosse == 2){
+            samsung.mobile();
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 4</title>
+</head>
+<body>
+<Form>
+<input type="text" id="fullName" placeholder="New Product">
+<input type="reset" onclick="submitForm()" value="Nhập thông tin">
+    <br>
+    <br>
+    <br>
+</Form>
+<table width="30%">
+    <thead>
+        <td>Tên sản phẩm</td>
+    </thead>
+    <tbody id="showForm">
+    </tbody>
+</table>
+<script>
+    function submitForm() {
+        let fullName = document.getElementById("fullName").value;
+        let showForm1 = document.getElementById("showForm");
+            showForm1.innerHTML += "<tr>" +
+            "<td>" + fullName + "</td>" +
+            "<td><button onclick='editProduct()'>Sửa</button></td>" +
+            "<td><button onclick='deleteProduct()'>Xoá</button></td>" +
+            "</tr>";
+    }
+    function editProduct() {
+
+    }
+</script>
+</body>
+</html>

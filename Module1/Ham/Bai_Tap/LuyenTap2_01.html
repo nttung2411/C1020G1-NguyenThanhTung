@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài Tập 1 luyện tập 2</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<input type="number" oninput="squar(this.value)" id="number">
+<p id="result"></p>
+<h3>Bài 2</h3>
+<input type="number" oninput="circle(this.value)" id="circleNumber">;
+<p id="result2"></p>
+<h3>Bài 3</h3>
+<input type="number" oninput="multi(this.value)" id="multiNumber">;
+<p id="result3"></p>
+<h3>Bài 4</h3>
+<input type="text" oninput="check(this.value)" id="check">;
+<p id="result4"></p>
+<h3>Bài 5</h3>
+<input type="number" id="num01" placeholder="Số thứ 1">
+<input type="number" id="num02" placeholder="Số thứ 2">
+<input type="number" id="num03" placeholder="Số thứ 3">
+<br>
+<input type="button" onclick="inputNum(num01.value,num02.value,num03.value)" value="Nhập">
+<p id="result5"></p>
+<h3>Bài 6</h3>
+<input type="number" oninput="bai6(this.value)" id="bai6">
+<p id="result6"></p>
+<h3>Bài 7</h3>
+<input type="number" id="num001" placeholder="Số thứ 1">
+<input type="number" id="num002" placeholder="Số thứ 2">
+<input type="button" onclick="swap(num003 = num001.value,num001.value = num002.value,num002.value = num003)" value="Đổi vị trí 1 và 2">
+<p id ="result7"></p>
+<h3>Bài 8</h3>
+<input type="button" onclick="bai8()" value="Nhập dãy số">
+<h3>Bài 9</h3>
+<input type="button" onclick="bai9()" value="Nhập mảng ký tự">
+<script>
+    function squar(number1) {
+       number1 = document.getElementById("number").value;
+       let square = number1 * number1;
+        document.getElementById("result").innerHTML = "Bình phương của " + number1 + " là " + square;
+    }
+
+    function circle(number2) {
+        number2 = document.getElementById("circleNumber").value;
+        let area = number2*number2*3.14;
+        let perimeter = number2*3.14*2;
+        document.getElementById("result2").innerHTML = "Diện tích hình trình tròn " + area + "<br>" +
+                                                        "Chu vi hinh tròn " + perimeter;
+    }
+
+    function multi(number3) {
+        number3 = document.getElementById("multiNumber").value;
+        let num2 = 1;
+        let num3 = 1;
+        for (let i = 1 ; i <= number3 ; i++){
+            num2 = i * num3;
+            num3 = num2;
+        } document.getElementById("result3").innerHTML = "Giai thừa của " + number3 + " là " + num3;
+    }
+
+    function check(number4) {
+        flag = false;
+        number4 = document.getElementById("check").value;
+        if (0 % number4 === 0){
+            flag = true;
+        } document.getElementById("result4").innerHTML = flag
+    }
+
+    function inputNum(number1,number2,number3) {
+        let min = number1 ;
+        if(number2 - number1 < 0){
+            if(number2 - number3 < 0){
+                min = number2;
+            }
+        } else if(number3 - number1 < 0) {
+            min = number3;
+        } document.getElementById("result5").innerHTML = "Số nhỏ nhất là " + min ;
+    }
+
+    function bai6(value) {
+        let flag = true;
+        if (value <= 0){
+            flag = false;
+        } document.getElementById("result6").innerHTML = flag;
+    }
+
+    function swap(num01,num02,num03) {
+    }
+
+    function bai8() {
+        let input = parseInt(prompt("Số lượng số muốn nhập"));
+        let array = [];
+        for (let i = 0 ; i < input ; i++){
+           let input2 = prompt("Số thứ " + (i+1) + "/" + input)
+            array.push(input2)
+        }
+        alert(array.reverse())
+    }
+
+    function bai9() {
+        let input = prompt("Nhập số lượng ký tự trong mảng");
+        let array = [];
+        for (let i = 0 ; i < input ; i++){
+            let input2 = prompt("Số thứ " + (i+1) + "/" + input);
+            array.push(input2)
+        } let input2 = prompt("Nhập vào 1 ký tự bất kỳ");
+            let count = 0;
+            let index ;
+            let flag = true;
+            for(let j = 0 ; j < array.length ; j++){
+                index = array[j].indexOf(input2);
+                if(index !== -1){
+                    ++count;
+                    flag = false
+                }
+        }
+        if(flag){
+            alert(-1)
+        } else {
+            alert("Số lượng xuất hiện là " + count)
+        }
+
+    }
+</script>
+</body>
+</html>

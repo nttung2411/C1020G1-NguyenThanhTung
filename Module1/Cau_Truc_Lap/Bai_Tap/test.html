@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Scoping Example</title>
+    <script type="text/javascript">
+        let aNewVariable = "is global.";
+        function doSomething(incomingBits) {
+            alert("Global variable within the function: " + aNewVariable);
+            alert("Local variable within the function: " + incomingBits);
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+</script>
+</body>
+</html>

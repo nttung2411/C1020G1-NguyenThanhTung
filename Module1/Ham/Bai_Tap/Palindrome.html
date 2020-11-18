@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+<script>
+    let input = prompt("Nhập vào từ muốn kiểm tra");
+    let a = 0;
+    let b = input.length-1;
+    let flag = false;
+    isPalidrome(a,b);
+    function isPalidrome(num1,num2) {
+        if (input[num1] === input[num2]){
+            if (a === b){
+                flag = true;
+                return flag;
+            }
+            isPalidrome(a++,b--);
+        }
+    } if (flag){
+        alert("Đây là chuỗi đối xứng")
+    } else {
+        alert("Đây không phải chuỗi đối xứng")
+    }
+</script>
+</body>
+</html>

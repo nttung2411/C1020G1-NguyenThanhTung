@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MobiPhone</title>
+</head>
+<body>
+<table width="80%" style="text-align: center">
+    <tr>
+<td><textarea style="width: 200px; height: 100px" disabled id="iphone"></textarea></td>
+<td><textarea style="width: 200px; height: 100px" disabled id="samsung"></textarea></td>
+    </tr>
+    <tr>
+        <td><button onclick="onIphone()">On/Off</button>
+        <button onclick="checkIphone()">Check</button>
+        <button onclick="iphoneBattery()">Sac</button></td>
+        <td><button onclick="onSamsung()">On/Off</button>
+            <button onclick="checkSamsung()">Check</button>
+            <button onclick="samsungBattery()">Sac</button></td>
+    </tr>
+
+    <tr>
+        <td><button onclick="iphoneMess()">Soạn Tin</button>
+            <button onclick="iphoneSend()">Gửi Tin</button>
+            <button onclick="checkIphoneBattery()">Kiểm tra Pin</button></td>
+        <td><button onclick="samsungMess()">Soạn Tin</button>
+            <button onclick="samsungSend()">Gửi Tin</button>
+        <button onclick="checkSamSungBattery()">Kiểm tra Pin</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="iphoneInbox()">Xem Tin Đến</button>
+            <button onclick="iphoneSended()">Tin Đã Gửi</button></td>
+       <td><button onclick="samsungInbox()">Xem Tin Đến</button>
+            <button onclick="samsungSended()">Tin Đã Gửi</button></td>
+    </tr>
+</table>
+<script>
+    class MobiPhone{
+        constructor(id,name) {
+            this.id = id;
+            this.name = name;
+            this.pin = 100;
+            this.mess = [];
+            this.status = true;
+            this.memory = [];
+        }
+        check(onOff){
+            if (onOff){
+                return "Điện thoại đang bật";
+                this.pin--;
+            } else {
+                return "Điện thoại đang tắt";
+            }
+        }
+        Status(){
+            this.status = !this.status
+        }
+
+        Battery(){
+            while (this.pin<100){
+                this.pin++
+            }
+        }
+
+        Message(message){
+            if (this.pin > 0 && this.status === true) {
+                this.mess = message;
+                this.pin--;
+            } else {
+                alert("Hãy bật điện thoại")
+            }
+        }
+
+    }
+    let iPhone = new MobiPhone(1,"Iphone");
+    let samSung = new MobiPhone(2,"SamSung");
+    let showIphone = document.getElementById("iphone");
+    let showSamsung = document.getElementById("samsung");
+    function checkIphone(){
+        showIphone.innerHTML = iPhone.check(iPhone.status);
+    }
+
+    function checkSamsung(){
+        showSamsung.innerHTML = samSung.check(iPhone.status);
+    }
+
+    function onIphone() {
+        iPhone.Status();
+    }
+
+    function onSamsung() {
+        samSung.Status();
+    }
+
+    function iphoneBattery() {
+        iPhone.Battery()
+    }
+
+    function samsungBattery() {
+        samSung.Battery()
+    }
+
+    function iphoneMess() {
+        let messIphone = prompt("Tin muốn soạn");
+        iPhone.Message(messIphone);
+        iPhone.pin--;
+    }
+
+    function samsungMess() {
+        let messSamsung = prompt("Tin muốn soạn");
+        samSung.Message(messSamsung);
+        samSung.pin--;
+    }
+
+    function iphoneSend() {
+        samSung.memory.push(iPhone.mess);
+        iPhone.pin--;
+    }
+
+    function samsungSend() {
+        iPhone.memory.push(samSung.mess);
+        samSung.pin--;
+    }
+
+    function iphoneInbox() {
+        showIphone.innerHTML = iPhone.memory;
+        iPhone.pin--;
+    }
+
+    function samsungInbox() {
+        showSamsung.innerHTML = samSung.memory;
+        samSung.pin--;
+    }
+
+    function iphoneSended() {
+        showIphone.innerHTML = samSung;
+        iPhone.pin--;
+    }
+
+    function samsungSended() {
+        showIphone.innerHTML = iPhone.memory;
+        samSung.pin--;
+    }
+
+    function checkIphoneBattery() {
+        alert(iphone.pin);
+    }
+
+    function checkSamSungBattery() {
+        alert(samSung.pin);
+    }
+</script>
+</body>
+</html>

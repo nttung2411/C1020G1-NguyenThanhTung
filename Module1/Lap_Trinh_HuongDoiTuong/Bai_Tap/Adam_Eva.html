@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam và Eva</title>
+</head>
+<body>
+<table width="70%" style="text-align: center">
+    <tr>
+        <th>Human1</th>
+        <th>Human2</th>
+        <th>Quả Táo 1</th>
+        <th>Quả Táo 2</th>
+    </tr>
+    <tr>
+        <td><button>Tên Human1</button></td>
+        <td><button>Tên Human2</button></td>
+        <td><button>Tạo quả táo 1</button></td>
+        <td><button>Tạo quả táo 2</button></td>
+    </tr>
+    <tr>
+        <td><button>Giới tính Human1</button></td>
+        <td><button>Giới tính Human2</button></td>
+    </tr>
+    <tr>
+        <td><button>Cân nặng Human1</button></td>
+        <td><button>Cân nặng Human2</button></td>
+    </tr>
+    <tr>
+        <td><button>Chào hỏi</button></td>
+        <td><button>Chào hỏi</button></td>
+    </tr>
+    <tr>
+        <td><button>Ân Táo</button></td>
+        <td><button>Ân Táo</button></td>
+    </tr>
+    <tr>
+        <td><button>Kiểm tra Táo 1</button></td>
+        <td><button>Kiểm tra Táo 1</button></td>
+    </tr>
+    <tr>
+        <td><button>Kiểm tra Táo 2</button></td>
+        <td><button>Kiểm tra Táo 2</button></td>
+    </tr>
+    <tr>
+        <td><button>Thông tin đối phương</button></td>
+        <td><button>Thông tin đối phương</button></td>
+    </tr>
+</table>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+    }
+
+    class Human {
+        constructor(name,gender,weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        } talk(str){
+            alert(str);
+        } eat(){
+            return this.weight + 1;
+        } check(){
+            
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="turnOn()">On</button>
+<button onclick="turnOf()">Off</button>
+<button onclick="Energy()">Sac</button>
+<button onclick="checkEnergy()">CheckBattery</button>
+<button onclick="checkLight()">CheckLight</button>
+<script>
+    class Battery{
+        setEnergy(energy){
+            this.energy = energy;
+    }
+        getEnergy(){
+            return this.energy;
+        }
+        decreaseEnergy(){
+            if(this.energy>0){
+                this.energy--;
+            }
+    }
+    }
+    class FlashLamp{
+        setBattery(battery){
+            this.battery = battery;
+        }
+        getBatteryInfo(){
+            return this.battery.getEnergy();
+        }
+        light(){
+            if(this.status){
+                alert("Lighting")
+            }else {
+                alert("Not Lighting")
+            }
+        }turnon(){
+            this.status = true;
+        } turnoff(){
+            this.status = false;
+        }
+    }
+    let battery = new Battery();
+    let flashLamp = new FlashLamp();
+    let i = 0;
+    function Energy(){
+        while(i<10){
+            i++
+        } battery.setEnergy(i);
+        flashLamp.setBattery(battery);
+    }
+
+    function checkEnergy(){
+        if (i === 0){
+            alert("Chua co PIN")
+        } else {
+            alert("Pin hien tai " + flashLamp.getBatteryInfo())
+        }
+    }
+
+    function checkLight() {
+        flashLamp.light()
+    }
+
+    function turnOn() {
+        flashLamp.turnon();
+        battery.decreaseEnergy()
+    }
+
+    function turnOf() {
+        flashLamp.turnoff()
+    }
+</script>
+</body>
+</html>

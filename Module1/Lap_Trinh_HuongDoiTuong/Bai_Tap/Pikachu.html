@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+    class Hero{
+        constructor(image, top, left, size,input) {
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+        this.input = input;
+        }
+
+
+       getHeroElement(){
+            return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="' + this.image +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+        }
+
+       moveRight(){
+            this.left += this.input;
+        }
+        moveDown(){
+            this.top += this.input;
+        }
+        moveLeft(){
+            this.left -= this.input;
+        }
+        moveUp(){
+            this.top -= this.input;
+        }
+    }
+    let inputNumber = parseInt(prompt("Nhập tốc độ nhân vật"));
+    let hero = new Hero('http://st.truyenchon.com/data/comics/182/yaiba.jpg', 20, 30, 200,inputNumber);
+    let doc = window.innerHeight - hero.size;
+    let ngang = window.innerWidth - hero.size;
+    function start(){
+        if(hero.left < ngang && hero.top <= 20){
+            hero.moveRight();
+        } else if(hero.left >= ngang && hero.top < doc){
+            hero.moveDown();
+       } else if (hero.top >= doc && hero.left >= 30){
+            hero.moveLeft();
+        } else if(hero.left <= 30){
+            hero.moveUp();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 500)
+    }
+
+    start();
+</script>
+</body>
+</html>

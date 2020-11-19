@@ -16,6 +16,20 @@
     let birthDay;
     let rentDay;
     let accompany;
+    let name = prompt("Hãy nhập vào tên của bạn");
+    let tempName = "";
+    name = name.trim().toLowerCase();
+    for (let i = 0 ; i<name.length ; i++){
+        if (name.charAt(i)===" " && name.charAt(i+1) === " "){
+            continue;
+        }
+        if (i===0 || name.charAt(i-1)=== " "){
+            tempName+=name.charAt(i).toUpperCase();
+            continue
+        }
+        tempName+=name.charAt(i)
+    }
+    alert(tempName);
     do {
        email = prompt("Nhập vào email của bạn")
     } while (!regEmail.test(email));

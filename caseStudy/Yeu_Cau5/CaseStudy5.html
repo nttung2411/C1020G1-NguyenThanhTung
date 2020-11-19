@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CaseStudy5</title>
+</head>
+<body>
+<script>
+    let arrListcustomer = [];
+    let name;
+    let age;
+    let idCard;
+    let email;
+    let typeRoom;
+    let discount;
+    let address;
+    let chosse = 0;
+    function displayMainMenu() {
+        chosse = parseInt(prompt("1.Add New Customer \n 2.Display Infomation Customer \n 3.Edit Information Customer \n 4.Delete Customer \n 5.Exit"))
+    }
+    do{
+        displayMainMenu();
+        if (chosse === 1) {
+            addNewCustomer();
+        } else if (chosse === 2){
+            displayCustomer()
+        } else if (chosse === 3){
+            editCustomer();
+        }else if (chosse===4){
+            deleteCustomer()
+        }
+        } while (chosse < 5);
+
+        function addNewCustomer() {
+            name = prompt("Tên của bạn");
+            age = prompt("Ngày sinh của bạn");
+            address = prompt("Địa chỉ");
+            idCard = prompt( "CMND");
+            email = prompt("Email");
+            typeRoom = prompt("Loại phòng");
+            discount = prompt("Giảm giá");
+            arrListcustomer.push('1 ' + name + '\n','2 '+ age+'\n','3 '+address+'\n','4 '+idCard+'\n','5 '+email+'\n','6 '+typeRoom+'\n','7 '+discount+'\n');
+        }
+        function displayCustomer() {
+            alert(arrListcustomer.join(""))
+    }
+        function editCustomer() {
+            let number = parseInt(prompt(arrListcustomer.join("")));
+            let edit = prompt("Edit");
+            arrListcustomer.splice(number-1,1,number+" " +edit+'\n');
+            alert(arrListcustomer.join(" "));
+        }
+        function deleteCustomer() {
+            let a = prompt("Ấn 1 để xóa , 2 để back vè Menu");
+            if (a ==1) {
+                arrListcustomer.splice(0)
+            }
+        }
+</script>
+</body>
+</html>

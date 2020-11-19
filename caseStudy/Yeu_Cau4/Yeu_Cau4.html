@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 4</title>
+</head>
+<body>
+    <script>
+        let chosse = 0;
+        do {
+            chosse = parseInt(prompt("1.Thêm customer" + "\n" + " 2.Xoá customer"));
+            if (chosse !== 1 && chosse !==2){
+                alert("Hãy chọn mục 1 hoặc 2")
+            }
+        } while (chosse !== 1 && chosse !== 2);
+            let personArray = [];
+            let count1 = 1;
+            let count2 = 1;
+            let deleteArray = ['Kiên', 'Tuấn', 'Huệ', 'Đào', 'Tùng'
+                , 'Lâm', 'Sơn', 'Vũ', 'Thông', 'Hoàng'];
+            let newDeleteArray = deleteArray.map(function (delete1) {
+                for (let j = 0; j < deleteArray.length; j++) {
+                    if (delete1 === deleteArray[j]) {
+                        delete1 = count1 + " " + deleteArray[j] + "\n";
+                        count1++;
+                        return delete1;
+                    }
+                }
+            });
+            if (chosse === 1) {
+                let inputNumber = prompt("Nhập số lượng customer muốn thêm vào");
+                for (let i = 0; i < inputNumber; i++) {
+                    let person = prompt("Nhập tên customer thứ " + (i + 1) + "/" + inputNumber);
+                    personArray.push(person + '\n')
+                }
+                personArray.sort();
+                alert(personArray.join(""));
+            } else {
+                let number = prompt(newDeleteArray.join(""));
+                deleteArray.splice((number - 1), 1);
+                newDeleteArray1 = deleteArray.map(function (delete2) {
+                    for (let j = 0; j < deleteArray.length; j++) {
+                        if (delete2 === deleteArray[j]) {
+                            delete2 = count2 + " " + deleteArray[j] + "\n";
+                            count2++;
+                            return delete2;
+                        }
+                    }
+                });
+                alert(newDeleteArray1.join(""));
+        }
+    </script>
+</body>
+</html>

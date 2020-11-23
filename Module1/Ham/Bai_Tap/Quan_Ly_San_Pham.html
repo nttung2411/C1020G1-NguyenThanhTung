@@ -2,35 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yêu Cầu 4</title>
+    <title>Title</title>
 </head>
 <body>
-<Form>
-<input type="text" id="fullName" placeholder="New Product">
-<input type="reset" onclick="submitForm()" value="Nhập thông tin">
-    <br>
-    <br>
-    <br>
-</Form>
-<table width="30%">
-    <thead>
-        <td>Tên sản phẩm</td>
-    </thead>
-    <tbody id="showForm">
-    </tbody>
+<input type="text" id="nameProduct">
+<button onclick="addNewProduct()" id="submit">Add Product</button>
+<h3>Display Product</h3>
+<table id="table" width="30%">
 </table>
 <script>
-    function submitForm() {
-        let fullName = document.getElementById("fullName").value;
-        let showForm1 = document.getElementById("showForm");
-            showForm1.innerHTML += "<tr>" +
-            "<td>" + fullName + "</td>" +
-            "<td><button onclick='editProduct()'>Sửa</button></td>" +
-            "<td><button onclick='deleteProduct()'>Xoá</button></td>" +
-            "</tr>";
+    let productArray = [];
+    function showProduct() {
+         let temp = document.getElementById("table");
+         let table = "<tr>" + "<td>Product Name</td>" + "<td>"+ productArray.length + ' product'+"</td>" + "</tr>";
+        for (let i = 0 ; i < productArray.length ; i++){
+            table += "<tr>";
+            table += "<td>"+ productArray[i] + "</td>";
+            table += "<td><button onclick='editProduct("+i+")'>Sửa</button></td>";
+            table += "<td><button onclick='deleteProduct("+i+")'>Xoá</button></td>";
+            table += "</tr>";
+        } temp.innerHTML = table;
     }
-    function editProduct() {
-
+   function addNewProduct() {
+       let name = document.getElementById('nameProduct');
+       productArray.push(name.value);
+       name.value = '';
+       showProduct()
+   }
+    function deleteProduct(index) {
+        productArray.splice(index,1);
+        showProduct();
+    }
+    function editProduct(index) {
+        let newName = prompt("Nhập tên mới");
+        productArray.splice(index,1,newName);
+        showProduct();
     }
 </script>
 </body>

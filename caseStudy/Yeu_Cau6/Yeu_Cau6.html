@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 6</title>
+</head>
+<body>
+<button onclick="addNewCustomer()">Add Customer</button>
+<button onclick="displayCustomer()">Display Customer</button>
+<button onclick="displayTotalPay()">Display Total Pay</button>
+<button onclick="editCustomer()">Edit Customer</button>
+<button onclick="deleteCustomer()">Delete Customer</button>
+</body>
+<script>
+    class Customer{
+        constructor(name,idCard,birthDay,email,address,typeCustomer,discount,people,rentDay,typeRoom,typeService) {
+            this.name = name;
+            this.idCard = idCard;
+            this.birthDay = birthDay;
+            this.email = email;
+            this.address = address;
+            this.typeCustomer = typeCustomer;
+            this.discount = discount;
+            this.people = people;
+            this.rentDay = rentDay;
+            this.typeRoom = typeRoom;
+            this.typeService = typeService;
+            this.array = [];
+        }
+        pay(){
+            let money = this.typeRoom * this.rentDay * (1-this.discount/100)
+        }
+        push(){
+            this.array.push(this.name,this.idCard,this.birthDay,this.email,this.address,this.typeCustomer,this.discount,this.people,this.rentDay,this.typeRoom,this.typeService,this.typeCustomer);
+        }
+    }
+    let newCustomer;
+    let listCustomer = [];
+    function addNewCustomer() {
+        let inputName = prompt("Tên khách hàng:");
+        let inputIdcard = prompt("Số CMND:");
+        let inputBirthDay = prompt("Ngày tháng năm sinh:");
+        let inputEmail = prompt("Email:");
+        let inputAdress = prompt("Địa chỉ:");
+        let inputTypeCustomer = prompt("Thẻ thành viên");
+        let inputDiscount = prompt("Giảm giá %:");
+        let inputPeople = prompt("Số người đi cùng:");
+        let inputRentday = prompt("Số ngày thuê:");
+        let inputTypeRoom = prompt("Loại phòng:");
+        let inputTypeService = prompt("Loại dịch vụ:");
+        listCustomer.push(inputName);
+        newCustomer = new Customer(inputName,inputIdcard,inputBirthDay,inputEmail,inputAdress,inputTypeCustomer,inputDiscount,inputPeople,inputRentday,inputTypeRoom,inputTypeService);
+        newCustomer.push();
+    }
+
+    function displayCustomer() {
+        let show = prompt();
+        if (show == 1){
+            alert(newCustomer.array)
+        }
+    }
+</script>
+</html>

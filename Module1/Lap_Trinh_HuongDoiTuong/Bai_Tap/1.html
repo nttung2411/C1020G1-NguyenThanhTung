@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let s = [4,1];
+    let d = 4;
+    let m = 1;
+    birthday(s,d,m);
+    function birthday(s, d, m) {
+        let count = 0;
+        for (let i = 0 ; i < (s.length-m) ; i++){
+            let sum = 0;
+            for (let j = i ; j < m+i ; j++){
+                sum += s[j]
+            } if (sum === d){
+                count++
+            }
+        } alert(count);
+
+    }
+</script>
+</body>
+</html>;

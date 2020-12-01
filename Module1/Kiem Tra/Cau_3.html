@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="themMoi()">Thêm sổ mới</button>
+<button onclick="danhSach()">Danh Sách</button>
+<button onclick="xoaBot()">Xoá sổ cũ</button>
+<script>
+    class SoTietKiem{
+        constructor(maso,loaitietkiem,tenkhachhang,cmnd,ngaymoso,sotien) {
+            this.maso = maso;
+            this.loaitietkiem = loaitietkiem;
+            this.tenkhachhang = tenkhachhang;
+            this.cmnd = cmnd;
+            this.ngaymoso = ngaymoso;
+            this.sotien = sotien;
+        }
+        getMaso(){
+            return this.maso
+        }
+        getLoaiTietKiem(){
+            return this.loaitietkiem
+        }
+        getTenKhachHang(){
+            return this.tenkhachhang
+        }
+        getCMND(){
+            return this.cmnd
+        }
+        getNgayMoSo(){
+            return this.ngaymoso
+        }
+        getSoTien(){
+            return this.sotien
+        }
+    }
+    let khachHang = [];
+    function themMoi() {
+        let flag = true;
+        let regIdCard = /[0-9]{9}/;
+        let money = /[0-9]/;
+        let regBirthDay = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{2}$/;
+        let maso;
+        let sotien;
+        let loaitietkiem;
+        let tenkhachhang;
+        let cmnd;
+        let ngayMoSo;
+        do {
+            maso = prompt("Hãy nhập mã sổ (tối đa 5 ký tự)");
+            for (let i = 0 ; i < khachHang.length ; i++){
+                if (maso === khachHang[i].getMaso()){
+                    alert("Mã sổ đã có người dùng");
+                    flag = false;
+                }
+            } if(maso.length >= 6){
+                alert("Tối đa 5 ký tự")
+            }
+        } while (maso.length >= 6 || flag === false);
+        do {
+            loaitietkiem = prompt("Nhập loại tiết kiệm");
+            if (loaitietkiem.length >= 11){
+                alert("Tối đa 10 ký tự")
+            }
+        } while (loaitietkiem.length >= 11);
+        do {
+            tenkhachhang = prompt("Nhập họ tên");
+            if (tenkhachhang.length >= 31) {
+                alert("Tối đa 30 ký tự")
+            }
+        } while (tenkhachhang.length >= 31);
+        do{
+            cmnd = prompt("Nhập CMND");
+        }
+                while (!regIdCard.test(cmnd));
+
+        do{
+            ngayMoSo = prompt("Nhập ngày mở sổ theo định dạng DD/MM/YY")
+        } while (!regBirthDay.test(ngayMoSo));
+        do {
+            sotien = prompt("Nhập số tiền muốn gửi")
+        } while (!money.test(sotien));
+        let newSoTietKiem = new SoTietKiem(maso,loaitietkiem,tenkhachhang,cmnd,ngayMoSo,sotien);
+        khachHang.push(newSoTietKiem);
+    }
+
+    function danhSach() {
+        let text = '';
+        for (let i = 0 ; i < khachHang.length ; i++){
+            text += ("Mã số thứ ") + (i+1) + ' ' + khachHang[i].getMaso() + ' ';
+        }
+        let hienThi = prompt(text);
+        alert("Tên khách hàng: " + khachHang[hienThi-1].getTenKhachHang() + '\n' +
+        "Mã sổ: " + khachHang[hienThi-1].getMaso() + '\n' +
+        "Ngày sinh: " + khachHang[hienThi-1].getNgayMoSo() + '\n' +
+        "CMND: " + khachHang[hienThi-1].getCMND() + '\n' +
+        "Loại tiết kiệm: " + khachHang[hienThi-1].getLoaiTietKiem() + '\n' +
+        "Số tiền gửi: " + khachHang[hienThi-1].getSoTien());
+    }
+
+    function xoaBot() {
+        let text = '';
+        for (let i = 0 ; i < khachHang.length ; i++){
+            text += ("Mã số thứ ") + (i+1) + ' ' + khachHang[i].getMaso() + ' ';
+        }
+        let hienThi = prompt(text);
+        let luaChon = confirm("Bạn có muốn xoá không");
+        if (luaChon === true){
+            khachHang.splice(hienThi-1,1)
+        }
+    }
+
+</script>
+</body>
+</html>

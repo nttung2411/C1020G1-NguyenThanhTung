@@ -202,6 +202,18 @@
         let inputRentDay;
         let inputTypeRoom;
         let inputName = prompt("Tên khách hàng:");
+        let tempName = "";
+        inputName = inputName.trim().toLowerCase();
+        for (let i = 0 ; i<inputName.length ; i++){
+            if (inputName.charAt(i)===" " && inputName.charAt(i+1) === " "){
+                continue;
+            }
+            if (i===0 || inputName.charAt(i-1)=== " "){
+                tempName+=inputName.charAt(i).toUpperCase();
+                continue
+            }
+            tempName+=inputName.charAt(i)
+        }
         do {
             inputIdCard = prompt("Số CMND:");
         }
@@ -227,7 +239,7 @@
             inputTypeRoom = prompt("Loại phòng:(Villa , House , Room)");
         } while (inputTypeRoom !== "Villa" && inputTypeRoom !== "House" && inputTypeRoom !== "Room");
         let inputTypeService = prompt("Loại dịch vụ:");
-        let newCustomer = new Customer(inputName,inputIdCard,inputBirthDay,inputEmail,inputAddress,inputTypeCustomer,inputDiscount,inputPeople,inputRentDay,inputTypeRoom,inputTypeService);
+        let newCustomer = new Customer(tempName,inputIdCard,inputBirthDay,inputEmail,inputAddress,inputTypeCustomer,inputDiscount,inputPeople,inputRentDay,inputTypeRoom,inputTypeService);
         listArrCustomer.push(newCustomer);
     }
 
@@ -355,6 +367,18 @@
     }
     function addNewEmployee() {
         let inputName = prompt("Nhập tên nhân viên");
+        let tempName = '';
+        inputName = inputName.trim().toLowerCase();
+        for (let i = 0 ; i<inputName.length ; i++){
+            if (inputName.charAt(i)===" " && inputName.charAt(i+1) === " "){
+                continue;
+            }
+            if (i===0 || inputName.charAt(i-1)=== " "){
+                tempName+=inputName.charAt(i).toUpperCase();
+                continue;
+            }
+            tempName+=inputName.charAt(i)
+        }
         let inputAddress = prompt("Nhập địa chỉ");
         let inputEmail;
         do {
@@ -372,7 +396,7 @@
         do{
             inputPosition = prompt("Chức vụ:(Manager , Sale , Marketing)")
         }while (inputPosition != 'Manager' && inputPosition != 'Sale' && inputPosition != 'Marketing')
-        let newEmployee = new Employee(inputName,inputAddress,inputEmail,inputIdCard,inputAddress,inputPosition);
+        let newEmployee = new Employee(tempName,inputAddress,inputEmail,inputIdCard,inputAddress,inputPosition);
         listEmployees.push(newEmployee);
     }
     function displayEmployees() {

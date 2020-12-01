@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let b = [];
+    let n = prompt("Số lượng phần tử muốn nhập(Tối đa 50 số)");
+    let flag = true;
+    if (n <= 50 && n > 0){
+        for (let i = 1 ; i <= n ; i++){
+            let number = parseInt(prompt("Số phần tử thứ " + i + '/' + n ));
+            a.push(number);
+        }
+        for (let j = 0 ; j < a.length ; j++){
+            if (a[j] === 1){
+                flag = false;
+            } else if(a[j] === 2){
+                flag = true;
+            }
+            for (let z = 2 ; z < a[j] ; z++){
+                if (a[j] % z === 0){
+                    flag = false;
+                    break;
+                } else {
+                    flag = true;
+                }
+            } if (flag === true){
+                b.push(a[j])
+            }
+        }  document.write("Mãng Nhập " + a.sort(function (a,b) {
+            return a-b;
+        }) + "<br>");
+           document.write("Số nguyên tố đã nhập " + b.sort(function (a,b) {
+            return a-b;
+           }));
+    } else {
+        alert("Không hợp lệ")
+    }
+</script>
+</body>
+</html>

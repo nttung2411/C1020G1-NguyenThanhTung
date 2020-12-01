@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<canvas id="myCanvas" width="500px" height="500px" style="border: solid black"></canvas>
+<body>
+<script>
+    function Circle(x, y, radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+    function createCircle(){
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        var circle= new Circle(250, 350, 80);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+
+    createCircle();
+    createCircle();
+</script>
+</body>
+</html>

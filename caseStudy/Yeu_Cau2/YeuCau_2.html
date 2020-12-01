@@ -10,13 +10,12 @@
     let idCard = "2012020021";
     let birthday = "24/11/1995";
     let email = "tung@gmail.com";
-    let address = "200 Đống Đa , Đà Nẵng";
+    let address = "Huế";
     let service = "Villa";
     let room = "Vip";
     let customer = "Dianmond";
     let discount = 10;
     let rentday = 3;
-    let total;
     let quantity = 1;
     let show = parseInt(prompt("1.Hiển thị thông tin khách hàng"+"\n"+
           "2.Chỉnh sửa thông tin khách hàng"+"\n"+
@@ -60,31 +59,31 @@
                     break;
                 }
                 case 4: {
-                    name = prompt("Nhập lại Email");
+                    email = prompt("Nhập lại Email");
                     break;
                 }
                 case 5: {
-                    name = prompt("Nhập lại Địa chỉ");
+                    address = prompt("Nhập lại Địa chỉ");
                     break;
                 }
                 case 6: {
-                    name = prompt("Nhập lại Loại dịch vụ");
+                    service = prompt("Nhập lại Loại dịch vụ");
                     break;
                 }
                 case 7: {
-                    name = prompt("Nhập lại loại phòng");
+                    room = prompt("Nhập lại loại phòng");
                     break;
                 }
                 case 8: {
-                    name = prompt("Nhập lại cấp độ");
+                    customer = prompt("Nhập lại cấp độ");
                     break;
                 }
                 case 10: {
-                    name = prompt("Nhập lại số người đi cùng");
+                    quantity = prompt("Nhập lại số người đi cùng");
                     break;
                 }
                 case 11: {
-                    name = prompt("Nhập lại số ngày thuê");
+                    rentday = prompt("Nhập lại số ngày thuê");
                     break;
                 } default:{
                     alert("Failed")
@@ -125,8 +124,7 @@
             } else if (rentday>2){
                 day = 10;
             } alert("Tiền phải trả: "+(money*rentday-city-day))
-        }
-    } else {
+        } else {
         alert("Lựa chọn không hợp lệ");
     }
 </script>

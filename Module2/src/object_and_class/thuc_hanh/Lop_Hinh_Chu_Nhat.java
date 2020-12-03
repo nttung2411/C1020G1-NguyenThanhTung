@@ -6,10 +6,10 @@ public class Lop_Hinh_Chu_Nhat {
     public static class Rectangle {
         double width;
         double height;
-        public Rectangle(){
+        Rectangle(){
 
         }
-        public Rectangle(double width , double height){
+        Rectangle(double width , double height){
             this.width = width;
             this.height = height;
         }

@@ -1,6 +1,6 @@
 package vong_lap.baitap;
 
-public class Bai_3 {
+public class HienThiSoNguyenTo100 {
     public static void main(String[] args) {
         for (int i = 2 ; i < 100 ; i++){
             boolean check = true;

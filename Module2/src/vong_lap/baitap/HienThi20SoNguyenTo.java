@@ -2,7 +2,7 @@ package vong_lap.baitap;
 
 import java.util.Scanner;
 
-public class Bai_2 {
+public class HienThi20SoNguyenTo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập só lượng số nguyên tố cần in:");

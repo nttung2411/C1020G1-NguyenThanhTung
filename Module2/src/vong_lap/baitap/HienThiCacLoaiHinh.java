@@ -2,7 +2,7 @@ package vong_lap.baitap;
 
 import java.util.Scanner;
 
-public class Bai_1 {
+public class HienThiCacLoaiHinh {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("1.Print the rectangle");

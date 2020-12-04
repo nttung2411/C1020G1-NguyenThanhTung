@@ -2,7 +2,7 @@ package Introduct.BaiTap;
 
 import java.util.Scanner;
 
-public class baitap_2 {
+public class DocSoThanhChu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập số cần đọc(từ 0 đến 999): ");

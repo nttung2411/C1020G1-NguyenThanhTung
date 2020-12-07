@@ -1,6 +1,8 @@
 package kethua.thuchanh;
 
-public class Rectangle extends Shape{
+import abstract_interface.bai_tap.resizeable.Resizeable;
+
+public class Rectangle extends Shape implements Resizeable {
     private double width;
     private double length;
 
@@ -49,5 +51,12 @@ public class Rectangle extends Shape{
                 + " and length " + getLength()
                 + " , which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        double newRectangle  = this.getArea()*(percent/100+1);
+        System.out.println(newRectangle);
+        System.out.println();
     }
 }

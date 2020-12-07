@@ -1,6 +1,8 @@
 package kethua.thuchanh;
 
-public class Circle extends Shape {
+import abstract_interface.bai_tap.resizeable.Resizeable;
+
+public class Circle extends Shape implements Resizeable {
     private double radius;
 
     public Circle(){
@@ -37,5 +39,12 @@ public class Circle extends Shape {
                 + getRadius() + " , "
                 + "which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent){
+      double newArea = this.getArea()*(percent/100+1);
+      System.out.println(newArea);
+        System.out.println();
     }
 }

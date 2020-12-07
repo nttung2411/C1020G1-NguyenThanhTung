@@ -1,6 +1,8 @@
 package kethua.thuchanh;
 
-public class Shape {
+import abstract_interface.bai_tap.resizeable.Resizeable;
+
+public class Shape implements Resizeable {
     private String color;
     private boolean filled;
 
@@ -16,10 +18,14 @@ public class Shape {
         return filled;
     }
 
+
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
 
+    public double getArea(){
+        return 0.0;
+    }
     public Shape(){
         this("green",true);
     }
@@ -37,5 +43,9 @@ public class Shape {
                 + getColor()
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
+    }
+
+    @Override
+    public void resize(double percent) {
     }
 }

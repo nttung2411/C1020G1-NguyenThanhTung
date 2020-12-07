@@ -1,6 +1,9 @@
 package kethua.thuchanh;
 
-public class Square extends Rectangle {
+import abstract_interface.bai_tap.colorable.Colorable;
+import abstract_interface.bai_tap.resizeable.Resizeable;
+
+public class Square extends Rectangle implements Resizeable, Colorable {
     public Square(){
         this(1.0);
     }
@@ -37,6 +40,18 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        double newSquare = this.getArea()*(percent/100+1);
+        System.out.println(newSquare);
+        System.out.println();
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides");
     }
 }
 

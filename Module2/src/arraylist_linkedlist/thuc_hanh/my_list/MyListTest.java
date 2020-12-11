@@ -1,4 +1,4 @@
-package danh_sach.thuc_hanh.my_list;
+package arraylist_linkedlist.thuc_hanh.my_list;
 
 public class MyListTest {
     public static void main(String[] args) {

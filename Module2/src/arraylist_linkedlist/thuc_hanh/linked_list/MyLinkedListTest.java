@@ -1,4 +1,4 @@
-package danh_sach.thuc_hanh.linked_list;
+package arraylist_linkedlist.thuc_hanh.linked_list;
 
 public class MyLinkedListTest {
     public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class MyLinkedListTest {
         ll.addFirst(12);
         ll.addFirst(13);
 
-        ll.add(4,9);
+        ll.add(2,9);
         ll.add(4,10);
         ll.printList();
     }

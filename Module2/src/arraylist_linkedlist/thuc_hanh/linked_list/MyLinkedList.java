@@ -1,6 +1,4 @@
-package danh_sach.thuc_hanh.linked_list;
-
-import javax.xml.soap.Node;
+package arraylist_linkedlist.thuc_hanh.linked_list;
 
 public class MyLinkedList {
     private Note head;

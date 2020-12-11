@@ -1,4 +1,4 @@
-package danh_sach.thuc_hanh.my_list;
+package arraylist_linkedlist.thuc_hanh.my_list;
 
 import java.util.Arrays;
 

@@ -35,4 +35,15 @@ public class Room extends Services {
                 " , Kiểu thuê: " + getTypeOfRental() +
                 " , Chi phí thuê: " + getPriceOfService());
     }
+
+    @Override
+    public String toString() {
+        return getId() + "," +
+                getNameOfService() + "," +
+                getAreaOfService() + "," +
+                getPriceOfService() + "," +
+                getAccompanyPeople() + "," +
+                getTypeOfRental()  + "," +
+                getFreeService();
+    }
 }

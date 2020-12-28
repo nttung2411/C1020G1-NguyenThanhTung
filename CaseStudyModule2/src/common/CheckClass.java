@@ -1,8 +1,6 @@
-package controllers;
+package common;
 
-import models.House;
-import models.Room;
-import models.ValidateService;
+import controllers.MainController;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -70,4 +68,5 @@ public class CheckClass {
         }
         return flag;
     }
+
 }

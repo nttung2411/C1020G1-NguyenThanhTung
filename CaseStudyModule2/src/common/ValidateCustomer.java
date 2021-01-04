@@ -1,9 +1,9 @@
 package common;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+import common.exception.customer.*;
+import org.jetbrains.annotations.Nullable;
 
-import java.text.SimpleDateFormat;
-import java.time.Year;
 import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,34 +18,27 @@ public class ValidateCustomer {
     private static final String REGEX_PHONE_CUSTOMER = "^[0][0-9]{3}[-][0-9]{3}[-][0-9]{3}$";
     private static final String REGEX_CARD_CUSTOMER = "(Diamond|Platinum|Gold|Silver|Member)";
 
-    public static boolean validateName(String regex) {
-        Pattern pattern = Pattern.compile(REGEX_NAME_CUSTOMER);
-        Matcher matcher = pattern.matcher(regex);
-        return matcher.matches();
+    public static void validateName(String regex) throws ExceptionName {
+        if (!regex.matches(REGEX_NAME_CUSTOMER)){
+            throw new ExceptionName("Tên đúng định dạng Nguyễn Văn A");
+        }
     }
 
-    public static boolean validateEmail(String regex) {
-        Pattern pattern = Pattern.compile(REGEX_EMAIL_CUSTOMER);
-        Matcher matcher = pattern.matcher(regex);
-        return matcher.matches();
+    public static void validateEmail(String regex) throws ExceptionEmail {
+        if (!regex.matches(REGEX_EMAIL_CUSTOMER)){
+            throw new ExceptionEmail("Email đúng định dạng abc@abc.abc");
+        }
     }
 
-    public static boolean validateIdCard(String regex) {
-        Pattern pattern = Pattern.compile(REGEX_ID_CARD);
-        Matcher matcher = pattern.matcher(regex);
-        return matcher.matches();
+    public static void validateIdCard(String regex) throws ExceptionIdCard {
+        if (!regex.matches(REGEX_ID_CARD)){
+            throw new ExceptionIdCard("CMND đúng định dạng xxx-xxx-xxx");
+        }
     }
 
-    public static String validateGender(String regex) {
-        StringBuilder stringGender = new StringBuilder(regex.toLowerCase());
-        String newUpperChar = String.valueOf(stringGender.charAt(0)).toUpperCase();
-        stringGender.replace(0, 1, newUpperChar);
-        regex = stringGender.toString();
-
-        if (regex.matches(REGEX_GENDER_CUSTOMER)) {
-            return regex;
-        } else {
-            return null;
+    public static void validateGender(String regex) throws ExceptionGender {
+        if (!regex.matches(REGEX_GENDER_CUSTOMER)) {
+            throw new ExceptionGender("Male,Female hoặc Unknown");
         }
     }
 
@@ -66,7 +59,7 @@ public class ValidateCustomer {
         }
     }
 
-    public static boolean validateBirthDay(String regex) {
+    public static void validateBirthDay(String regex) throws ExceptionBirthDay {
         //Lấy năm hiện tại!!
         Calendar calendar = Calendar.getInstance();
         int yearNow = calendar.get(Calendar.YEAR);
@@ -76,24 +69,20 @@ public class ValidateCustomer {
         if (matcher.matches()) {
             String[] array = regex.split("/");
             if (Integer.parseInt(array[0]) > 31 || Integer.parseInt(array[1]) > 12 || Integer.parseInt(array[2]) < 1901 || Integer.parseInt(array[2]) > yearNow) {
-                return false;
+                throw new ExceptionBirthDay("Ngày tháng năm phải đúng thực tế !");
             } else if (Integer.parseInt(array[1]) == 2) {
                 if (Integer.parseInt(array[2]) % 4 == 0 && Integer.parseInt(array[0]) > 29) {
-                    return false;
+                    throw new ExceptionBirthDay("Tháng 2 năm nhuận chỉ có 29 ngày");
                 } else if (Integer.parseInt(array[2]) % 4 != 0 && Integer.parseInt(array[0]) > 28) {
-                    return false;
-                } else {
-                    return true;
+                    throw new ExceptionBirthDay("Tháng 2 chỉ có 28 ngày");
                 }
             } else if (checkDate(Integer.parseInt(array[1])) && Integer.parseInt(array[0]) > 31) {
-                return false;
+                throw new ExceptionBirthDay("Tháng 1,3,5,7,8,10,12 chỉ có 31 ngày");
             } else if (!checkDate(Integer.parseInt(array[1])) && Integer.parseInt(array[0]) > 30) {
-                return false;
-            } else {
-                return true;
+                throw new ExceptionBirthDay("Tháng 4,6,9,11 chỉ có 30 ngày");
             }
         } else {
-            return false;
+            throw new ExceptionBirthDay("Đúng định dạng dd/MM/YYYY");
         }
     }
 

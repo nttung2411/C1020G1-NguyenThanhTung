@@ -1,11 +1,12 @@
 package common;
 
-import models.Employee;
-import models.Villa;
+import models.employee.Employee;
+import models.customer.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class FileUtils {
     public static void writeFile(String pathFile,Object line){
@@ -46,13 +47,41 @@ public class FileUtils {
         }
     }
 
-    public static List<Employee> readFileEmployee() throws IOException, ClassNotFoundException {
-        List<Employee> listLine = new ArrayList<>();
+    public static Stack<String> readFileEmployee() throws IOException{
+        Stack<String> listLine = new Stack<>();
 
-        FileInputStream fileInputStream = new FileInputStream("src/data/Employee.csv");
-        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        File file = new File("src/data/Employee.csv");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-        listLine.add((Employee) objectInputStream.readObject());
+        String line;
+        while((line = bufferedReader.readLine()) != null){
+            listLine.add(line);
+        }
         return listLine;
+    }
+
+    public static List<Customer> readFileCustomer() throws IOException {
+        List<Customer> customerList = new ArrayList<>();
+
+        File file = new File("src/data/Customer.csv");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        String line = bufferedReader.readLine();
+        while((line != null)){
+            String[] array = line.split(",");
+            Customer customer = new Customer(array[0],array[1],array[2],array[3],array[4],array[5],array[6],array[7]);
+            customerList.add(customer);
+            line = bufferedReader.readLine();
+        }
+        return customerList;
+    }
+
+    public static void writeCustomerUpdate(List<Customer> customerList) throws IOException {
+        File file = new File("src/data/Customer.csv");
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+        for(Customer customer : customerList){
+            bufferedWriter.write(customer.toString());
+            bufferedWriter.newLine();
+        }
+        bufferedWriter.close();
     }
 }

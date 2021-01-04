@@ -4,27 +4,27 @@ import common.CheckClass;
 import common.FileUtils;
 import models.*;
 import models.customer.CustomerManager;
+import models.employee.EmployeeController;
+import models.employee.FilingCabinet;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.List;
-import java.util.Scanner;
 
 public class MainController {
-    public static Scanner scanner = new Scanner(System.in);
 
 
-    public static void displayMainMenu() throws IOException, ClassNotFoundException {
+    public static void displayMainMenu() throws IOException {
         System.out.println("1.Add New Service \n"
                 + "2.Show Services. \n"
                 + "3.Add New Customer. \n"
                 + "4.Show Information of Customer. \n"
                 + "5.Add New Booking. \n"
                 + "6.Show Information of Employee. \n"
-                + "7.Cinemas Booking. \n"
-                + "8.Exit.");
+                + "7.Search Information of Employee. \n"
+                + "8.Cinemas Booking. \n"
+                + "9.Exit.");
 
-        int chooseNumber = CheckClass.checkNumber(8);
+        int chooseNumber = CheckClass.checkNumber(9);
         switch (chooseNumber) {
             case 1:
                 ServiceManager.addNewService();
@@ -37,6 +37,7 @@ public class MainController {
                 break;
             case 4:
                 CustomerManager.showInformationCustomer();
+                displayMainMenu();
                 break;
             case 5:
                 addNewBooking();
@@ -45,6 +46,9 @@ public class MainController {
                 EmployeeController.showEmployee();
                 break;
             case 7:
+                FilingCabinet.searchEmployee();
+                break;
+            case 8:
                 Cinemas.bookingCinemas();
             default:
                 break;
@@ -52,7 +56,7 @@ public class MainController {
     }
 
 
-    public static void addNewBooking() throws IOException, ClassNotFoundException {
+    public static void addNewBooking() throws IOException {
         System.out.println("1.Danh sách Customer Booking \n" +
                 "2.Back to Menu \n" +
                 "3.Exit");
@@ -120,21 +124,21 @@ public class MainController {
                                 System.out.println(countHouse + " ");
                                 house.showInfo();
                                 countHouse++;
+                            }
                                 int chooseHouse = CheckClass.checkNumber(countHouse - 1);
                                 String[] arrayHouse = listHouse.get(chooseHouse - 1).split(",");
                                 String idBookingHouse = idBookingCustomer + "," + arrayHouse[0];
                                 FileUtils.writeFileBooking("src/data/Booking.csv", (idBookingHouse));
-                                displayMainMenu();
-                                break;
-                            }
                         } else {
                             System.out.println("------------------------------------------");
                             System.out.println("Hiện chưa có House nào trong danh sách !!");
                             System.out.println("------------------------------------------");
                         }
+                        displayMainMenu();
+                        break;
                     case 3:
                         int countRoom = 1;
-                        List<String> listRoom = FileUtils.readFile("src/data/House.csv");
+                        List<String> listRoom = FileUtils.readFile("src/data/Room.csv");
                         if (listRoom.size() > 0) {
                             for (String elementRoom : listRoom) {
                                 String[] roomArray = elementRoom.split(",");
@@ -142,18 +146,18 @@ public class MainController {
                                 System.out.println(countRoom + " ");
                                 room.showInfo();
                                 countRoom++;
+                            }
                                 int chooseHouse = CheckClass.checkNumber(countRoom - 1);
                                 String[] arrayHouse = listRoom.get(chooseHouse - 1).split(",");
                                 String idBookingHouse = idBookingCustomer + "," + arrayHouse[0];
                                 FileUtils.writeFileBooking("src/data/Booking.csv", (idBookingHouse));
-                                displayMainMenu();
-                                break;
-                            }
                         } else {
                             System.out.println("------------------------------------------");
                             System.out.println("Hiện chưa có Room nào trong danh sách!!");
                             System.out.println("------------------------------------------");
                         }
+                        displayMainMenu();
+                        break;
                 }
         }
     }

@@ -2,6 +2,10 @@ package models.customer;
 
 import models.Services;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Customer implements Comparable<Customer>{
     private String nameCustomer;
     private String dateOfBirth;
@@ -103,10 +107,18 @@ public class Customer implements Comparable<Customer>{
 
     @Override
     public int compareTo(Customer o) {
+        Date date1 = null;
+        Date date2 = null;
         if(this.getNameCustomer().compareTo(o.getNameCustomer()) != 0){
             return this.getNameCustomer().compareTo(o.getNameCustomer());
         } else {
-            return this.getDateOfBirth().compareTo(o.getDateOfBirth());
+            try {
+                date1 = new SimpleDateFormat("dd/MM/yyyy").parse(this.getDateOfBirth());
+                date2 = new SimpleDateFormat("dd/MM/yyyy").parse(o.getDateOfBirth());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return date1.compareTo(date2);
         }
     }
 }

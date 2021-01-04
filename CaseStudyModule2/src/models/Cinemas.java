@@ -15,7 +15,7 @@ public class Cinemas {
     static Queue<String> listIDCustomer = new LinkedList<>();
     static int ticket = 5;
 
-    public static void bookingCinemas() throws IOException, ClassNotFoundException {
+    public static void bookingCinemas() throws IOException{
         System.out.println("1.Chọn customer muốn book vé. \n" +
                 "2.Danh sách customer đã book. \n" +
                 "3.Back to Menu. \n" +

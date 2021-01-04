@@ -13,7 +13,7 @@ import java.util.TreeSet;
 
 public class ServiceManager {
 
-    public static void addNewService() throws IOException, ClassNotFoundException {
+    public static void addNewService() throws IOException {
         System.out.println("1.Add New Villa \n"
                 + "2.Add New House \n"
                 + "3.Add New Room \n"
@@ -278,7 +278,7 @@ public class ServiceManager {
         }
     }
 
-        public static void showService() throws IOException, ClassNotFoundException {
+        public static void showService() throws IOException{
             System.out.println("1. Show all Villa" + "\n"
                     + "2. Show all House" + "\n"
                     + "3. Show all Room" + "\n"

@@ -5,12 +5,15 @@ public class Main {
         Animal[] animals = new Animal[2];
         animals[0] = new Tiger();
         animals[1] = new Chicken();
-        for (int i = 0 ; i < animals.length ; i++){
+        for (int i = 0; i < animals.length; i++) {
             System.out.println(animals[i]);
-            if (animals[i] instanceof Chicken){
+            if (animals[i] instanceof Chicken) {
                 Edible edible = (Chicken) animals[i];
                 System.out.println(edible.toEat());
             }
         }
     }
+
+    static public void abc(){}
+    public static void cba(){}
 }

@@ -11,20 +11,21 @@ public class CheckClass {
     static Scanner scanner = new Scanner(System.in);
 
     public static int checkNumber(int maxNumber) {
-        boolean flag;
-        int chooseNumber = 0;
-        do {
-            System.out.print("Nhập số muốn chọn (không được quá " + maxNumber + ")" + " : ");
-            try {
-                flag = true;
-                chooseNumber = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Không được nhập chữ!");
-                scanner.nextLine();
-                flag = false;
-            }
-        } while (!flag || chooseNumber < 1 || chooseNumber > maxNumber);
-        return chooseNumber;
+            boolean flag;
+            int chooseNumber = 0;
+            do {
+                System.out.print("Nhập số muốn chọn (không được quá " + maxNumber + ")" + " : ");
+                try {
+                    flag = true;
+                    chooseNumber = scanner.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Không được nhập chữ!");
+                    scanner.nextLine();
+                    flag = false;
+                }
+            } while (!flag || chooseNumber < 1 || chooseNumber > maxNumber);
+            return chooseNumber;
+
     }
 
     public static int checkPrice() {

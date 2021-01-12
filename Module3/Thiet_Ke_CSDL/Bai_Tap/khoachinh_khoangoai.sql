@@ -4,6 +4,12 @@ create database bank_database;
 
 use bank_database;
 
+create table customers(
+	customer_number int primary key,
+    customer_name varchar(20) not null,
+    customer_address varchar(40) not null
+    );
+
 create table email_customer(
 	email varchar(100) primary key,
     customer_number int,
@@ -12,16 +18,8 @@ create table email_customer(
 
 create table phone_customer(
 	phone int primary key,
-    customer_phone int,
-    foreign key (customer_phone) references customers(customer_phone)
-    );
-
-
-
-create table customers(
-	customer_number int primary key,
-    customer_name varchar(20) not null,
-    customer_address varchar(40) not null
+    customer_number int,
+    foreign key (customer_number) references customers(customer_number)
     );
     
 create table accounts(
@@ -41,5 +39,4 @@ create table transactions(
     amounts int not null,
     descripttions varchar(100)
     );
-    
     

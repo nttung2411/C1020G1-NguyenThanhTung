@@ -26,8 +26,7 @@ create table LoaiKhach(
     
 create table KieuThue(
 	idKieuThue int primary key,
-    tenKieuThue varchar(45),
-    giaThue int
+    tenKieuThue varchar(45)
     );
     
 create table LoaiDichVu(
@@ -39,10 +38,10 @@ create table NhanVien(
 	idNhanVien int primary key,
     hotenNhanVien varchar(50) not null,
     ngaySinh date not null,
-    soCMND int,
+    soCMND int unique,
     luong double,
-    soDienThoai varchar(20),
-    emailNhanVien varchar(45),
+    soDienThoai varchar(20) unique,
+    emailNhanVien varchar(45) unique,
     diaChiNhanVien varchar(45),
     idViTri int,
     idTrinhDo int,
@@ -55,7 +54,7 @@ create table NhanVien(
 create table DichVu(
 	idDichVu int primary key,
     tenDichVu varchar(45),
-    dienTich int,
+    dienTich double,
     soTang int,
     soNguoiToiDa int,
     chiPhiThue double,
@@ -78,9 +77,9 @@ create table KhachHang(
 	idKhachHang int primary key,
     tenKhacHang varchar(45),
     ngaySinh date,
-    soCMND varchar(45),
-    soDienThoai varchar(45),
-    emailKhachHang varchar(45),
+    soCMND varchar(45) unique,
+    soDienThoai varchar(45) unique,
+    emailKhachHang varchar(45) unique,
     diaChi varchar(45),
     idLoaiKhach int,
     foreign key (idLoaiKhach) references LoaiKhach(idLoaiKhach)
@@ -102,10 +101,9 @@ create table KhachHang(
     
     create table HopDongChiTiet(
 	idHopDongChiTiet int primary key,
-    soLuong int,
     idHopDong int,
     idDichVuDiKem int,
+    soLuong int,
     foreign key (idHopDong) references HopDong(idHopDong),
     foreign key (idDichVuDiKem) references DichVuDiKem(idDichVuDiKem)
     );
-    

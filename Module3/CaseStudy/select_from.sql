@@ -130,5 +130,44 @@ join hopdongchitiet on hopdong.idHopDong = hopdongchitiet.idHopDong
 where hopdong.ngayLamHopDong in (select hopdong.ngayLamHopDong from hopdong where (ngayLamHopDong between "2019-10-01" and "2019-12-01"))
 and hopdong.ngayLamHopDong not in (select hopdong.ngayLamHopDong from hopdong where (ngayLamHopDong between "2019-01-01" and "2019-06-01"))
 group by hopdong.idHopDong;
-
 -- yêu cầu 13
+
+create temporary table temp
+select dichvudikem.tenDichVuDiKem , sum(soLuong) as soLuong
+from dichvudikem
+inner join hopdongchitiet on hopdongchitiet.idDichVuDiKem = dichvudikem.idDichVuDiKem
+group by dichvudikem.idDichVuDiKem;
+
+create temporary table temp2
+select max(temp.soLuong) as max
+from temp;
+
+select * from temp2;
+
+select temp.tenDichVuDiKem , temp.soLuong
+from temp
+inner join temp2 on temp.soLuong = temp2.max;
+
+-- yêu cầu 14
+create temporary table temp3
+select hopdong.idHopDong , dichvu.tenDichVu , dichvudikem.tenDichVuDiKem , hopdongchitiet.soLuong , count(dichvu.tenDichVu) as countService
+from hopdong
+join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong
+join dichvu on dichvu.idDichVu = hopdong.idDichVu
+join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem
+group by tenDichVuDiKem;
+
+select idHopDong , tenDichVu , tenDichVuDiKem , soLuong
+from temp3
+where temp3.countService = 1;
+
+-- yêu cầu 15
+create view view_employees as
+select idNhanVien , hotenNhanVien , trinhdo , tenbophan , sodienthoai , diachinhanvien
+from nhanvien
+inner join trinhdo on trinhdo.idTrinhDo = nhanvien.idTrinhDo
+inner join bophan on bophan.idBoPhan = nhanvien.idBoPhan
+group by idNhanVien order by idNhanVien;
+
+select * 
+from view_employees;

@@ -1,5 +1,6 @@
 
-insert into vitri values(1,"Lễ Tân"),
+
+insert into ViTri values(1,"Lễ Tân"),
 						(2,"Phục vụ"),
 						(3,"Chuyên viên"),
                         (4,"Giám sát"),
@@ -21,23 +22,23 @@ insert into loaikhach values (1,"Diamond"),
                              (4,"Silver"),
                              (5,"Member");
                              
-insert into kieuthue values (1,"Tháng",3000),
-							(2,"Tuần",1000),
-							(3,"Ngày",200);
+insert into KieuThue values (10,"Tháng"),
+							(20,"Tuần"),
+							(30,"Ngày");                           
                             
 insert into loaidichvu values (1,"Villa"),
 							  (2,"House"),
                               (3,"Room");
                             
-insert into dichvu values(1,"Rose",700,null,20,500,"Còn mới",3,1),
-						 (2,"Coconut",500,null,10,100,"Mới sửa chữa",2,1),
-						 (3,"Apple",300,4,15,300,"Còn mới",1,2),
-						 (4,"Pineapal",150,null,10,50,"Xây dựng 2 năm",1,3),
-						 (5,"Banana",300,null,30,1000,"Còn mới",2,1);
+insert into dichvu values(1,"Rose",700,null,20,500,"Còn mới",30,1),
+						 (2,"Coconut",500,null,10,100,"Mới sửa chữa",20,1),
+						 (3,"Apple",300,4,15,300,"Còn mới",10,2),
+						 (4,"Pineapal",150,null,10,50,"Xây dựng 2 năm",10,3),
+						 (5,"Banana",300,null,30,1000,"Còn mới",20,1);
                              
-insert into dichvudikem values (1,"Karaoke"),
-								(2,"Massage"),
-                                (3,"Thuê xe tham quan");
+insert into dichvudikem values (1,"Karaoke",50,"Buổi tối sau 7h"),
+								(2,"Massage",100,"Cả ngày"),
+                                (3,"Thuê xe tham quan",80,"Đến hết 19h");
 
 insert into nhanvien values (1,"Nguyễn Văn A","2000-01-01",123456789,300,0213456789,"abc1@gmail.com","Đà Nẵng",3,1,1),
 (2,"Lê Văn B","2001-02-01",12345678,350,0213456781,"abc3@gmail.com","Huế",2,1,2),
@@ -57,11 +58,11 @@ insert into khachhang values (1,"Thanh Tùng","1995-11-24","201694828","09349656
 (5,"Trần Tùng","1997-04-24","201694829","0934965636","abc4@gmail.com","Quảng Trị",1);
 
 insert into hopdong values (1,"2021-01-01","2021-12-01",1000,7200,2,1,1),
- (2,"2021-10-01","2021-12-01",100,900,3,2,3),
-  (3,"2021-09-01","2021-12-01",200,2000,1,3,2),
-   (4,"2021-08-01","2021-12-01",2000,5000,10,5,5);
-   
-insert into hopdongchitiet values (1,2,3),
-								  (2,1,3),
-								  (3,2,1),
-								  (4,3,2);
+						   (2,"2021-10-01","2021-12-01",100,900,3,2,3),
+						   (3,"2021-09-01","2021-12-01",200,2000,1,3,2),
+						   (4,"2021-08-01","2021-12-01",2000,5000,10,5,5);
+	
+insert into hopdongchitiet values (1,2,3,1),
+								  (2,1,3,1),
+								  (3,2,1,1),
+								  (4,3,2,1);

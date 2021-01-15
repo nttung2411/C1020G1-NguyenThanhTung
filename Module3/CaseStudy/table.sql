@@ -90,20 +90,25 @@ create table KhachHang(
     ngayLamHopDong date,
     ngayKetThuc date,
     tienDatCoc int,
-    tongTien int,
     idNhanVien int,
     idKhachHang int,
     idDichVu int,
-    foreign key (idNhanVien) references NhanVien(idNhanVien),
-    foreign key (idKhachHang) references KhachHang(idKhachHang),
+    foreign key (idNhanVien) references NhanVien(idNhanVien)
+    on delete cascade,
+    foreign key (idKhachHang) references KhachHang(idKhachHang)
+    on delete cascade,
     foreign key (idDichVu) references DichVu(idDichVu)
+    on delete cascade
     );
-    
+
     create table HopDongChiTiet(
 	idHopDongChiTiet int primary key,
     idHopDong int,
     idDichVuDiKem int,
     soLuong int,
-    foreign key (idHopDong) references HopDong(idHopDong),
+    foreign key (idHopDong) references HopDong(idHopDong)
+	on delete cascade,
     foreign key (idDichVuDiKem) references DichVuDiKem(idDichVuDiKem)
+	on delete cascade
     );
+    drop table hopdongchitiet;

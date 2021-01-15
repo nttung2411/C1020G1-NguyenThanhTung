@@ -28,7 +28,8 @@ WHERE
  
 -- yêu cầu 5
 select khachhang.idKhachHang , khachhang.tenKhacHang , loaikhach.tenLoaiKhach , 
-		hopdong.idHopDong , dichvu.tenDichVu , hopdong.ngayLamHopDong , hopdong.ngayKetThuc,sum(dichvu.chiPhiThue + dichvudikem.giaDichVu) as TongTien
+		hopdong.idHopDong , dichvu.tenDichVu , hopdong.ngayLamHopDong , hopdong.ngayKetThuc,
+        sum(dichvu.chiPhiThue + dichvudikem.giaDichVu*hopdongchitiet.soLuong) as TongTien
 from khachhang
 left join loaikhach on khachhang.idLoaiKhach = loaikhach.idLoaiKhach
 left join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
@@ -169,5 +170,84 @@ inner join trinhdo on trinhdo.idTrinhDo = nhanvien.idTrinhDo
 inner join bophan on bophan.idBoPhan = nhanvien.idBoPhan
 group by idNhanVien order by idNhanVien;
 
-select * 
-from view_employees;
+create view SLHD as
+select nhanvien.idNhanVien , hopdong.ngayLamHopDong , count(nhanvien.idNhanVien) as row_HD
+from nhanvien
+join hopdong on hopdong.idNhanVien = nhanvien.idNhanVien
+where hopdong.ngayLamHopDong between "2018-01-01" and "2019-01-01"
+group by nhanvien.idNhanVien;
+
+select view_employees.idNhanVien , hotenNhanVien , trinhdo , tenbophan , sodienthoai , diachinhanvien
+from view_employees
+left join SLHD on view_employees.idNhanVien = SLHD.idNhanVien
+where SLHD.row_HD < 4 or SLHD.row_HD is null;
+
+-- yêu cầu 16
+Delete from nhanvien
+where  idNhanVien not in (
+select hopdong.idNhanVien
+ from hopdong
+ where (year(hopdong.ngaylamhopdong) between 2018 and 2021)
+ group by nhanvien.idNhanVien);
+ 
+ select *
+ from nhanvien;
+ 
+ -- yêu cầu 17
+Update khachhang
+set idLoaiKhach = 1
+where khachhang.idKhachHang in (select khachhang.idKhachHang
+from hopdong
+join dichvu on hopdong.idDichVu = dichvu.idDichVu
+join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong
+join dichvudikem on hopdongchitiet.idDichVuDiKem = dichvudikem.idDichVuDiKem
+where year(hopdong.ngaylamhopdong) = 2021 and khachhang.idKhachHang = 2
+group by khachhang.idKhachHang
+Having sum(dichvu.chiPhiThue + hopdongchitiet.soLuong*dichvudikem.giaDichVu) > 800);
+
+select * from khachhang;
+
+-- yêu cầu 18
+delete khachhang , hopdong , hopdongchitiet
+from khachhang
+left join hopdong
+on khachhang.idKhachHang = hopdong.idKhachHang
+left join hopdongchitiet
+on hopdongchitiet.idHopDong = hopdong.idHopDong
+where khachhang.idKhachHang not in(
+select khachhang.idKhachHang
+where year(hopdong.ngayLamHopDong) between 2019 and 2021
+and khachhang.idKhachHang = hopdong.idKhachHang
+);
+
+-- yêu cầu 19
+update dichvudikem
+join hopdongchitiet
+set giaDichVu = giaDichVu * 2
+where exists (select dichvudikem.idDichVuDiKem
+group by dichvudikem.idDichVuDiKem
+having count(dichvudikem.idDichVuDiKem)>10);
+
+-- yêu cầu 20
+select idnhanvien ID , hotennhanvien HoTen , nhanvien.ngaySinh NgaySinh , nhanvien.diaChiNhanVien DiaChi,
+ nhanvien.emailNhanVien Email, nhanvien.soDienThoai SoDienThoai
+from nhanvien
+union
+select idKhachHang ID, khachhang.tenKhacHang , khachhang.ngaySinh , khachhang.diaChi , khachhang.emailKhachHang , khachhang.soDienThoai
+from khachhang
+group by ID;
+
+-- yêu cầu 21
+create view V_NhanVien as
+select nhanvien.*
+from nhanvien
+join hopdong on nhanvien.idNhanVien = hopdong.idNhanVien
+where nhanvien.diaChiNhanVien = "Hải Châu"
+and hopdong.ngayLamHopDong = "2019-12-12";
+
+-- yêu cầu 22
+update V_NhanVien
+set V_NhanVien.diaChiNhanVien = "Liên Chiểu";
+drop view V_NhanVien;
+
+-- yêu cầu 23

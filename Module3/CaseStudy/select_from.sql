@@ -2,9 +2,10 @@ use furama;
 -- yêu cầu 2
 select *
 from nhanvien
-where nhanvien.hotenNhanVien like "K%"
+where (nhanvien.hotenNhanVien like "K%"
 or nhanvien.hotenNhanVien like "T%" 
-or nhanvien.hotenNhanVien like "H%";
+or nhanvien.hotenNhanVien like "H%")
+and length(hotenNhanVien) < 15;
 
 -- yêu cầu 3
 select *
@@ -251,3 +252,52 @@ set V_NhanVien.diaChiNhanVien = "Liên Chiểu";
 drop view V_NhanVien;
 
 -- yêu cầu 23
+delimiter //
+create procedure Sp_1 (in idkhachhang int)
+begin
+Delete from khachhang
+where khachhang.idkhachhang = idkhachhang;
+end//
+delimiter ;
+
+drop procedure Sp_1;
+
+call Sp_1(7);
+
+-- yêu cầu 24
+delimiter //
+create procedure Sp_2 (in new_idhopdong int , in new_ngaylamhopdong date , in new_ngayketthuc date , in new_tiendatcoc int ,
+					   in new_idnhanvien int , in new_idkhachhang int , in new_iddichvu int)
+begin
+if new_idhopdong not in (select idhopdong from hopdong)
+	and new_idkhachhang in (select idkhachhang from khachhang)
+    and new_iddichvu in (select iddichvu from dichvu)
+    and new_idnhanvien in (select idnhanvien from nhanvien) then
+    insert into hopdong values(new_idhopdong,new_ngaylamhopdong,new_ngayketthuc,new_tiendatcoc,new_idnhanvien,new_idkhachhang,new_iddichvu);
+else
+	select "Thông tin không hợp lệ";
+end if;
+end// 
+delimiter ;
+
+drop procedure Sp_2;
+
+call Sp_2(10,"2021-01-01","2021-12-01",1000,2,1,1);
+
+-- yêu cầu 25
+delimiter //
+create trigger Tr_1
+after delete on hopdong
+for each row
+set @count = (select count(hopdong.idhopdong) from hopdong);
+// delimiter ;
+
+delete from hopdong where hopdong.idhopdong = 10;
+
+select @count as TongSoHD;
+
+-- yêu cầu 26
+-- delimiter //
+-- create trigger Tr_2
+-- before update on hopdong
+-- for each row

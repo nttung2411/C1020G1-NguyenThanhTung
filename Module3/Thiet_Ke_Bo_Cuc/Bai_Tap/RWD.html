@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+
+        .header ul {
+            list-style-type: none;
+        }
+
+        .header ul li{
+            display: inline;
+            font-size: 25px;
+            padding: 15px;
+        }
+
+        .header ul li:hover{
+            color: black;
+        }
+
+        .header{
+            background-color: #2c2c2c;
+            color: #888888;
+            padding: 15px;
+        }
+
+
+        *{
+            box-sizing: border-box;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        .left-paten{
+            padding: 20px;
+            text-align: center;
+            background-color: #e2e2e2;
+            height: 460px;
+        }
+
+        .center-paten{
+            padding-left: 15px;
+            padding-top: 5px;
+        }
+
+        a:link{
+            color: #22a0ff;
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: #d32709;
+        }
+
+        .left-paten ul {
+            list-style-type: none;
+        }
+
+        .left-paten ul li {
+            padding: 15px;
+        }
+
+        .right-paten ul li{
+            font-size: 30px;
+            text-align: center;
+            padding-top: 30px;
+            border: solid 1px #bfbfbf;
+            padding-bottom: 30px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .right-paten{
+            height: 440px;
+        }
+
+        .right-paten ul {
+            list-style-type: none;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 0;
+        }
+
+        hr{
+            background-color: #d6d6d6; height: 1px; border: 0;
+        }
+
+        .footer{
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            background-color: #6f6f6f;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-12">
+    <div class="header">
+        <ul>
+            <li>Logo</li>
+            <li>Home</li>
+            <li>About</li>
+            <li>Projects</li>
+            <li>Contact</li>
+            <li style="margin-left: 670px">Login</li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row2">
+    <div class="col-2">
+        <div class="left-paten">
+            <ul>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="center-paten">
+                <h1>Welcome</h1>
+                <p>
+                    A welcome is a kind of greeting designed to introduce a person to a new place or situation, and to
+                    make them feel at ease. The term can similarly be used to describe the feeling of being accepted on
+                    the part of the new person.
+                </p>
+            <hr>
+            <h1>Test</h1>
+            <p>abc......</p>
+        </div>
+    </div>
+    <div class="col-2" style=" background-color: #e2e2e2;">
+        <div class="right-paten" style="margin-top: 0px">
+            <ul>
+                <li>ADS</li>
+                <li>ADS</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+    <div class="footer">
+        <p>Footer Text</p>
+    </div>
+    </div>
+</div>
+</body>
+</html>

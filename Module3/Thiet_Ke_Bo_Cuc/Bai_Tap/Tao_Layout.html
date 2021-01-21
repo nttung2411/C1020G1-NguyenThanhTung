@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+
+        .header {
+            background-color: royalblue;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 0;
+        }
+
+        .nav ul{
+            background-color: #b1b1b1;
+            padding: 10px;
+            list-style: none;
+            text-align: center;
+        }
+
+        .nav ul li{
+            display: inline;
+            margin: 0 170px;
+        }
+
+        ul{
+            margin: 0px;
+        }
+
+        .footer{
+            text-align: center;
+            background-color: rebeccapurple;
+            color: white;
+            padding: 15px;
+        }
+
+        .row{
+            padding: 0;
+            margin: 0
+        }
+
+        .section{
+            background-color: greenyellow;
+            padding: 20px;
+        }
+
+        .article{
+            background-color: #10d320;
+            padding: 20px;
+        }
+
+        .aside{
+            background-color: yellow;
+            padding: 60px 60px 15px 60px;
+        }
+
+        *{
+            box-sizing: border-box;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 0px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+    <div class="col-12">
+        <div class="header">
+            <h1>Monday Times</h1>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-12">
+        <div class="nav">
+        <ul>
+            <li>News</li>
+            <li>Sports</li>
+            <li>Weather</li>
+        </ul>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="section">
+            <h2>News Section</h2>
+            </div>
+            <div class="article">
+                <article>
+                    <h2>News Article</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in porta lorem. Morbi
+                        condimentum est nibh, et consectetur tortor feugiat at.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in porta lorem. Morbi
+                        condimentum est nibh, et consectetur tortor feugiat at.</p>
+                </article>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="aside">
+        <h2>News Aside</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in porta lorem. Morbi condimentum
+            est nibh, et consectetur tortor feugiat at.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in porta lorem. Morbi condimentum
+            est nibh, et consectetur tortor feugiat at.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="footer">
+                <p>&copy; 2014 Monday Times. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

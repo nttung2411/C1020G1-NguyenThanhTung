@@ -18,7 +18,7 @@ import java.util.List;
 @WebServlet(name = "UserServlet",urlPatterns = "")
 public class UserServlet extends HttpServlet {
 
-    private UserRepositoryImpl userRepository;
+    private UserRepository userRepository;
 
     public void init(){
         userRepository = new UserRepositoryImpl();

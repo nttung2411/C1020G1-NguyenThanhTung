@@ -2,31 +2,22 @@ package model.repo;
 
 import model.bean.Customer;
 import model.bean.Employee;
+import model.bean.Villa;
 
 import java.util.List;
 
-public interface FuramaRepository {
-    List<Customer> FindAllCustomer();
+public interface FuramaRepository<T>{
+    List<T> findAll();
 
-    Customer selectCustomerById(int id);
+    T selectById(String id);
 
-    Employee selectEmployeeById(int id);
 
-    void updateCustomer(Customer customer);
+    void update(T t);
 
-    void updateEmployee(Employee employee);
+    void delete(String id);
 
-    void deleteCustomer(int id);
 
-    void deleteEmployee(int id);
+    List<T> searchName(String name);
 
-    List<Customer> searchCustomer(String name);
-
-    List<Employee> searchEmployee(String name);
-
-    List<Employee> findAllEmployee();
-
-    void addCustomer(Customer customer);
-
-    void addEmployee(Employee employee);
+    void add(T t);
 }

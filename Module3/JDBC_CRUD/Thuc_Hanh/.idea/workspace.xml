@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aad1328b-9b50-43ba-bc6a-9bc75f6399c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/AttachServiceServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/ContractServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/CustomerUsingServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/HomeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/HouseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/RoomServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/VillaServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/AttachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/Contract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/CustomerUsingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/House.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/Villa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/attach_service/AttachServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/contract/ContractRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/customer/CustomerRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/customer_using_service/CustomerUsing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/employee/EmployeeRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/house/HouseRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/room/RoomRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/villa/VillaRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/attach_service/AttachServiceOfService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/contract/ContractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/customer/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/customer_using_service/ServiceCustomerUsing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/employee/EmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/house/HouseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/room/RoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/villa/VillaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/validate/ValidateFurama.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/AttachService/attach_service.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Contract/contract.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Contract/show_contract.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Customer/customerUsing.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/House/editHouse.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/House/house.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/House/showHouse.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Room/editRoom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Room/room.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Room/showRoom.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Villa/editVilla.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Villa/showVilla.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Villa/villa.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quan_Ly_User/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quan_Ly_User/web/test.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudyModule2/src/data/Booking.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CaseStudyModule2/src/data/Booking.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/Furama2_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/Furama2_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/Furama2_std.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/Furama2_std.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/controller/FuramaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/bean/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/bean/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/bean/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/bean/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/repo/FuramaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/repo/FuramaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/repo/FuramaRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/service/FuramaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/service/FuramaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/classes/java/main/model/service/FuramaServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/build/libs/CaseStudy_2-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/build/libs/CaseStudy_2-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/controller/EmployeeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/bean/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/FuramaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/FuramaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/repo/FuramaRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/FuramaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/FuramaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/java/model/service/FuramaServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/addCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Customer/addCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/addEmployee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Employee/addEmployee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/editCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Customer/editCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/editEmployee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Employee/editEmployee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/searchCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Customer/searchCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/searchEmployee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Employee/searchEmployee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/showListCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Customer/showListCustomer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/showListEmployee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_2/src/main/webapp/Employee/showListEmployee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quan_Ly_User/Quan_Ly_User.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Quan_Ly_User/Quan_Ly_User.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quan_Ly_User/out/artifacts/Quan_Ly_User_war_exploded/WEB-INF/classes/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/Quan_Ly_User/out/artifacts/Quan_Ly_User_war_exploded/WEB-INF/classes/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quan_Ly_User/out/production/Quan_Ly_User/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/Quan_Ly_User/out/production/Quan_Ly_User/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quan_Ly_User/src/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Quan_Ly_User/src/controller/UserServlet.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1nxaRdR6YX7RYJWkDtH3lxJsZoV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Quan_Ly_User" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aad1328b-9b50-43ba-bc6a-9bc75f6399c5" name="Default Changelist" comment="" />
+      <created>1612334188813</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612334188813</updated>
+      <workItem from="1612334190268" duration="20000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1612334208867">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1612334208867" />
+  </component>
+</project>

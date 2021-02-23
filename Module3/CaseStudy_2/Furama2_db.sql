@@ -34,14 +34,13 @@ create table service_type (
     service_type_name varchar(45) not null
 );
 
-create table rent_type (
-	rent_type_id int primary key,
-    rent_type_name varchar(45) not null,
-    rent_type_cost double
-);
+insert into service_type values(1,"Villa");
+insert into service_type values(2,"House");
+insert into service_type values(3,"Room");
+
 
 create table employee (
-	employee_id int primary key,
+	employee_id varchar(30) primary key,
     employee_name varchar(45) not null,
     employee_birthday varchar(45) not null,
     employee_gender varchar(30) not null,
@@ -56,10 +55,10 @@ create table employee (
 );
 
 create table customer (
-	customer_id int primary key,
+	customer_id varchar(30) primary key,
     customer_type int,
     customer_name varchar(45) not null,
-    customer_birthday varchar(45),
+    customer_birthday date,
     customer_gender int(1),
     customer_id_card varchar(45) not null unique,
     customer_phone varchar(45) not null,
@@ -70,7 +69,7 @@ create table customer (
 );
 
 create table service (
-	service_id int primary key,
+	service_id varchar(20) primary key,
     service_name varchar(45) not null,
     service_area double not null,
     service_cost double not null,
@@ -79,28 +78,28 @@ create table service (
     description_other_convenience varchar(45),
     pool_area double,
     number_of_floors int,
-    rent_type_id int,
     service_type_id int,
-    foreign key (rent_type_id) references rent_type(rent_type_id)
-    ON DELETE CASCADE,
     foreign key (service_type_id) references service_type(service_type_id)
     ON DELETE CASCADE
 );
 
 create table contract (
-	contract_id int primary key,
+	contract_id int primary key auto_increment,
     contract_start_date date,
     contract_end_date date,
     contract_deposit double,
     contract_total_money double,
-    employee_id int,
-    customer_id int,
-    service_id int,
+    employee_id varchar(30),
+    customer_id varchar(20),
+    service_id varchar(20),
     foreign key (employee_id) references employee(employee_id)
-    ON DELETE CASCADE,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     foreign key (customer_id) references customer(customer_id)
-    ON DELETE CASCADE,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     foreign key (service_id) references service(service_id)
+    ON UPDATE CASCADE
     ON DELETE CASCADE
 );
 
@@ -108,8 +107,7 @@ create table attach_service (
 	attach_service_id int primary key,
     attach_service_name varchar(50) not null,
     attach_service_cost double,
-    attach_service_unit int,
-    attach_service_status varchar(45)
+    attach_service_unit int
 );
 
 create table contract_detail (

@@ -2,31 +2,20 @@ package model.service;
 
 import model.bean.Customer;
 import model.bean.Employee;
+import model.bean.Villa;
 
 import java.util.List;
 
-public interface FuramaService {
-    List<Customer> FindAllCustomer();
+public interface FuramaService<T> {
+    List<T> findAll();
 
-    List<Employee> findAllEmployee();
+    T selectById(String id);
 
-    Customer selectCustomerById(int id);
+    void update(T t);
 
-    Employee selectEmployeeById(int id);
+    void delete(String id,String access);
 
-    void updateCustomer(Customer customer);
+    List<T> searchByName(String name);
 
-    void updateEmployee(Employee employee);
-
-    void deleteCustomer(int id,String access);
-
-    void deleteEmployee(int id,String access);
-
-    List<Customer> searchCustomer(String name);
-
-    List<Employee> searchEmployee(String name);
-
-    void addCustomer(Customer customer);
-
-    void addEmployee(Employee employee);
+    String add(T t);
 }

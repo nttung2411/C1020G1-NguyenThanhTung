@@ -1,7 +1,7 @@
 package model.bean;
 
 public class Employee {
-    private int employee_id;
+    private String employee_id;
     private String employee_name;
     private String employee_birthday;
     private int employee_gender;
@@ -28,11 +28,11 @@ public class Employee {
         this.employee_address = employee_address;
     }
 
-    public int getEmployee_id() {
+    public String getEmployee_id() {
         return employee_id;
     }
 
-    public void setEmployee_id(int employee_id) {
+    public void setEmployee_id(String employee_id) {
         this.employee_id = employee_id;
     }
 
@@ -108,7 +108,7 @@ public class Employee {
         this.employee_position = employee_position;
     }
 
-    public Employee(int employee_id, String employee_name, String employee_birthday, int employee_gender,
+    public Employee(String employee_id, String employee_name, String employee_birthday, int employee_gender,
                     String employee_id_card, Double employee_salary, String employee_phone, String employee_email,
                     String employee_address, int employee_position) {
         this.employee_id = employee_id;

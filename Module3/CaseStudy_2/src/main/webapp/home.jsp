@@ -29,6 +29,9 @@
       margin-left: 10%;
     }
 
+    a:hover{
+      text-decoration: underline black !important;
+    }
   </style>
 </head>
 <body>
@@ -55,7 +58,7 @@
       <ul class="navbar-nav">
         <div class="col-lg-3">
           <li class="nav-item active margin-navbar">
-            <a class="nav-link" href=""><h6>Trang chủ</h6><span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="home"><h6>Trang chủ</h6><span class="sr-only">(current)</span></a>
           </li>
         </div>
 
@@ -66,8 +69,8 @@
             Khách Hàng
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="?actionUser=showListCustomer">Danh Sách</a>
-            <a class="dropdown-item" href="?actionUser=addCustomer">Thêm Mới</a>
+            <a class="dropdown-item" href="customer?actionUser=showListCustomer">Danh Sách</a>
+            <a class="dropdown-item" href="customer?actionUser=addCustomer">Thêm Mới</a>
           </div>
         </li>
 
@@ -77,8 +80,8 @@
             Nhân Viên
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="?actionUser=showListEmployee">Danh Sách</a>
-            <a class="dropdown-item" href="?actionUser=addEmployee">Thêm mới</a>
+            <a class="dropdown-item" href="employee?actionUser=showListEmployee">Danh Sách</a>
+            <a class="dropdown-item" href="employee?actionUser=addEmployee">Thêm mới</a>
           </div>
         </li>
 
@@ -88,8 +91,24 @@
             Dịch Vụ
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="?actionUser=showListService">Dịch Vụ Hiện Có</a>
-            <a class="dropdown-item" href="?actionUser=addService">Thêm Dịch Vụ</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink11" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;text-align: center">
+              Xem dịch vụ
+            </a>
+            <div class="dropdown-item" aria-labelledby="navbarDropdownMenuLink12">
+              <a class="dropdown-item" href="villa?actionUser=showVilla">Villa</a>
+              <a class="dropdown-item" href="house?actionUser=showHouse">House</a>
+              <a class="dropdown-item" href="room?actionUser=showRoom">Room</a>
+            </div>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink10" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;text-align: center">
+            Thêm dịch vụ
+          </a>
+          <div class="dropdown-item" aria-labelledby="navbarDropdownMenuLink13">
+            <a class="dropdown-item" href="villa?actionUser=addVilla">Villa</a>
+            <a class="dropdown-item" href="house?actionUser=addHouse">House</a>
+            <a class="dropdown-item" href="room?actionUser=addRoom">Room</a>
+          </div>
           </div>
         </li>
 
@@ -99,9 +118,8 @@
             Hợp Đồng
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="?actionUser=addContract">Thêm Mới Hợp Đồng</a>
-            <a class="dropdown-item" href="?actionUser=addContractDetail">Tạo Hợp Đồng Chi Tiết</a>
-            <a class="dropdown-item" href="?actionUser=showListContract">Danh Sách Hợp Đồng</a>
+            <a class="dropdown-item" href="contract?actionUser=addContract">Thêm Mới Hợp Đồng</a>
+            <a class="dropdown-item" href="contract?actionUser=showListContract">Danh Sách Hợp Đồng</a>
           </div>
         </li>
       </ul>
@@ -113,7 +131,7 @@
   <div class="row" style="margin-right: 40px">
     <div class="col-lg-4" style="padding: 0">
       <div class="sidebar" style="text-align: center;margin-top: 10%">
-        <a href=""><h3>Khách đang lưu trú !!</h3></a>
+        <a href="customerUsing?actionUser=showCustomerUsing"><h3>Khách đang lưu trú !!</h3></a>
       </div>
     </div>
 

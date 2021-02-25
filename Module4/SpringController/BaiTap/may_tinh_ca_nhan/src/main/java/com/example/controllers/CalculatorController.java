@@ -1,5 +1,7 @@
 package com.example.controllers;
 
+import com.example.service.CalculatorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CalculatorController {
+
+    @Autowired
+    CalculatorService calculatorService;
+
     @GetMapping("/")
     public String getCalculatorPage(){
         return "index";
@@ -17,30 +23,7 @@ public class CalculatorController {
                              @RequestParam Double number1 ,
                              @RequestParam Double number2 ,
                              Model model){
-        String result = null;
-        double resultNumber;
-        switch (calculator){
-            case "+":
-                resultNumber = number1 + number2;
-                result = "Result Addition: " + resultNumber;
-                break;
-            case "-":
-                resultNumber = number1 - number2;
-                result = "Result Subtraction: " + resultNumber;
-                break;
-            case "*":
-                resultNumber = number1 * number2;
-                result = "Result Multiplication: " + resultNumber;
-                break;
-            case "/":
-                if (number2 == 0){
-                    result = "Can't Division By Zero";
-                } else {
-                    resultNumber = number1 / number2;
-                    result = "Result Division: " + resultNumber;
-                }
-                break;
-        }
+        String result = calculatorService.calculation(calculator,number1,number2);
         model.addAttribute("result",result);
         return "index";
     }

@@ -1,6 +1,8 @@
-package com.example.repository;
+package com.example.repository.Impl;
 
 import com.example.model.Product;
+import com.example.repository.BaseRepository;
+import com.example.repository.ProductRepo;
 import org.springframework.stereotype.Repository;
 import javax.persistence.*;
 import java.util.List;
@@ -30,8 +32,8 @@ public class ProductRepoImpl implements ProductRepo {
     @Override
     public void deleteProduct(Integer idProduct) {
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
-        entityTransaction.begin();
         Product product = BaseRepository.entityManager.find(Product.class,idProduct);
+        entityTransaction.begin();
         BaseRepository.entityManager.remove(product);
         entityTransaction.commit();
     }

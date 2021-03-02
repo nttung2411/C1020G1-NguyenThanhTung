@@ -50,8 +50,15 @@ public class ProductController {
         return "redirect:/";
     }
 
-    @GetMapping("/product/{id}/delete")
-    public String deleteProduct(@PathVariable Integer id,RedirectAttributes redirectAttributes){
+//    @GetMapping("/product/{id}/delete")
+//    public String deleteProduct(@PathVariable Integer id,RedirectAttributes redirectAttributes){
+//        productService.deleteProduct(id);
+//        redirectAttributes.addFlashAttribute("message","Deleted");
+//        return "redirect:/";
+//    }
+
+    @GetMapping("/product/delete")
+    public String deleteProduct(@RequestParam Integer id,RedirectAttributes redirectAttributes){
         productService.deleteProduct(id);
         redirectAttributes.addFlashAttribute("message","Deleted");
         return "redirect:/";

@@ -1,6 +1,7 @@
-package com.codegym.cms.repository;
+package com.codegym.cms.repository.Impl;
 
 import com.codegym.cms.model.Customer;
+import com.codegym.cms.repository.CustomerRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;

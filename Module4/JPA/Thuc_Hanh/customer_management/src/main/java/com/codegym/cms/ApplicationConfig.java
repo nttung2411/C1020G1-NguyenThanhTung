@@ -1,8 +1,8 @@
 package com.codegym.cms;
 import com.codegym.cms.repository.CustomerRepository;
-import com.codegym.cms.repository.CustomerRepositoryImpl;
+import com.codegym.cms.repository.Impl.CustomerRepositoryImpl;
 import com.codegym.cms.service.CustomerService;
-import com.codegym.cms.service.CustomerServiceImpl;
+import com.codegym.cms.service.Impl.CustomerServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;

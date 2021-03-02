@@ -1,4 +1,4 @@
-package com.codegym.cms.service;
+package com.codegym.cms.service.Impl;
 
 import com.codegym.cms.model.Customer;
 import com.codegym.cms.repository.CustomerRepository;

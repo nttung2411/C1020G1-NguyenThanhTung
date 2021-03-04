@@ -90,8 +90,8 @@
                     Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a th:each="category : ${categories}" class="dropdown-item" th:href="@{/blogOfCategories/{id}(id=${category.getIdCategory()})}"
-                       th:value="${category.idCategory}" th:text="${category.name}"></a>
+                    <a th:each="category : ${categories}" class="dropdown-item" th:href="@{/blogOfCategories/{id}(id=${category.getId()})}"
+                       th:value="${category.id}" th:text="${category.name}"></a>
                 </div>
             </li>
         </ul>

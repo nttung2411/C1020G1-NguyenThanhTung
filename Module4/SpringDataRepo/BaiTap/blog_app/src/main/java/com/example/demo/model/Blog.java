@@ -14,6 +14,10 @@ public class Blog {
     private String contentBlog;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+    @ManyToOne
+    @JoinColumn(name = "category_id" , referencedColumnName = "id")
+    private Category category;
+
 
     public Date getDate() {
         return date;
@@ -23,9 +27,7 @@ public class Blog {
         this.date = date;
     }
 
-    @ManyToOne
-    @JoinColumn
-    private Category category;
+
 
 
     public Category getCategory() {

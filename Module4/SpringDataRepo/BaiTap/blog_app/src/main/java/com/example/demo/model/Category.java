@@ -8,7 +8,7 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCategory;
+    private Integer id;
 
     private String name;
 
@@ -26,12 +26,12 @@ public class Category {
     public Category() {
     }
 
-    public Integer getIdCategory() {
-        return idCategory;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCategory(Integer idCategory) {
-        this.idCategory = idCategory;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

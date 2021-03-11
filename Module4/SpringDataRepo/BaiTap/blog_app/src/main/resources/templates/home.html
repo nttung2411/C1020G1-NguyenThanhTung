@@ -27,9 +27,7 @@
         <td><a class="btn btn-primary"
                th:href="@{/{id}/read(id=${blog.getIdBlog()})}"
                role="button" style="margin-left: 20%">Read</a></td>
-        <td><a class="btn btn-primary"
-               th:href="@{/{id}/update(id=${blog.getIdBlog()})}"
-               role="button" style="margin-left: 20%">Update</a></td>
+        <td><a class="btn btn-primary" th:href="@{/{id}/update(id=${blog.getIdBlog()})}" role="button" style="margin-left: 20%">Update</a></td>
         <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                     th:onclick="|setIdToForm('${blog.idBlog}')|">
             Delete

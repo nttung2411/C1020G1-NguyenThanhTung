@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h5 th:text="${message}"></h5>
+
+<nav th:replace="/layout :: nav"></nav>
+    Search by name blog:
+    <input name="name" type="text" id="search"/>
+<h5 th:text="${messageSearch}" style="color: red"></h5>
+<table id = "blog">
+    <thead>
+    <tr>
+        <th>Tittle Blog</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody id="listBlog">
+    </tbody>
+</table>
+<div class="modal fade" id="modalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+        </div>
+    </div>
+</div>
+<button id="moreBlog">Show more</button>
+
+<form action="/blog/delete" id="formDelete">
+    <input type="hidden" name="id" id="idBlogHidden"/>
+</form>
+<footer th:replace="/layout :: footer"></footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+    function setIdToForm(id) {
+        document.getElementById("idBlogHidden").value = id;
+    }
+
+    function submitFormDelete() {
+        document.getElementById("formDelete").submit();
+    }
+</script>
+<script>
+
+    let result = "";
+
+    $(document).ready(function () {
+        let page = 0;
+        $("#moreBlog").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/listBlog/?page" + (++page),
+                success: function (blogList) {
+                    for(let i = 0; i < blogList.content.length ; i++){
+                        result += "<tr>";
+                        result += "<td>" + blogList.content[i].nameBlog + "</td>";
+                        result += "<td><a class=\"btn btn-primary\" role=\"button\" style=\"margin-left: 20%\" href='/read/"
+                            + blogList.content[i].idBlog + "'>Views</a></td>";
+                        result += "</tr>";
+                    }
+                    $("#listBlog").html(result);
+                }
+            });
+        })
+
+
+
+
+        let id;
+        $("#search").on("keyup",function () {
+            let name = document.getElementById("search").value;
+            $.ajax({
+                type: "GET",
+                url: "/search?name=" + name,
+                success: function (blogList) {
+                    let result = "";
+                    for(let i = 0; i < blogList.length ; i++){
+                        let id = blogList[i].idBlog;
+                        result += "<tr>";
+                        result += "<td>" + blogList[i].nameBlog + "</td>";
+                        result += "<td><a class=\"btn btn-primary\" role=\"button\" style=\"margin-left: 20%\" href='/read/" + id + "'>Views</a></td>";
+                        result += "</tr>";
+                    }
+                    $("#listBlog").html(result);
+                }
+            });
+        });
+
+        $("#createBlog").click(function () {
+            $.ajax({
+                type:"GET",
+                url:"/create",
+                dataTye:"HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    $("#modalId").modal('show');
+                }
+            })
+        })
+    });
+
+    $.ajax({
+        type: "GET",
+        url: "/listBlog/",
+        success: function (blogList) {
+            for(let i = 0; i < blogList.content.length ; i++){
+                    result += "<tr>";
+                    result += "<td>" + blogList.content[i].nameBlog + "</td>";
+                    result += "<td><a class=\"btn btn-primary\" role=\"button\" style=\"margin-left: 20%\" href='/read/"
+                        + blogList.content[i].idBlog + "'>Views</a></td>";
+                    result += "</tr>";
+            }
+            $("#listBlog").html(result);
+        }
+    });
+
+
+</script>
+</body>
+</html>

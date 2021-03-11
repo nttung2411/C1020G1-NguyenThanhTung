@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,6 +17,7 @@ public class Blog {
     private Date date;
     @ManyToOne
     @JoinColumn(name = "category_id" , referencedColumnName = "id")
+    @JsonManagedReference
     private Category category;
 
 

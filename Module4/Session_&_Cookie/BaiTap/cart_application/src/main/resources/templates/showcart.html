@@ -75,19 +75,26 @@
             <div class="input-group">
                 <input type="button"
                        value="-" class="button-minus" data-field="quantity"
-                       th:onclick="|setIdToForm('${cart_item.idOrderProductDetail},-1'),submitFormUpdate()|">
-                <input type="number" step="1" max="" th:value="${cart_item.orderProduct.quantity}" name="quantity" class="quantity-field">
+                       th:onclick="|setValue('${cart_item.idOrderProductDetail}','-1'),submitFormUpdate()|">
+                <input type="number" step="1" max="" th:value="${cart_item.orderProduct.quantity}"
+                       name="quantity" class="quantity-field"
+                       th:onchange="|setValue('${cart_item.idOrderProductDetail}',this.value),submitFormUpdate()|">
                 <input type="button" value="+" class="button-plus" data-field="quantity"
-                       th:onclick="|setIdToForm('${cart_item.idOrderProductDetail},1'),submitFormUpdate()|">
+                       th:onclick="|setValue('${cart_item.idOrderProductDetail}','-2'),submitFormUpdate()|">
             </div>
         </td>
         <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    th:onclick="|setIdToForm2('${cart_item.idOrderProductDetail}')|">
+                    th:onclick="|setIdToForm('${cart_item.idOrderProductDetail}')|">
             Delete
         </button>
         </td>
     </tr>
 </table>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        onclick="setIdToForm('-1')">
+    Delete All
+</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -117,11 +124,11 @@
 </div>
 
 <form action="/updateCart" id="formUpdate">
-    <input type="hidden" name="string" id="idCartHidden"/>
+    <input type="hidden" name="string" id="idAndQuantity"/>
 </form>
 
 <form action="/deleteOrder" id="formDelete">
-    <input type="hidden" name="id" id="idOrderHidden"/>
+    <input type="hidden" name="id" id="idOrderDelete"/>
 </form>
 <footer th:replace="/layout :: footer"></footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -162,20 +169,22 @@
         decrementValue(e);
     });
 
+
     function setIdToForm(id) {
-        document.getElementById("idCartHidden").value = id;
+        document.getElementById("idOrderDelete").value = id;
+    }
+
+
+    function submitFormDelete() {
+        document.getElementById("formDelete").submit();
+    }
+
+    function setValue(id,quantity) {
+        document.getElementById("idAndQuantity").value = id + ',' + quantity;
     }
 
     function submitFormUpdate() {
         document.getElementById("formUpdate").submit();
-    }
-
-    function setIdToForm2(id) {
-        document.getElementById("idOrderHidden").value = id;
-    }
-
-    function submitFormDelete() {
-        document.getElementById("formDelete").submit();
     }
 </script>
 </body>

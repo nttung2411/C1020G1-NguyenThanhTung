@@ -1,4 +1,4 @@
-package com.example.demo.service.Impl;
+package com.example.demo.service.impl;
 
 import com.example.demo.models.OrderProduct;
 import com.example.demo.models.OrderProductDetail;

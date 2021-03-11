@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -73,8 +74,11 @@ public class OrderController {
                 if(calculation == -1 && orderProduct.getQuantity() > 1){
                     orderProduct.setQuantity(orderProduct.getQuantity()-1);
                     orderProductDetail.setOrderProduct(orderProduct);
-                }else if(calculation == 1){
+                }else if(calculation == -2){
                     orderProduct.setQuantity(orderProduct.getQuantity()+1);
+                    orderProductDetail.setOrderProduct(orderProduct);
+                }else {
+                    orderProduct.setQuantity(calculation);
                     orderProductDetail.setOrderProduct(orderProduct);
                 }
             }
@@ -85,21 +89,24 @@ public class OrderController {
     @GetMapping("/deleteOrder")
     public String deleteOrder(@RequestParam Integer id,@ModelAttribute Cart cart){
 
+        if (id != -1) {
+            for (int i = 0; i < cart.getOrderProductDetails().size(); i++) {
 
-        for(int i = 0 ; i < cart.getOrderProductDetails().size() ; i++){
+                OrderProductDetail orderProductDetail = cart.getOrderProductDetails().get(i);
 
-            OrderProductDetail orderProductDetail = cart.getOrderProductDetails().get(i);
+                if (orderProductDetail.getIdOrderProductDetail() == id) {
 
-            if (orderProductDetail.getIdOrderProductDetail() == id){
+                    OrderProduct orderProduct = orderProductDetail.getOrderProduct();
 
-                OrderProduct orderProduct = orderProductDetail.getOrderProduct();
+                    orderProductDetailService.deleteOrderProductDetail(id);
+                    orderProductService.deleteOrder(orderProduct);
 
-                orderProductDetailService.deleteOrderProductDetail(id);
-                orderProductService.deleteOrder(orderProduct);
+                    cart.getOrderProductDetails().remove(i);
 
-                cart.getOrderProductDetails().remove(i);
-
+                }
             }
+        }else {
+            cart.setOrderProductDetails(new ArrayList<>());
         }
         return "redirect:/cart";
     }

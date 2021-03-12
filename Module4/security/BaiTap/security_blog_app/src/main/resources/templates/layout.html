@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,6 +8,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
               integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <title>Product Management</title>
+
     <style type="text/css">
         h3{background-color: blue; color: white; padding: 10px 0 10px 20px;}
         footer{margin: 10px 0;}
@@ -79,7 +81,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <button id="createBlog">Create Blog</button>
+                <a class="nav-link" href="/create/blog">Create blog<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/create/category">Create Category<span class="sr-only">(current)</span></a>
@@ -91,6 +93,11 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a th:each="category : ${categories}" class="dropdown-item" th:href="@{/blogOfCategories/{id}(id=${category.getId()})}"
                        th:value="${category.id}" th:text="${category.name}"></a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <div sec:authorize="isAuthenticated()" style="margin-left: 350px;font-size: 20px">
+                    <span sec:authentication="principal.username"></span> | <a th:href="@{/logout}">Logout</a>
                 </div>
             </li>
         </ul>

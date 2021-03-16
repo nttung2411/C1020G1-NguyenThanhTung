@@ -1,9 +1,9 @@
-package com.example.demo.models.service;
+package com.example.demo.models.services;
 
 import javax.persistence.*;
 
 @Entity
-public class RentTypeService {
+public class RentTypeService{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rentTypeId;

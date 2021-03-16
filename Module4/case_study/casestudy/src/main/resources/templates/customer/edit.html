@@ -1,9 +1,9 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head">
+<head th:replace="/layout :: head('Chỉnh Sửa Thông Tin Khách Hàng')">
 </head>
 <body>
-<div th:replace="/layout :: nav"></div>
+<div th:replace="/layout :: navbar"></div>
 <div class="container-fluid" style="padding: 0">
     <div class="row" style="margin-right: 40px">
         <div class="col-lg-4" style="padding: 0">
@@ -28,15 +28,22 @@
                             </td>
                         </tr>
                         <tr>
+                            <th>Mã khách hàng:</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{customerId}" disabled/>
+                            </td>
+                        </tr>
+                        <tr>
                             <th>Tên khách hàng:</th>
                             <td>
-                                <input type="text" th:field="*{customerName}" size="45"/>
+                                <input type="text" class="form-control" th:field="*{customerName}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Ngày sinh(Định dạng MM/dd/YYYY):</th>
                             <td>
-                                <input type="date" width="200" th:field="*{customerBirthDay}" style="height: 25px" />
+                                <input type="date" class="form-control" width="200" th:field="*{customerBirthDay}" style="height: 25px" required />
                             </td>
                         </tr>
                         <tr>
@@ -51,25 +58,28 @@
                         <tr>
                             <th>Số CMND:</th>
                             <td>
-                                <input type="text" th:field="*{customerIdCard}" size="45"/>
+                                <input type="text" class="form-control" th:field="*{customerIdCard}"/>
+                                <span th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Số điện thoại:</th>
                             <td>
-                                <input type="text" th:field="*{customerPhone}" size="45"/>
+                                <input type="text" class="form-control" th:field="*{customerPhone}"/>
+                                <span th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Email đăng ký:</th>
                             <td>
-                                <input type="text" th:field="*{customerEmail}" size="45"/>
+                                <input type="text" class="form-control" th:field="*{customerEmail}"/>
+                                <span th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Địa chỉ:</th>
                             <td>
-                                <input type="text" th:field="*{customerAddress}" size="45"/>
+                                <input type="text" class="form-control" th:field="*{customerAddress}" required/>
                             </td>
                         </tr>
                         <tr>

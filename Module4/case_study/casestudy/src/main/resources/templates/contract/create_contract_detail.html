@@ -1,0 +1,55 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head('Thêm Mới Hợp Đồng')">
+</head>
+<body>
+<div th:replace="/layout :: navbar"></div>
+<div class="container-fluid" style="padding: 0">
+    <div class="row" style="margin-right: 40px">
+        <div class="col-lg-4" style="padding: 0">
+            <div class="sidebar">
+                <img src="https://dulichtour.vn/wp-content/uploads/2017/05/CauRongDaNang.jpg" style="width: 95%;height:100%">
+            </div>
+        </div>
+
+        <div class="col-lg-8" style="padding: 0">
+            <div class="body" style="text-align: center">
+                <h2>Thêm mới hợp đồng</h2>
+                <form th:action="@{/contractdetail/create}" method="post" th:object="${contractDetail}">
+                    <table cellpadding="5">
+                        <tr>
+                            <th>Mã Hợp Đồng:</th>
+                            <td>
+                                <input type="text" th:field="*{contract.idContract}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Dịch vụ đi kèm:</th>
+                            <td>
+                                <select th:field="*{attachService.idAttachService}">
+                                    <option th:each="attachService : ${attachServices}" th:value="${attachService.idAttachService}"
+                                            th:text="${attachService.nameAttachService}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Số lượng:</th>
+                            <td>
+                                <input type="text" th:field="*{contractDetailQuantity}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Tạo mới"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer">
+</footer>
+</body>
+</html>

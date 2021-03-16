@@ -9,8 +9,14 @@ import java.util.List;
 
 public interface CustomerService {
     void saveCustomer(Customer customer);
+
     Page<Customer> findAll(Pageable pageable);
-    Customer findById(Integer id);
+
+    Customer findById(String id);
+
     List<CustomerType> findAllCustomerType();
-    void deleteById(Integer id);
+
+    void deleteById(String id);
+
+    List<Customer> findAllCustomerByName(String name);
 }

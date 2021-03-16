@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head('Danh Sách Dịch Vụ')">
+</head>
+<body>
+<div th:replace="/layout :: navbar">
+</div>
+<table class="table table-hover" style="margin-top: 10%">
+    <thead>
+    <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên Dịch Vụ</th>
+        <th scope="col">Loại Dịch Vụ</th>
+        <th scope="col">Kiểu Thuê</th>
+        <th scope="col">Chi Tiết</th>
+        <th scope="col">Chỉnh Sửa</th>
+        <th scope="col">Xoá</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="service,iState : ${listService}">
+        <td th:text="${iState.count}"></td>
+        <td th:text="${service.serviceName}"></td>
+        <td th:text="${service.typeService.serviceTypeName}"></td>
+        <td th:text="${service.rentTypeService.rentTypeName}"></td>
+
+        <td><button type="button" th:value="${service.serviceId}" class="btn btn-primary information" >Chi Tiết</button></td>
+
+        <td><a class="btn btn-primary"
+               th:href="@{/service/edit/{id}(id=${service.serviceId})}"
+               role="button">Chỉnh Sửa</a></td>
+
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    th:data-thing="${service.serviceId}" onclick="setIdToForm(this.getAttribute('data-thing'));">
+            Xoá
+        </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có muốn xoá dịch vụ này?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">
+                    <a onclick="submitFormDelete()"
+                       style="color: white;text-decoration: none">
+                        Đồng Ý</a></button>
+
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">
+                    <a style="color: white;text-decoration: none">
+                        Huỷ</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="/service/delete" id="formDelete">
+    <input type="hidden" name="idDelete" id="idBlogHidden"/>
+</form>
+<script>
+    function setIdToForm(id) {
+        document.getElementById("idBlogHidden").value = id;
+    }
+
+    function submitFormDelete() {
+        document.getElementById("formDelete").submit();
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".information").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/service/information/" + $(this).val(),
+                dataType:"HTML",
+                success:function (data) {
+                    $(".modal-body").html(data);
+                    $("#infoModal").modal('show');
+                }
+                }
+            )
+        })
+    });
+</script>
+<footer th:replace="/layout :: footer">
+</footer>
+</body>
+</html>

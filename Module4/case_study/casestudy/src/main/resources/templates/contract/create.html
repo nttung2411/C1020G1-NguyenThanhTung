@@ -1,0 +1,76 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head('Thêm Mới Hợp Đồng')">
+</head>
+<body>
+<div th:replace="/layout :: navbar"></div>
+<div class="container-fluid" style="padding: 0">
+    <div class="row" style="margin-right: 40px">
+        <div class="col-lg-4" style="padding: 0">
+            <div class="sidebar">
+                <img src="https://dulichtour.vn/wp-content/uploads/2017/05/CauRongDaNang.jpg" style="width: 95%;height:100%">
+            </div>
+        </div>
+
+        <div class="col-lg-8" style="padding: 0">
+            <div class="body" style="text-align: center">
+                <h2>Thêm mới hợp đồng</h2>
+                <form th:action="@{/contract/create}" method="post" th:object="${contract}">
+                    <table cellpadding="5">
+                        <tr>
+                            <th>Ngày bắt đầu(Định dạng MM/dd/YYYY):</th>
+                            <td>
+                                <input type="date" class="form-control" th:field="*{startDateContract}" style="height: 25px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ngày kết thúc(Định dạng MM/dd/YYYY):</th>
+                            <td>
+                                <input type="date" class="form-control" th:field="*{endDateContract}" style="height: 25px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Đặt Cọc:</th>
+                            <td>
+                                <input type="number" class="form-control" th:field="*{deposit}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tổng tiền:</th>
+                            <td>
+                                <input type="number" class="form-control" th:field="*{total}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mã Khách Hàng:</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{customer.customerId}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mã Nhân Viên:</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{employee.employeeId}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mã Dịch Vụ:</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{service.serviceId}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Tạo mới"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer">
+</footer>
+</body>
+</html>

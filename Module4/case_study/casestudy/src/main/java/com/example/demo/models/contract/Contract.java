@@ -2,9 +2,10 @@ package com.example.demo.models.contract;
 
 import com.example.demo.models.customer.Customer;
 import com.example.demo.models.employee.Employee;
-import com.example.demo.models.service.Service;
+import com.example.demo.models.services.Service;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Contract {
@@ -30,16 +31,26 @@ public class Contract {
     @JoinColumn(name = "service_id",referencedColumnName = "serviceId")
     private Service service;
 
+    @OneToMany(mappedBy = "contract")
+    private List<ContractDetail> contractDetails;
+
+    public List<ContractDetail> getContractDetails() {
+        return contractDetails;
+    }
+
+    public void setContractDetails(List<ContractDetail> contractDetails) {
+        this.contractDetails = contractDetails;
+    }
+
     public Contract() {
 
     }
 
-
-    public int getIdContract() {
+    public Integer getIdContract() {
         return idContract;
     }
 
-    public void setIdContract(int idContract) {
+    public void setIdContract(Integer idContract) {
         this.idContract = idContract;
     }
 
@@ -59,28 +70,16 @@ public class Contract {
         this.endDateContract = endDateContract;
     }
 
-    public double getDeposit() {
+    public Double getDeposit() {
         return deposit;
-    }
-
-    public void setDeposit(double deposit) {
-        this.deposit = deposit;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public void setIdContract(Integer idContract) {
-        this.idContract = idContract;
     }
 
     public void setDeposit(Double deposit) {
         this.deposit = deposit;
+    }
+
+    public Double getTotal() {
+        return total;
     }
 
     public void setTotal(Double total) {

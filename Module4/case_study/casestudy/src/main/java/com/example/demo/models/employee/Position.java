@@ -1,5 +1,8 @@
 package com.example.demo.models.employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,6 +15,7 @@ public class Position {
     private String positionName;
 
     @OneToMany(mappedBy = "position" , cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Employee> employees;
 
     public Integer getPositionId() {

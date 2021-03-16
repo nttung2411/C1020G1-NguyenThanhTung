@@ -1,0 +1,106 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head('Thêm Mới Villa')">
+</head>
+<body>
+<div th:replace="/layout :: navbar">
+</div>
+
+<div class="container-fluid" style="padding: 0">
+    <div class="row" style="margin-right: 40px">
+        <div class="col-lg-4" style="padding: 0">
+            <div class="sidebar">
+                <img src="https://dulichtour.vn/wp-content/uploads/2017/05/CauRongDaNang.jpg"
+                     style="width: 95%;height:100%">
+            </div>
+        </div>
+
+        <div class="col-lg-8" style="padding: 0">
+            <div class="body" style="text-align: center">
+                <h2>Thêm mới Villa</h2>
+                <form method="post" id="validate" th:action="@{/villa/create}" th:object="${villa}">
+                    <table cellpadding="5">
+                        <tr>
+                            <th>Mã Dịch Vụ (DV-XXXX):</th>
+                            <td>
+                                <input th:field="*{serviceId}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('serviceId')}" th:errors="*{serviceId}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tên Villa:</th>
+                            <td>
+                                <input th:field="*{serviceName}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('serviceName')}" th:errors="*{serviceName}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <th>Tiêu chuẩn phòng:</th>
+                            <td>
+                                <select th:field="*{standardRoom}">
+                                    <option value="Standard">Standard</option>
+                                    <option value="Delux">Delux</option>
+                                    <option value="Superior">Superior</option>
+                                    <option value="Suite">Suite</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Diện tích:</th>
+                            <td>
+                                <input type="number" th:field="*{area}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Diện tích hồ bơi:</th>
+                            <td>
+                                <input type="number" th:field="*{poolArea}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('poolArea')}" th:errors="*{poolArea}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Số tầng:</th>
+                            <td>
+                                <input type="number" th:field="*{floor}" class="form-control" digits required/>
+                                <span th:if="${#fields.hasErrors('floor')}" th:errors="*{floor}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Sức chứa tối đa:</th>
+                            <td>
+                                <input type="number" th:field="*{maxPeople}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('maxPeople')}" th:errors="*{maxPeople}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Giá dịch vụ:</th>
+                            <td>
+                                <input type="number" th:field="*{cost}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Kiểu Thuê:</th>
+                            <td>
+                                <select th:field="*{rentTypeService}">
+                                    <option th:each="rentType : ${rentTypes}" th:value="${rentType.rentTypeId}"
+                                            th:text="${rentType.rentTypeName}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Tạo mới"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer">
+</footer>
+</body>
+</html>

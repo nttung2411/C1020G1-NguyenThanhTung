@@ -1,4 +1,4 @@
-package com.example.demo.models.service;
+package com.example.demo.models.services;
 
 import javax.persistence.*;
 

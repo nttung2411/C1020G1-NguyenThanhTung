@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head('Danh Sách Khách Hàng')">
+<head th:replace="/layout :: head('Danh Sách Dịch Vụ')">
 </head>
 <body>
 <div th:replace="/layout :: navbar">
@@ -10,28 +10,33 @@
     <thead>
     <tr>
         <th scope="col">STT</th>
-        <th scope="col">Tên khách hàng</th>
-        <th scope="col">Số điện thoại</th>
-        <th scope="col">Địa chỉ</th>
+        <th scope="col">Tên Nhân Viên</th>
+        <th scope="col">Ngày Sinh</th>
+        <th scope="col">Giới Tính</th>
+        <th scope="col">Trình Độ</th>
+        <th scope="col">Chức Vụ</th>
+        <th scope="col">Bộ Phận</th>
         <th scope="col">Chỉnh Sửa</th>
         <th scope="col">Xoá</th>
     </tr>
     </thead>
-    <tbody id="listCustomer">
-    <tr th:each="customer,iState : ${customerList}">
+    <tbody id="listEmployee">
+    <tr th:each="employee,iState : ${listEmployee}">
         <td th:text="${iState.count}"></td>
-        <td th:text="${customer.customerName}"></td>
-        <td th:text="${customer.customerPhone}"></td>
-        <td th:text="${customer.customerAddress}"></td>
+        <td th:text="${employee.employeeName}"></td>
+        <td th:text="${employee.employeeBirthDay}"></td>
+        <td th:text="${employee.employeeGender}"></td>
+        <td th:text="${employee.education.educationName}"></td>
+        <td th:text="${employee.position.positionName}"></td>
+        <td th:text="${employee.division.divisionName}"></td>
         <td><a class="btn btn-primary"
-               th:href="@{/customer/edit/{id}(id=${customer.customerId})}"
+               th:href="@{/employee/edit/{id}(id=${employee.employeeId})}"
                role="button">Chỉnh Sửa</a></td>
         </td>
-        <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    th:data-thing="${customer.customerId}" onclick="setIdToForm(this.getAttribute('data-thing'));">
-                Xoá
-            </button>
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    th:data-thing="${employee.employeeId}" onclick="setIdToForm(this.getAttribute('data-thing'));">
+            Xoá
+        </button>
         </td>
     </tr>
     </tbody>
@@ -47,7 +52,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Bạn có muốn xoá khách hàng này?
+                Bạn có muốn xoá dịch vụ này?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">
@@ -63,10 +68,9 @@
         </div>
     </div>
 </div>
-<form action="/customer/delete" id="formDelete">
-    <input type="hidden" name="id" id="idBlogHidden"/>
+<form action="/employee/delete" id="formDelete">
+    <input type="hidden" name="idDelete" id="idBlogHidden"/>
 </form>
-
 <script>
     function setIdToForm(id) {
         document.getElementById("idBlogHidden").value = id;
@@ -77,6 +81,8 @@
     }
 </script>
 
+
+
 <script>
     $(document).ready(function () {
         $("#search").on("keyup",function () {
@@ -84,27 +90,30 @@
 
             $.ajax({
                 type: "GET",
-                url: "/customer/search?name=" + name,
+                url: "/employee/search?name=" + name,
                 dataType:"Json",
                 contentType: "application/json; charset=utf8",
-                success: function (customerList) {
+                success: function (employeeList) {
                     let result = "";
-                    for (let i = 0; i < customerList.length; i++) {
-                        let id = customerList[i].customerId;
-                        console.log(customerList[i].customerName);
+                    for (let i = 0; i < employeeList.length; i++) {
+                        let id = employeeList[i].employeeId;
+                        console.log(employeeList[i].employeeName);
                         result += "<tr>";
                         result += "<td>" + (i+1) + "</td>";
-                        result += "<td>" + customerList[i].customerName + "</td>";
-                        result += "<td>" + customerList[i].customerPhone + "</td>";
-                        result += "<td>" + customerList[i].customerAddress + "</td>";
-                        result += "<td><a class=\"btn btn-primary\" role=\"button\" href='/customer/edit/"
+                        result += "<td>" + employeeList[i].employeeName + "</td>";
+                        result += "<td>" + employeeList[i].employeeBirthDay + "</td>";
+                        result += "<td>" + employeeList[i].employeeGender + "</td>";
+                        result += "<td>" + employeeList[i].education.educationName + "</td>";
+                        result += "<td>" + employeeList[i].position.positionName + "</td>";
+                        result += "<td>" + employeeList[i].division.divisionName + "</td>";
+                        result += "<td><a class=\"btn btn-primary\" role=\"button\" href='/employee/edit/"
                             + id + "'>Chỉnh Sửa</a></td>";
                         result += "<td><button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModal\"" +
                             "  data-thing='" + id +
                             "' onclick=\"setIdToForm(this.getAttribute('data-thing'));\"'>Xoá</button></td>";
                         result += "</tr>";
                     }
-                    $("#listCustomer").html(result);
+                    $("#listEmployee").html(result);
                 }
             });
         });

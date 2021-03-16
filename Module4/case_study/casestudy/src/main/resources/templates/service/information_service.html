@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head('Thêm Mới House')">
+</head>
+<body>
+<form th:object="${service}">
+    <table cellpadding="5">
+        <tr>
+            <th>ID Dịch Vụ (DV-XXXX):</th>
+            <td>
+                <p th:text="${service.serviceId}"></p>
+            </td>
+        </tr>
+        <tr>
+            <th>Tên Service:</th>
+            <td>
+                <p th:text="${service.serviceName}"></p>
+            </td>
+        </tr>
+        <tr>
+        <tr th:if="${service.standardRoom}">
+            <th>Tiêu chuẩn phòng:</th>
+            <td>
+                <p th:text="${service.standardRoom}"></p>
+            </td>
+        </tr>
+        <tr>
+            <th>Diện tích:</th>
+            <td>
+                <p th:text="${service.area}"></p>
+            </td>
+        </tr>
+        <tr th:if="${service.poolArea}">
+            <th>Diện tích hồ bơi:</th>
+            <td>
+                <p th:text="${service.poolArea}"></p>
+            </td>
+        </tr>
+        <tr th:if="${service.floor}">
+            <th>Số tầng:</th>
+            <td>
+                <p th:text="${service.floor}"></p>
+            </td>
+        </tr>
+        <tr>
+            <th>Sức chứa tối đa:</th>
+            <td>
+                <p th:text="${service.maxPeople}"></p>
+            </td>
+        </tr>
+        <tr>
+            <th>Giá dịch vụ:</th>
+            <td>
+                <p th:text="${service.cost}"></p>
+            </td>
+        </tr>
+        <tr>
+            <th>Kiểu Thuê:</th>
+            <td>
+                <p th:text="${service.rentTypeService.rentTypeName}"></p>
+            </td>
+        </tr>
+        <tr th:if="${service.descriptionOther}">
+            <th>Dịch vụ miễn phí:</th>
+            <td>
+                <p th:text="${service.descriptionOther}"></p>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

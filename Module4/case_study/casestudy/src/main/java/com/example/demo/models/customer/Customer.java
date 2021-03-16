@@ -1,37 +1,55 @@
 package com.example.demo.models.customer;
 
+import com.example.demo.models.contract.Contract;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer customerId;
-    @OneToOne
+    @Pattern(regexp = "^(KH-)\\d{4}$",message = "Định dạng KH-XXXX")
+    private String customerId;
+    @ManyToOne
     @JoinColumn(name = "customer_type_id" , referencedColumnName = "customerTypeId" , nullable = false)
     private CustomerType customerType;
+
+    @Pattern(regexp = "([\\p{Lu}][\\p{Ll}]{0,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){1,10}$",message = "Không được bỏ trống hoặc chứa số")
     @Column(nullable = false)
     private String customerName;
+
     @Column(nullable = false)
     private String customerBirthDay;
+
     @Column(nullable = false)
     private String customerGender;
+
+    @Pattern(regexp = "^\\d{9}$",message = "CMND 9 số")
     @Column(nullable = false)
     private String customerIdCard;
+
+    @Pattern(regexp = "^(090|091|[(]84[+][)]90|[(]84+[)]91)\\\\d{7}$",message = "Đúng định dạng 090|091|(84+)")
     @Column(nullable = false)
     private String customerPhone;
+
+    @Email(message = "Email phải đúng định dạng")
     private String customerEmail;
     private String customerAddress;
+
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    List<Contract> contracts;
 
     public Customer(){
 
     }
 
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

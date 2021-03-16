@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findById(Integer id) {
+    public Customer findById(String id) {
         return customerRepository.findById(id).orElse(null);
     }
 
@@ -42,7 +42,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(String id) {
         customerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Customer> findAllCustomerByName(String name) {
+        return customerRepository.findAllByCustomerNameContaining(name);
     }
 }

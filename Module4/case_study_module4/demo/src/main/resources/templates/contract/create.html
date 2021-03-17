@@ -1,0 +1,91 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head('Thêm Mới Hợp Đồng')">
+</head>
+<body>
+<div th:replace="/layout :: navbar">
+</div>
+<div class="container-fluid" style="padding: 0">
+    <div class="row" style="margin-right: 40px">
+        <div class="col-lg-4" style="padding: 0">
+            <div class="sidebar">
+                <img src="https://dulichtour.vn/wp-content/uploads/2017/05/CauRongDaNang.jpg" style="width: 80%;height:100%">
+            </div>
+        </div>
+
+        <div class="col-lg-8" style="padding: 0">
+            <div class="body" style="text-align: center">
+                <h2>Thêm mới hợp đồng</h2>
+                <form th:action="@{/contract/create}" method="post" th:object="${contract}">
+                    <table cellpadding="5">
+                        <tr>
+                            <th>Ngày bắt đầu:</th>
+                            <td>
+                                <input type="date" class="form-control" th:field="*{startDateContract}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ngày kết thúc:</th>
+                            <td>
+                                <input type="date" class="form-control" th:field="*{endDateContract}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Đặt Cọc:</th>
+                            <td>
+                                <input type="number" class="form-control" th:field="*{deposit}"  size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tổng tiền:</th>
+                            <td>
+                                <input type="number" class="form-control" th:field="*{total}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mã Khách Hàng:</th>
+                            <td>
+                                <select th:field="*{customer.customerId}" class="js-example-basic-single form-control">
+                                    <option th:each="customer : ${listCustomer}" th:value="${customer.customerId}"
+                                            th:text="${customer.customerId}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mã Nhân Viên:</th>
+                            <td>
+                                <select th:field="*{employee.employeeId}" class="js-example-basic-single form-control">
+                                    <option th:each="employee : ${listEmployee}" th:value="${employee.employeeId}"
+                                            th:text="${employee.employeeId}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mã Dịch Vụ:</th>
+                            <td>
+                                <select th:field="*{service.serviceId}" class="js-example-basic-single form-control">
+                                    <option th:each="service : ${listService}" th:value="${service.serviceId}"
+                                            th:text="${service.serviceId}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Tạo mới"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer">
+</footer>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/layout :: head">
+</head>
+<body>
+
+<div th:replace="/layout :: navbar">
+</div>
+<div style="margin-left: 35%;margin-top: 15%">
+    <h2 style="margin-left: 40px;color: yellow">Thêm mới hợp đồng</h2>
+    <br>
+    <form th:action="@{/contractCreate}" method="post" th:object="${contract}">
+        <table cellpadding="5">
+            <tr>
+                <th>Ngày bắt đầu:</th>
+                <td>
+                    <input type="date" class="form-control" th:field="*{startDateContract}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Ngày kết thúc:</th>
+                <td>
+                    <input type="date" class="form-control" th:field="*{endDateContract}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Đặt Cọc:</th>
+                <td>
+                    <input type="number" class="form-control" th:field="*{deposit}" size="45"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Tổng tiền:</th>
+                <td>
+                    <input type="number" class="form-control" th:field="*{total}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Mã Khách Hàng:</th>
+                <td>
+                    <select th:field="*{customer.customerId}" class="js-example-basic-single form-control">
+                        <option th:each="customer : ${listCustomer}" th:value="${customer.customerId}"
+                                th:text="${customer.customerId}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Mã Nhân Viên:</th>
+                <td>
+                    <select th:field="*{employee.employeeId}" class="js-example-basic-single form-control">
+                        <option th:each="employee : ${listEmployee}" th:value="${employee.employeeId}"
+                                th:text="${employee.employeeId}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Mã Dịch Vụ:</th>
+                <td>
+                    <select th:field="*{service.serviceId}" class="js-example-basic-single form-control">
+                        <option th:each="service : ${listService}" th:value="${service.serviceId}"
+                                th:text="${service.serviceId}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Tạo mới"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div th:replace="/layout :: script">
+</div>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+</body>
+
+</html>

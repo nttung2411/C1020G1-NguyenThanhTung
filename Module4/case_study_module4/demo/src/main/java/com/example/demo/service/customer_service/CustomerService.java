@@ -18,5 +18,7 @@ public interface CustomerService {
 
     void deleteById(String id);
 
-    List<Customer> findAllCustomerByName(String name);
+    Page<Customer> findAllCustomerByName(Pageable pageable,String name);
+
+    String checkDuplicate(Customer customer);
 }

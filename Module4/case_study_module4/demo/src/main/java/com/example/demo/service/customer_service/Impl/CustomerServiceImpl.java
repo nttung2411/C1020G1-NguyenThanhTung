@@ -47,7 +47,21 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> findAllCustomerByName(String name) {
-        return customerRepository.findAllByCustomerNameContaining(name);
+    public Page<Customer> findAllCustomerByName(Pageable pageable,String name) {
+        return customerRepository.findAllByCustomerNameContaining(pageable,name);
+    }
+
+    @Override
+    public String checkDuplicate(Customer customer) {
+        List<Customer> customerList = customerRepository.findAll();
+        for(Customer customerLoop : customerList){
+            if (customerLoop.getCustomerEmail().equals(customer.getCustomerEmail())){
+                return "Email đã tồn tại";
+            } else if (customerLoop.getCustomerId().equals(customer.getCustomerId())){
+                return "Mã khách hàng đã tồn tại";
+            }
+        }
+
+        return null;
     }
 }

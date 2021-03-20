@@ -4,6 +4,7 @@ import com.example.demo.models.customer.Customer;
 import com.example.demo.models.customer.CustomerType;
 import com.example.demo.service.customer_service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ public class CustomerController {
     CustomerService customerService;
 
 
+
     @ModelAttribute("customerTypes")
     public List<CustomerType> customerTypeList(){
         return customerService.findAllCustomerType();
@@ -36,8 +38,13 @@ public class CustomerController {
     }
 
     @PostMapping("/customer/create")
-    public String saveCustomer(@Validated @ModelAttribute Customer customer, BindingResult bindingResult){
+    public String saveCustomer(@Validated @ModelAttribute Customer customer, BindingResult bindingResult,Model model){
         if(bindingResult.hasFieldErrors()){
+            return "customer/create";
+        }
+        String checkDuplicate =customerService.checkDuplicate(customer);
+        if(checkDuplicate != null){
+            model.addAttribute("messageDuplicate",checkDuplicate);
             return "customer/create";
         }
         customerService.saveCustomer(customer);
@@ -62,6 +69,13 @@ public class CustomerController {
             model.addAttribute("customer",customer);
             return "/customer/edit";
         }
+
+        String checkDuplicate = customerService.checkDuplicate(customer);
+        if(checkDuplicate != null && !checkDuplicate.equals("Mã khách hàng đã tồn tại")){
+            model.addAttribute("messageDuplicate",checkDuplicate);
+            return "/customer/edit";
+        }
+
         customerService.saveCustomer(customer);
         return "redirect:/customer/showlist";
     }
@@ -72,10 +86,11 @@ public class CustomerController {
         return "redirect:/customer/showlist";
     }
 
-    @GetMapping(value = "/customer/search",produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity<List<Customer>> searchCustomer(@RequestParam String name){
-        return new ResponseEntity<>(customerService.findAllCustomerByName(name), HttpStatus.OK);
+    @GetMapping("/customer/search")
+    public String searchCustomer(@RequestParam("nameCustomer") String name,Model model,@PageableDefault(size = 5) Pageable pageable){
+        model.addAttribute("listCustomer",customerService.findAllCustomerByName(pageable,name));
+        return "/customer/showlist";
     }
+
+
 }

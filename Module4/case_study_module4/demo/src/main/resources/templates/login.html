@@ -7,28 +7,28 @@
 </div>
 <div th:if="${#request.getParameter('error') == 'true'}"
      style="color:red;margin:10px 0px;">
-    Login Failed!!!<br />
+    Sai tài khoản hoặc mật khẩu!!!<br />
 </div>
 
-<h3>Đăng nhập tài khoản:</h3>
-<form name='f' th:action="@{/check_login}" method='POST'>
-    <table>
-        <tr>
-            <td>Tên Đăng Nhập:</td>
-            <td><input type='text' name='username' value=''></td>
-        </tr>
-        <tr>
-            <td>Mật Khẩu:</td>
-            <td><input type='password' name='password' /></td>
-        </tr>
-        <tr>
-            <td>Lưu tài khoản?</td>
-            <td><input type="checkbox" name="remember-me" /></td>
-        </tr>
-        <tr>
-            <td><input name="submit" type="submit" value="Đăng nhập" /></td>
-        </tr>
-    </table>
+
+<form name='f' th:action="@{/check_login}" method="Post" style="margin-right: 40%;margin-left: 35%;margin-top: 5%">
+    <h3>Đăng nhập tài khoản:</h3>
+    <div class="form-group">
+        <label>Tên Đăng Nhập</label>
+        <input type="text" class="form-control" placeholder="User Name..." name="username" >
+    </div>
+    <div class="form-group">
+        <label>Mật Khẩu</label>
+        <input type="password" class="form-control" placeholder="Your Password.." name="password">
+    </div>
+    <div class="form-group">
+        <label>Lưu tài khoản?</label>
+        <input type="checkbox" name="remember-me" />
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btnSubmit" value="Đăng Nhập" />
+    </div>
 </form>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

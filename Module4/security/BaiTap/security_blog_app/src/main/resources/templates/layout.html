@@ -96,7 +96,7 @@
                 </div>
             </li>
             <li class="nav-item active">
-                <div sec:authorize="isAuthenticated()" style="margin-left: 350px;font-size: 20px">
+                <div sec:authorize="isAnonymous()" style="margin-left: 350px;font-size: 20px">
                     <span sec:authentication="principal.username"></span> | <a th:href="@{/logout}">Logout</a>
                 </div>
             </li>

@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head('Danh Sách Dịch Vụ')">
+<head th:replace="/layout :: head('List Nhân Viên')">
 </head>
 <body>
 <div th:replace="/layout :: navbar">
 </div>
-<input name="name" type="text" id="search" placeholder="Search by name"/>
+
 <table class="table table-hover" style="margin-top: 10%">
     <thead>
+    <tr>
+        <th style="border: 0">
+            <form action="/employee/search">
+                <input name="nameEmployee" type="text" placeholder="Tìm kiếm..."/>
+                <input type="submit" value="Tìm">
+            </form>
+        </th>
+    </tr>
     <tr>
         <th scope="col">STT</th>
         <th scope="col">Tên Nhân Viên</th>
@@ -33,10 +41,11 @@
                th:href="@{/employee/edit/{id}(id=${employee.employeeId})}"
                role="button">Chỉnh Sửa</a></td>
         </td>
-        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                     th:data-thing="${employee.employeeId}" onclick="setIdToForm(this.getAttribute('data-thing'));">
-            Xoá
-        </button>
+                Xoá
+            </button>
         </td>
     </tr>
     </tbody>
@@ -52,7 +61,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Bạn có muốn xoá dịch vụ này?
+                Bạn có muốn xoá nhân viên này?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">
@@ -80,45 +89,23 @@
         document.getElementById("formDelete").submit();
     }
 </script>
-
-
-
-<script>
-    $(document).ready(function () {
-        $("#search").on("keyup",function () {
-            let name = document.getElementById("search").value;
-
-            $.ajax({
-                type: "GET",
-                url: "/employee/search?name=" + name,
-                dataType:"Json",
-                contentType: "application/json; charset=utf8",
-                success: function (employeeList) {
-                    let result = "";
-                    for (let i = 0; i < employeeList.length; i++) {
-                        let id = employeeList[i].employeeId;
-                        console.log(employeeList[i].employeeName);
-                        result += "<tr>";
-                        result += "<td>" + (i+1) + "</td>";
-                        result += "<td>" + employeeList[i].employeeName + "</td>";
-                        result += "<td>" + employeeList[i].employeeBirthDay + "</td>";
-                        result += "<td>" + employeeList[i].employeeGender + "</td>";
-                        result += "<td>" + employeeList[i].education.educationName + "</td>";
-                        result += "<td>" + employeeList[i].position.positionName + "</td>";
-                        result += "<td>" + employeeList[i].division.divisionName + "</td>";
-                        result += "<td><a class=\"btn btn-primary\" role=\"button\" href='/employee/edit/"
-                            + id + "'>Chỉnh Sửa</a></td>";
-                        result += "<td><button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModal\"" +
-                            "  data-thing='" + id +
-                            "' onclick=\"setIdToForm(this.getAttribute('data-thing'));\"'>Xoá</button></td>";
-                        result += "</tr>";
-                    }
-                    $("#listEmployee").html(result);
-                }
-            });
-        });
-    });
-</script>
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" th:href="@{'/employee/list'(page=${listEmployee.number - 1})}"
+               th:if="${listEmployee.hasPrevious()}">Trước</a>
+        </li>
+        <li class="page-item"><a class="page-link" th:text="${listEmployee.number}"
+                                 th:if="${listEmployee.hasPrevious()}"></a></li>
+        <li class="page-item active"><a class="page-link" th:text="${listEmployee.number + 1}"></a></li>
+        <li class="page-item"><a class="page-link" th:text="${listEmployee.number + 2}"
+                                 th:if="${listEmployee.hasNext()}"
+                                 th:href="@{'/employee/list'(page=${listEmployee.number + 1})}"></a></li>
+        <li class="page-item"><a class="page-link" th:href="@{'/employee/list'(page=${listEmployee.number + 1})}"
+                                 th:if="${listEmployee.hasNext()}">Sau</a>
+        </li>
+    </ul>
+</nav>
 <footer th:replace="/layout :: footer">
 </footer>
 </body>

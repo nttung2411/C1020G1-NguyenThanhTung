@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <style>
+        body{
+            background-image: url(img/background/background3.jpg);
+        }
+        th,td{
+            color: #fff7ff;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gym Template">
+    <meta name="keywords" content="Gym, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Furama Resort</title>
+
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div th:fragment="navbar">
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-1">
+                    <div class="logo">
+                        <h2 style="margin-left: 30px;color: #ff9400">Furama</h2>
+                    </div>
+                </div>
+                <div class="col-lg-11">
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="/" style="color: #ff9400;font-size: 20px">Home</a></li>
+
+                            <li sec:authorize="isAnonymous()">
+                                <a class="nav-link" th:href="@{/serviceList}" style="color: #ff9400;font-size: 20px">Dịch
+                                    Vụ</a>
+                            </li>
+
+                            <li sec:authorize="isAuthenticated()">
+                                <a href="#" style="color: #ff9400;font-size: 20px">Khách Hàng</a>
+                                <ul class="dropdown">
+                                    <li><a th:href="@{/customerCreate}">Thêm Mới</a></li>
+                                    <li><a th:href="@{/customerShowlist}">Danh sách</a></li>
+                                </ul>
+                            </li>
+
+                            <li sec:authorize="isAuthenticated()">
+                                <a href="#" style="color: #ff9400;font-size: 20px">Dịch Vụ</a>
+                                <ul class="dropdown">
+                                    <li><a th:href="@{/serviceList}">Danh Sách Dịch Vụ</a></li>
+                                    <li style="color: white"><a href="#">Thêm dịch vụ</a></li>
+                                    <ul>
+                                        <li><a th:href="@{/villaCreate}">Villa</a></li>
+                                        <li><a th:href="@{/houseCreate}">House</a></li>
+                                        <li><a th:href="@{/roomCreate}">Room</a></li>
+                                    </ul>
+                                </ul>
+                            </li>
+
+                            <li sec:authorize="isAuthenticated()">
+                                <a href="#" style="color: #ff9400;font-size: 20px">Nhân Viên</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/employeeList}">Danh Sách</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/employeeCreate}">Thêm Mới</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li sec:authorize="isAuthenticated()">
+                                <a href="#" style="color: #ff9400;font-size: 20px">Hợp Đồng</a>
+                                <ul class="dropdown">
+                                    <li><a th:href="@{/contractCreate}">Thêm Mới Hợp Đồng</a></li>
+                                    <li><a th:href="@{/contractdetailCreate}">Thêm Mới Hợp Đồng Chi Tiết</a></li>
+                                    <li><a th:href="@{/contractList}">Danh Sách Hợp Đồng</a></li>
+                                </ul>
+                            </li>
+
+                            <li sec:authorize="isAnonymous()">
+                                <a th:href="@{/login}" class="login" style="color: #ff9400;font-size: 20px ">Đăng
+                                    Nhập</a>
+                            </li>
+
+                            <li sec:authorize="isAuthenticated()">
+                                <a href="#" style="color: #ff9400;font-size: 20px"
+                                   sec:authentication="principal.username"></a>
+                                <ul class="dropdown">
+                                    <li><a th:href="@{/logout}" class="login">Đăng xuất</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="canvas-open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+</div>
+<div th:fragment="script">
+
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+</div>
+</body>
+</html>

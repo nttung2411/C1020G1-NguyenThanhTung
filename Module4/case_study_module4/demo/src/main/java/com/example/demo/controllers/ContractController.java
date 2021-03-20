@@ -36,6 +36,7 @@ public class ContractController{
     @Autowired
     ServicesService servicesService;
 
+
     @ModelAttribute("attachServices")
     public List<AttachService> findAllAttachService(){
         return contractService.findAllAttachService();

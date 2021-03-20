@@ -14,9 +14,11 @@
 
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center">
-                <h2>Thêm mới Nhân Viên</h2>
-                <form th:action="@{/employee/create}" method="post" th:object="${employee}">
+                <h2>Chỉnh Sửa Thông Tin Nhân Viên</h2>
+                <h4 th:text="${messageDuplicate}" style="color: red"></h4>
+                <form th:action="@{/employee/edit}" method="post" th:object="${employee}">
                     <input type="hidden" th:field="*{employeeId}"/>
+                    <input type="hidden" th:field="*{furamaUser}"/>
                     <table cellpadding="5">
                         <tr>
                             <th>Mã Nhân Viên:</th>
@@ -35,12 +37,13 @@
                             <th>Ngày sinh(Định dạng MM/dd/YYYY):</th>
                             <td>
                                 <input type="date" class="form-control" width="200" th:field="*{employeeBirthDay}" style="height: 25px" required/>
+                                <span th:if="${#fields.hasErrors('employeeBirthDay')}" th:errors="*{employeeBirthDay}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Giới tính:</th>
                             <td>
-                                <select th:field="*{employeeGender}">
+                                <select th:field="*{employeeGender}" class="form-control">
                                     <option value="Nam">Nam</option>
                                     <option value="Nữ">Nữ</option>
                                 </select>
@@ -84,7 +87,7 @@
                         <tr>
                             <th>Trình Độ:</th>
                             <td>
-                                <select th:field="*{education}">
+                                <select th:field="*{education}" class="form-control">
                                     <option th:each="education : ${listEducation}" th:value="${education.educationId}"
                                             th:text="${education.educationName}"></option>
                                 </select>
@@ -93,7 +96,7 @@
                         <tr>
                             <th>Chức Vụ:</th>
                             <td>
-                                <select th:field="*{position}">
+                                <select th:field="*{position}" class="form-control">
                                     <option th:each="position : ${listPosition}" th:value="${position.positionId}"
                                             th:text="${position.positionName}"></option>
                                 </select>
@@ -102,7 +105,7 @@
                         <tr>
                             <th>Bộ Phận:</th>
                             <td>
-                                <select th:field="*{division}">
+                                <select th:field="*{division}" class="form-control">
                                     <option th:each="division : ${listDivision}" th:value="${division.divisionId}"
                                             th:text="${division.divisionName}"></option>
                                 </select>

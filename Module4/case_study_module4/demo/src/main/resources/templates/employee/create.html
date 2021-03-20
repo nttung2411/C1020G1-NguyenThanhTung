@@ -15,6 +15,7 @@
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center">
                 <h2>Thêm mới Nhân Viên</h2>
+                <h4 th:text="${messageDuplicate}" style="color: red"></h4>
                 <form th:action="@{/employee/create}" method="post" th:object="${employee}">
                     <table cellpadding="5">
                         <tr>
@@ -35,6 +36,7 @@
                             <th>Ngày sinh(Định dạng MM/dd/YYYY):</th>
                             <td>
                                 <input type="date" class="form-control" width="200" th:field="*{employeeBirthDay}" style="height: 25px" required />
+                                <span th:if="${#fields.hasErrors('employeeBirthDay')}" th:errors="*{employeeBirthDay}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

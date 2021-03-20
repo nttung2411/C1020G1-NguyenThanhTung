@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/layout :: head">
+
+</head>
+
+<body>
+    <div th:replace="/layout :: navbar">
+    </div>
+
+    <section class="hero-section">
+        <div class="hs-slider owl-carousel">
+            <div class="hs-item set-bg" data-setbg="img/background/background.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                            <div class="hi-text">
+                                <span style="color: #05b4ff">Nếu bạn muốn massage "mệt"</span>
+                                <h1 style="color: #fffe66">Chào mừng đến với <strong>furama</strong></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-item set-bg" data-setbg="img/background/background2.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                            <div class="hi-text">
+                                <span style="color: #ff56e9">Nếu bạn muốn massage "mệt"</span>
+                                <h1 style="color: #fffe66">Chào mừng đến với <strong>furama</strong></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<div th:replace="/layout :: script">
+
+</div>
+</html>

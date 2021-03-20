@@ -11,11 +11,14 @@ import java.util.List;
 
 public interface EmployeeService {
     void saveEmployee(Employee employee);
+    void editEmployee(Employee employee);
     Page<Employee> findAllEmployee(Pageable pageable);
     void deleteEmployee(String id);
     Employee findById(String id);
     List<Division> findAllDivision();
     List<Position> findAllPosition();
     List<Education> findAllEducation();
-    List<Employee> findEmployeeByName(String name);
+    Page<Employee> findEmployeeByName(Pageable pageable,String name);
+    Employee findByUserName(String name);
+    String checkDuplicate(Employee employee);
 }

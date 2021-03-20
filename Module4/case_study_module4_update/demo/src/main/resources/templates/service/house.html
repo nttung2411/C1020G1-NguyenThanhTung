@@ -1,0 +1,91 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout :: head">
+</head>
+<body>
+
+<div th:replace="/layout :: navbar">
+</div>
+<div style="margin-left: 35%;margin-top: 15%">
+    <h2 style="margin-left: 40px;color: yellow">Thêm Mới House</h2>
+                <form method="post" th:action="@{/houseCreate}" th:object="${house}">
+                    <table cellpadding="5">
+                        <tr>
+                            <th>ID Dịch Vụ(DV-XXXX):</th>
+                            <td>
+                                <input th:field="*{serviceId}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('serviceId')}" th:errors="*{serviceId}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tên House:</th>
+                            <td>
+                                <input th:field="*{serviceName}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('serviceName')}" th:errors="*{serviceName}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <th>Tiêu chuẩn phòng:</th>
+                            <td>
+                                <select th:field="*{standardRoom}">
+                                    <option value="Standard">Standard</option>
+                                    <option value="Delux">Delux</option>
+                                    <option value="Superỉor">Superỉor</option>
+                                    <option value="Suite">Suite</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Diện tích:</th>
+                            <td>
+                                <input th:field="*{area}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Số tầng:</th>
+                            <td>
+                                <input  th:field="*{floor}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('floor')}" th:errors="*{floor}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Sức chứa tối đa:</th>
+                            <td>
+                                <input th:field="*{maxPeople}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('maxPeople')}" th:errors="*{maxPeople}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Giá dịch vụ:</th>
+                            <td>
+                                <input th:field="*{cost}" class="form-control"/>
+                                <span th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}" class="text-danger help-block" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Kiểu Thuê:</th>
+                            <td>
+                                <select th:field="*{rentTypeService}">
+                                    <option th:each="rentType : ${rentTypes}" th:value="${rentType.rentTypeId}"
+                                            th:text="${rentType.rentTypeName}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Tạo mới"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="/layout :: script"></div>
+</body>
+</html>

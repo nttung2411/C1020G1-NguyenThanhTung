@@ -44,6 +44,7 @@
                             <th>Ngày sinh(Định dạng MM/dd/YYYY):</th>
                             <td>
                                 <input type="date" class="form-control" width="200" th:field="*{customerBirthDay}" style="height: 25px" required />
+                                <span th:if="${#fields.hasErrors('customerBirthDay')}" th:errors="*{customerBirthDay}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

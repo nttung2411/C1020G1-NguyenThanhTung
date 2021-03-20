@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+
+<div th:replace="/layout :: navbar">
+</div>
+<div style="margin-left: 35%;margin-top: 15%">
+    <h2 style="margin-left: 40px;color: yellow">Thêm Mới Hợp Đồng Chi Tiết</h2>
+    <br>
+    <form th:action="@{/contractdetailCreate}" method="post" th:object="${contractDetail}">
+        <table cellpadding="5">
+            <tr>
+                <th>Mã Hợp Đồng:</th>
+                <td>
+                    <input type="text" th:field="*{contract.idContract}" size="45"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Dịch vụ đi kèm:</th>
+                <td>
+                    <select th:field="*{attachService.idAttachService}">
+                        <option th:each="attachService : ${attachServices}" th:value="${attachService.idAttachService}"
+                                th:text="${attachService.nameAttachService}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Số lượng:</th>
+                <td>
+                    <input type="text" th:field="*{contractDetailQuantity}" size="45"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Tạo mới"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div th:replace="/layout :: script">
+
+</div>
+</body>
+</html>

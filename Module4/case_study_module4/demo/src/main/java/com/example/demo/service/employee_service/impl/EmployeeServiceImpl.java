@@ -1,5 +1,6 @@
 package com.example.demo.service.employee_service.impl;
 
+import com.example.demo.models.customer.Customer;
 import com.example.demo.models.employee.*;
 import com.example.demo.repository.employee_repository.*;
 import com.example.demo.service.employee_service.EmployeeService;
@@ -39,10 +40,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         FuramaUser furamaUser = new FuramaUser();
         furamaUser.setUserName(employee.getEmployeeId());
-        furamaUser.setPassword("123456");
+        furamaUser.setPassword("$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu");
         furamaUserRepository.save(furamaUser);
 
-        if(employee.getPosition().getPositionId() == 5 || employee.getPosition().getPositionId() == 6){
+        if (employee.getPosition().getPositionId() == 5 || employee.getPosition().getPositionId() == 6) {
             FuramaRole furamaRole = furamaRoleRepository.findById(2).orElse(null);
 
             FuramaRoleUser furamaRoleUser = new FuramaRoleUser();
@@ -50,7 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             furamaRoleUser.setFuramaRole(furamaRole);
 
             furamaRoleUserRepository.save(furamaRoleUser);
-        }else {
+        } else {
 
             FuramaRole furamaRole = furamaRoleRepository.findById(1).orElse(null);
 
@@ -60,7 +61,27 @@ public class EmployeeServiceImpl implements EmployeeService {
 
             furamaRoleUserRepository.save(furamaRoleUser);
         }
+        employee.setFuramaUser(furamaUser);
+        employeeRepository.save(employee);
+    }
 
+    @Override
+    public void editEmployee(Employee employee) {
+        Employee employee1 = employee;
+        System.out.println(employee1);
+        FuramaUser furamaUser = employee.getFuramaUser();
+        FuramaRoleUser furamaRoleUser = furamaRoleUserRepository.findByFuramaUser(furamaUser);
+
+        if (employee.getPosition().getPositionId() == 5 || employee.getPosition().getPositionId() == 6) {
+            FuramaRole furamaRole = furamaRoleRepository.findById(2).orElse(null);
+            furamaRoleUser.setFuramaRole(furamaRole);
+            furamaRoleUserRepository.save(furamaRoleUser);
+        } else {
+
+            FuramaRole furamaRole = furamaRoleRepository.findById(1).orElse(null);
+            furamaRoleUser.setFuramaRole(furamaRole);
+            furamaRoleUserRepository.save(furamaRoleUser);
+        }
         employeeRepository.save(employee);
     }
 
@@ -71,7 +92,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteEmployee(String id) {
+        FuramaUser furamaUser = furamaUserRepository.findByUserName(id);
+        FuramaRoleUser furamaRoleUser = furamaRoleUserRepository.findByFuramaUser(furamaUser);
         employeeRepository.deleteById(id);
+        furamaRoleUserRepository.delete(furamaRoleUser);
+        furamaUserRepository.deleteById(id);
     }
 
     @Override
@@ -95,7 +120,23 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> findEmployeeByName(String name) {
-        return employeeRepository.findAllByEmployeeNameContaining(name);
+    public Page<Employee> findEmployeeByName(Pageable pageable, String name) {
+        return employeeRepository.findAllByEmployeeNameContaining(pageable, name);
     }
+
+    @Override
+    public Employee findByUserName(String name) {
+        return employeeRepository.findByFuramaUserUserName(name);
+    }
+
+    @Override
+    public String checkDuplicate(Employee employee) {
+        if (employeeRepository.findByEmployeeEmail(employee.getEmployeeEmail()) != null) {
+            return "Email đã tồn tại";
+        } else if (employeeRepository.findById(employee.getEmployeeId()).isPresent()) {
+            return "Mã khách hàng đã tồn tại";
+        }
+        return null;
+    }
+
 }

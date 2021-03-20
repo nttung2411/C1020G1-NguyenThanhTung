@@ -5,9 +5,17 @@
 <body>
 <div th:replace="/layout :: navbar">
 </div>
-<input name="name" type="text" id="search" placeholder="Search by name"/>
+
 <table class="table table-hover" style="margin-top: 10%">
     <thead>
+    <tr>
+        <th style="border: 0">
+        <form action="/customer/search">
+            <input name="nameCustomer" type="text" placeholder="Tìm kiếm..."/>
+            <input type="submit" value="Tìm">
+        </form>
+        </th>
+    </tr>
     <tr>
         <th scope="col">STT</th>
         <th scope="col">Tên khách hàng</th>
@@ -77,39 +85,26 @@
     }
 </script>
 
-<script>
-    $(document).ready(function () {
-        $("#search").on("keyup",function () {
-            let name = document.getElementById("search").value;
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" th:href="@{'/customer/showlist'(page=${customerList.number - 1})}"
+               th:if="${customerList.hasPrevious()}">Trước</a>
+        </li>
+        <li class="page-item"><a class="page-link" th:text="${customerList.number}"
+                                 th:if="${customerList.hasPrevious()}"></a></li>
+        <li class="page-item active">
+        <li class="page-item active"><a class="page-link" th:text="${customerList.number + 1}"></a></li>
+        <li class="page-item"><a class="page-link" th:text="${customerList.number + 2}"
+                                 th:if="${customerList.hasNext()}"
+                                 th:href="@{'/customer/showlist'(page=${customerList.number + 1})}"></a></li>
+        <li class="page-item">
+        <li class="page-item"><a class="page-link" th:href="@{'/customer/showlist'(page=${customerList.number + 1})}"
+                                 th:if="${customerList.hasNext()}">Sau</a>
+        </li>
+    </ul>
+</nav>
 
-            $.ajax({
-                type: "GET",
-                url: "/customer/search?name=" + name,
-                dataType:"Json",
-                contentType: "application/json; charset=utf8",
-                success: function (customerList) {
-                    let result = "";
-                    for (let i = 0; i < customerList.length; i++) {
-                        let id = customerList[i].customerId;
-                        console.log(customerList[i].customerName);
-                        result += "<tr>";
-                        result += "<td>" + (i+1) + "</td>";
-                        result += "<td>" + customerList[i].customerName + "</td>";
-                        result += "<td>" + customerList[i].customerPhone + "</td>";
-                        result += "<td>" + customerList[i].customerAddress + "</td>";
-                        result += "<td><a class=\"btn btn-primary\" role=\"button\" href='/customer/edit/"
-                            + id + "'>Chỉnh Sửa</a></td>";
-                        result += "<td><button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModal\"" +
-                            "  data-thing='" + id +
-                            "' onclick=\"setIdToForm(this.getAttribute('data-thing'));\"'>Xoá</button></td>";
-                        result += "</tr>";
-                    }
-                    $("#listCustomer").html(result);
-                }
-            });
-        });
-    });
-</script>
 <footer th:replace="/layout :: footer">
 </footer>
 </body>

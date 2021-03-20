@@ -1,6 +1,11 @@
 package com.example.demo.models.customer;
 
 import com.example.demo.models.contract.Contract;
+import com.example.demo.service.customer_service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -8,7 +13,7 @@ import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
-public class Customer {
+public class Customer implements Validator {
     @Id
     @Pattern(regexp = "^(KH-)\\d{4}$",message = "Định dạng KH-XXXX")
     private String customerId;
@@ -21,6 +26,7 @@ public class Customer {
     private String customerName;
 
     @Column(nullable = false)
+    @Pattern(regexp = "((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])",message = "Đúng định dạng YYYY-MM-DD")
     private String customerBirthDay;
 
     @Column(nullable = false)
@@ -30,7 +36,7 @@ public class Customer {
     @Column(nullable = false)
     private String customerIdCard;
 
-    @Pattern(regexp = "^(090|091|[(]84[+][)]90|[(]84+[)]91)\\\\d{7}$",message = "Đúng định dạng 090|091|(84+)")
+    @Pattern(regexp = "^(090|091|[(]84[+][)]90|[(]84+[)]91)\\d{7}$",message = "Đúng định dạng 090|091|(84+)")
     @Column(nullable = false)
     private String customerPhone;
 
@@ -115,5 +121,18 @@ public class Customer {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Customer customer = (Customer) target;
+        String idCustomer = customer.getCustomerId();
     }
 }

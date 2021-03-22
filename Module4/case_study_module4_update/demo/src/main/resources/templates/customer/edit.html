@@ -9,13 +9,14 @@
 </div>
 <div style="margin-left: 35%;margin-top: 15%">
     <h2 style="margin-left: 40px;color: yellow">Thông Tin Khách Hàng</h2>
+    <h4 th:text="${messageDuplicate}" style="color: red"></h4>
                 <form th:action="@{/customerEdit}" method="post" th:object="${customer}">
                     <input type="hidden" th:field="*{customerId}">
                     <table cellpadding="5">
                         <tr>
                             <th>Loại khách:</th>
                             <td>
-                                <select th:field="*{customerType}">
+                                <select th:field="*{customerType}" class="form-control">
                                     <option th:each="customerType : ${customerTypes}" th:value="${customerType.customerTypeId}"
                                             th:text="${customerType.customerTypeName}"></option>
                                 </select>
@@ -44,7 +45,7 @@
                         <tr>
                             <th>Giới tính:</th>
                             <td>
-                                <select th:field="*{customerGender}">
+                                <select th:field="*{customerGender}" class="form-control">
                                     <option value="Nam">Nam</option>
                                     <option value="Nữ">Nữ</option>
                                 </select>
@@ -75,6 +76,7 @@
                             <th>Địa chỉ:</th>
                             <td>
                                 <input type="text" class="form-control" th:field="*{customerAddress}" required/>
+                                <span th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

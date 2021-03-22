@@ -6,6 +6,7 @@ import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -38,7 +39,10 @@ public class Customer implements Validator {
     private String customerPhone;
 
     @Email(message = "Email phải đúng định dạng")
+    @NotEmpty(message = "Không được để trống")
     private String customerEmail;
+
+    @NotEmpty(message = "Không được để trống")
     private String customerAddress;
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)

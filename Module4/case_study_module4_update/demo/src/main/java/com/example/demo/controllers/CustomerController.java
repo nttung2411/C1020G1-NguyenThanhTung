@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.customer.Customer;
 import com.example.demo.models.customer.CustomerType;
+import com.example.demo.models.employee.Employee;
 import com.example.demo.service.customer_service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -53,7 +54,7 @@ public class CustomerController {
         return "/customer/showlist";
     }
 
-    @GetMapping("/customerEdit/{id}")
+    @GetMapping("/customerEdit{id}")
     public String showEditCustomer(Model model, @PathVariable String id){
         model.addAttribute("customer",customerService.findById(id));
         return "/customer/edit";
@@ -67,9 +68,16 @@ public class CustomerController {
         }
 
         String checkDuplicate = customerService.checkDuplicate(customer);
-        if(checkDuplicate != null && !checkDuplicate.equals("Mã khách hàng đã tồn tại")){
-            model.addAttribute("messageDuplicate",checkDuplicate);
-            return "/customer/edit";
+        Customer customer1 = customerService.findById(customer.getCustomerId());
+        if(checkDuplicate != null){
+            if(customer.getCustomerEmail().equals(customer1.getCustomerEmail())){
+                customerService.saveCustomer(customer);
+                return "redirect:/customerShowlist";
+            }else if(checkDuplicate.equals("Email đã tồn tại")) {
+                model.addAttribute("customer",customer);
+                model.addAttribute("messageDuplicate",checkDuplicate);
+                return "customer/edit";
+            }
         }
 
         customerService.saveCustomer(customer);
@@ -82,9 +90,9 @@ public class CustomerController {
         return "redirect:/customerShowlist";
     }
 
-    @GetMapping("/customer/search")
+    @GetMapping("/customerSearch")
     public String searchCustomer(@RequestParam("nameCustomer") String name, Model model, @PageableDefault(size = 5) Pageable pageable){
-        model.addAttribute("listCustomer",customerService.findAllCustomerByName(pageable,name));
+        model.addAttribute("customerList",customerService.findAllCustomerByName(pageable,name));
         return "/customer/showlist";
     }
 

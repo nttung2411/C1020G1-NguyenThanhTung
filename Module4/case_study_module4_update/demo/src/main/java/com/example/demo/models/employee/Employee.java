@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -40,7 +41,10 @@ public class Employee {
 
     @Column(unique = true)
     @Email
+    @NotEmpty(message = "Không được để trống")
     private String employeeEmail;
+
+    @NotEmpty(message = "Không được để trống")
     private String employeeAddress;
 
 

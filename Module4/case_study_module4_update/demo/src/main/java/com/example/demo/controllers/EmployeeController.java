@@ -53,7 +53,7 @@ public class EmployeeController {
         return "employee/list";
     }
 
-    @GetMapping("/employeeEdit/{id}")
+    @GetMapping("/employeeEdit{id}")
     public String showEditEmployee(@PathVariable String id , Model model){
         model.addAttribute("employee",employeeService.findById(id));
         model.addAttribute("listDivision",employeeService.findAllDivision());
@@ -98,7 +98,7 @@ public class EmployeeController {
         return "redirect:/employeeList";
     }
 
-    @GetMapping(value = "/employee/search")
+    @GetMapping("/employeeSearch")
     public String searchCustomer(@RequestParam("nameEmployee") String name, Pageable pageable, Model model){
         model.addAttribute("listEmployee",employeeService.findEmployeeByName(pageable,name));
         return "employee/list";

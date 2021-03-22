@@ -10,7 +10,7 @@
     <thead>
     <tr>
         <th style="border: 0">
-        <form action="/customer/search">
+        <form action="/customerSearch">
             <input name="nameCustomer" type="text" placeholder="Tìm kiếm..."/>
             <input type="submit" value="Tìm">
         </form>
@@ -32,7 +32,7 @@
         <td th:text="${customer.customerPhone}"></td>
         <td th:text="${customer.customerAddress}"></td>
         <td><a class="btn btn-primary"
-               th:href="@{/customer/edit/{id}(id=${customer.customerId})}"
+               th:href="@{/customerEdit{id}(id=${customer.customerId})}"
                role="button">Chỉnh Sửa</a></td>
         </td>
         <td>

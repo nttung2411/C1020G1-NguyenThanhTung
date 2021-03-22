@@ -74,6 +74,7 @@
                             <th>Địa chỉ:</th>
                             <td>
                                 <input type="text" class="form-control" th:field="*{employeeAddress}" required/>
+                                <span th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

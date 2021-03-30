@@ -39,7 +39,7 @@ public class CustomerController {
         if(bindingResult.hasFieldErrors()){
             return "customer/create";
         }
-        String checkDuplicate =customerService.checkDuplicate(customer);
+        String checkDuplicate = customerService.checkDuplicate(customer);
         if(checkDuplicate != null){
             model.addAttribute("messageDuplicate",checkDuplicate);
             return "customer/create";

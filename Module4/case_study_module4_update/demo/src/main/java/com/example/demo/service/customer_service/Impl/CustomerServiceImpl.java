@@ -53,15 +53,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public String checkDuplicate(Customer customer) {
-        List<Customer> customerList = customerRepository.findAll();
-        for(Customer customerLoop : customerList){
-            if (customerLoop.getCustomerEmail().equals(customer.getCustomerEmail())){
+            if (customerRepository.findByCustomerEmail(customer.getCustomerEmail()) != null){
                 return "Email đã tồn tại";
-            } else if (customerLoop.getCustomerId().equals(customer.getCustomerId())){
+            } else if (customerRepository.findById(customer.getCustomerId()).isPresent()){
                 return "Mã khách hàng đã tồn tại";
             }
-        }
-
         return null;
     }
 }

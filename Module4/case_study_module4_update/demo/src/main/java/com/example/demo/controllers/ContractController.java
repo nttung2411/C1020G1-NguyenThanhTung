@@ -76,8 +76,9 @@ public class ContractController{
     }
 
     @GetMapping("/contractdetailCreate")
-    public String showCreateContractDetail(Model model){
+    public String showCreateContractDetail(Model model , Pageable pageable){
         model.addAttribute("contractDetail",new ContractDetail());
+        model.addAttribute("listContract",contractService.findAll(pageable));
         return "contract/create_contract_detail";
     }
 

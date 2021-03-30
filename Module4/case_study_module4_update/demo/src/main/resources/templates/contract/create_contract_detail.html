@@ -14,7 +14,10 @@
             <tr>
                 <th>Mã Hợp Đồng:</th>
                 <td>
-                    <input type="text" th:field="*{contract.idContract}" size="45"/>
+                    <select th:field="*{contract.idContract}" class="js-example-basic-single form-control">
+                        <option th:each="contract : ${listContract}" th:value="${contract.idContract}"
+                                th:text="${contract.idContract}"></option>
+                    </select>
                 </td>
             </tr>
             <tr>

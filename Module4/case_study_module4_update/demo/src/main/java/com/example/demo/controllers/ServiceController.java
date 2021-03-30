@@ -41,7 +41,7 @@ public class ServiceController {
         }
         service.setTypeService(servicesService.findTypeServiceId(1));
         servicesService.saveService(service);
-        return "redirect:/service/list";
+        return "redirect:/serviceList";
     }
 
     @GetMapping("/houseCreate")
@@ -57,7 +57,7 @@ public class ServiceController {
         }
         service.setTypeService(servicesService.findTypeServiceId(2));
         servicesService.saveService(service);
-        return "redirect:/service/list";
+        return "redirect:/serviceList";
     }
 
     @GetMapping("/roomCreate")
@@ -105,7 +105,7 @@ public class ServiceController {
             return "service/edit_villa";
         }
         servicesService.saveService(service);
-        return "redirect:/service/list";
+        return "redirect:/serviceList";
     }
 
     @PostMapping("/house/edit")

@@ -12,4 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface CustomerRepository extends JpaRepository<Customer,String> {
     @Query("select c from Customer c where concat(c.customerName,c.customerPhone,c.customerEmail) like %?1%")
     Page<Customer> searchByInputText(String keyword,Pageable pageable);
+    Customer findByCustomerEmail(String email);
 }

@@ -30,7 +30,7 @@
                         <tr>
                             <th>Tiêu chuẩn phòng:</th>
                             <td>
-                                <select th:field="*{standardRoom}">
+                                <select th:field="*{standardRoom}"  class="form-control">
                                     <option value="Standard">Standard</option>
                                     <option value="Delux">Delux</option>
                                     <option value="Superior">Superior</option>
@@ -76,7 +76,7 @@
                         <tr>
                             <th>Kiểu Thuê:</th>
                             <td>
-                                <select th:field="*{rentTypeService}">
+                                <select th:field="*{rentTypeService}"  class="form-control">
                                     <option th:each="rentType : ${rentTypes}" th:value="${rentType.rentTypeId}"
                                             th:text="${rentType.rentTypeName}"></option>
                                 </select>

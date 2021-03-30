@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        th,td{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<form th:object="${contract}">
+    <table cellpadding="5">
+        <tr>
+            <th>Mã giao dịch:</th>
+            <th>
+                <p th:text="${contract.idContract}"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>Loại bất động sản:</th>
+            <th>
+                <p th:text="${contract.typeService}"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>Ngày giao dịch:</th>
+            <th>
+                <p th:text="${contract.dateTrade}"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>Đơn giá:</th>
+            <th>
+                <p th:text="${contract.cost}"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>Diện tích:</th>
+            <th>
+                <p th:text="${contract.area}"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>Tên khách hàng:</th>
+            <th>
+                <p th:text="${contract.customer.nameCustomer}"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>Số điện thoại:</th>
+            <th>
+                <p th:text="${contract.customer.phoneCustomer}"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <th>
+                <p th:text="${contract.customer.emailCustomer}"></p>
+            </th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

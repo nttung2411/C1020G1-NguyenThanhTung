@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<!--<button th:href="@{/create}" style="float: left;">Thêm mới</button>-->
+<h4 th:text="${message}" style="color: greenyellow"></h4>
+<header class="header-section">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="nav-menu">
+                <ul>
+                    <li>
+                        <a th:href="@{/createContract}" style="float: left">Thêm mới</a>
+                    </li>
+
+                    <li>
+                        <form action="/search" style="float: right;margin-top: 3%;margin-left: 600px">
+                            <select name="select" style="padding: 4px">
+                                <option value="">Chọn loại bất động sản</option>
+                                <option value="Nhà Đất">Nhà Đất</option>
+                                <option value="Đất Nền">Đất Nền</option>
+                            </select>
+                            <input type="text" name="customerName" placeholder="Tên khách hàng"/>
+                            <input type="submit" value="Tìm kiếm"/>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="canvas-open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+<table class="table table-hover" style="margin-top: 10%">
+    <thead>
+    <tr>
+        <th scope="col">Mã giao dịch</th>
+        <th scope="col">Tên khách hàng</th>
+        <th scope="col">Ngày giao dịch</th>
+        <th scope="col">Loại dịch vụ</th>
+        <th scope="col">Đơn giá(VND/m2)</th>
+        <th scope="col">Diện tích(m2)</th>
+        <th scope="col">Chi tiết</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="contract : ${listContract}">
+        <td th:text="${contract.idContract}"></td>
+        <td th:text="${contract.customer.nameCustomer}"></td>
+        <td th:text="${contract.dateTrade}"></td>
+        <td th:text="${contract.typeService}"></td>
+        <td th:text="${contract.cost}"></td>
+        <td th:text="${contract.area}"></td>
+
+        <td>
+            <button type="button" th:value="${contract.idContract}" class="btn btn-primary infomation"
+                    th:data-thing="${contract.idContract}"
+                    onclick="setIdToForm(this.getAttribute('data-thing'))">Chi tiết
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Thông tin chi tiết</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">
+                    <a onclick="submitFormDelete()"
+                       style="color: white;text-decoration: none">
+                        Xoá</a></button>
+
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">
+                    <a style="color: white;text-decoration: none">
+                        Quay lại</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" th:href="@{'/'(page=${listContract.number - 1})}"
+               th:if="${listContract.hasPrevious()}">Trước</a>
+        </li>
+        <li class="page-item"><a class="page-link" th:text="${listContract.number}"
+                                 th:if="${listContract.hasPrevious()}"></a></li>
+        <li class="page-item active"><a class="page-link" th:text="${listContract.number + 1}"></a></li>
+        <li class="page-item"><a class="page-link" th:text="${listContract.number + 2}"
+                                 th:if="${listContract.hasNext()}"
+                                 th:href="@{'/'(page=${listContract.number + 1})}"></a></li>
+        <li class="page-item"><a class="page-link" th:href="@{'/'(page=${listContract.number + 1})}"
+                                 th:if="${listContract.hasNext()}">Sau</a>
+        </li>
+    </ul>
+</nav>
+
+<form action="/delete" id="formDelete">
+    <input type="hidden" name="id" id="idBlogHidden"/>
+</form>
+
+<script>
+    function setIdToForm(id, name) {
+        document.getElementById("idBlogHidden").value = id;
+        document.getElementById("employeeName").textContent = name;
+    }
+
+    function submitFormDelete() {
+        document.getElementById("formDelete").submit();
+    }
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".infomation").click(function () {
+            $.ajax({
+                    type: "GET",
+                    url: "/information" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#infoModal").modal('show');
+                    }
+                }
+            )
+        })
+    });
+</script>
+
+<div th:replace="/layout :: script">
+</div>
+</body>
+</html>

@@ -37,7 +37,7 @@
         </td>
         <td>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    th:data-thing="${customer.customerId}" onclick="setIdToForm(this.getAttribute('data-thing'));">
+                    th:data-thing="${customer.customerId}" th:data-name="${customer.customerName}" onclick="setIdToForm(this.getAttribute('data-thing'),this.getAttribute('data-name'));">
                 Xoá
             </button>
         </td>
@@ -55,7 +55,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Bạn có muốn xoá khách hàng này?
+                Bạn có muốn xoá <span id="nameCustomer"></span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">
@@ -76,8 +76,9 @@
 </form>
 
 <script>
-    function setIdToForm(id) {
+    function setIdToForm(id,name) {
         document.getElementById("idBlogHidden").value = id;
+        document.getElementById("nameCustomer").textContent = name;
     }
 
     function submitFormDelete() {

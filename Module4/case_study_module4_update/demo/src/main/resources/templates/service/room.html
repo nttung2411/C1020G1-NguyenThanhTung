@@ -50,7 +50,7 @@
                         <tr>
                             <th>Kiểu Thuê:</th>
                             <td>
-                                <select th:field="*{rentTypeService}">
+                                <select th:field="*{rentTypeService}" class="form-control">
                                     <option th:each="rentType : ${rentTypes}" th:value="${rentType.rentTypeId}"
                                             th:text="${rentType.rentTypeName}"></option>
                                 </select>
@@ -59,7 +59,7 @@
                         <tr>
                             <th>Dịch vụ miễn phí:</th>
                             <td>
-                                <select th:field="*{descriptionOther}" >
+                                <select th:field="*{descriptionOther}" class="form-control" >
                                     <option value="Buffet tối">Buffet tối</option>
                                     <option value="Lửa trại">Lửa trại</option>
                                     <option value="Xông hơi">Xông hơi</option>

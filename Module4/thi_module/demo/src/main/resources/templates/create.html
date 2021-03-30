@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/layout :: head">
+</head>
+<body>
+</div>
+<div style="margin-left: 35%;margin-top: 15%">
+    <h2 style="margin-left: 40px;color: yellow">Thêm mới hợp đồng</h2>
+    <br>
+    <form th:action="@{/createContract}" method="post" th:object="${contract}">
+        <table cellpadding="5">
+            <tr>
+                <th>Mã giao dịch:</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{idContract}"/>
+                    <span th:if="${#fields.hasErrors('idContract')}" th:errors="*{idContract}" class="text-danger help-block" ></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Tên khách hàng:</th>
+                <td>
+                    <select th:field="*{customer.idCustomer}" class="js-example-basic-single form-control">
+                        <option th:each="customer : ${customerList}" th:value="${customer.idCustomer}"
+                                th:text="${customer.nameCustomer}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Loại bất động sản:</th>
+                <td>
+                    <select th:field="*{typeService}" class="form-control">
+                        <option value="Nhà Đất">Nhà Đất</option>
+                        <option value="Đất Nền">Đất Nền</option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('typeService')}" th:errors="*{typeService}" class="text-danger help-block" ></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Ngày giao dịch:</th>
+                <td>
+                    <input type="date" class="form-control" th:field="*{dateTrade}"/>
+                    <span th:if="${#fields.hasErrors('dateTrade')}" th:errors="*{dateTrade}" class="text-danger help-block" ></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Đơn giá(VND):</th>
+                <td>
+                    <input type="number" class="form-control" th:field="*{cost}" size="45"/>
+                    <span th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}" class="text-danger help-block" ></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Diện tích(m2):</th>
+                <td>
+                    <input type="number" class="form-control" th:field="*{area}" size="45"/>
+                    <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}" class="text-danger help-block" ></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Tạo mới"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div th:replace="/layout :: script">
+</div>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+</body>
+
+</html>

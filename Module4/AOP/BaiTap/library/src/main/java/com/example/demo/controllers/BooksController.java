@@ -23,19 +23,19 @@ public class BooksController {
     RenterService renterService;
 
     @GetMapping("/")
-    public String showPage(Model model, Pageable pageable){
-        model.addAttribute("listBook",bookService.findAll(pageable));
+    public String showPage(Model model, Pageable pageable) {
+        model.addAttribute("listBook", bookService.findAll(pageable));
         return "home";
     }
 
     @GetMapping("/create")
-    public String showCreateBook(Model model){
-        model.addAttribute("book",new Book());
+    public String showCreateBook(Model model) {
+        model.addAttribute("book", new Book());
         return "create";
     }
 
     @PostMapping("/create")
-    public String createBook(@ModelAttribute Book book){
+    public String createBook(@ModelAttribute Book book) {
         bookService.createBook(book);
         WriteFile.nameOfBook = book.getNameOfBook();
         return "redirect:/";

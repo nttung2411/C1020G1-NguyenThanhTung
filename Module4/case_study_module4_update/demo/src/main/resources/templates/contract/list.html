@@ -39,7 +39,8 @@
         <td>
             <div th:if="${contract.contractDetails}">
                 <div th:each="contractDetail : ${contract.contractDetails}">
-                    <p th:text="${contractDetail.attachService.nameAttachService}"></p>
+                    <span th:text="${contractDetail.attachService.nameAttachService}"
+                       style="color: white"></span>
                 </div>
             </div>
             <div th:if="${contract.contractDetails.isEmpty()}">

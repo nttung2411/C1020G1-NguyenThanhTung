@@ -1,0 +1,8 @@
+<h1> Student Information</h1>
+<br>
+<h3>Name: {{student.name}}</h3>
+<h3>Age: {{student.age}}</h3>
+<h3>Mark: {{student.mark}}</h3>
+<img [src]="student.avatar" style="width: 400px;height: 400px">
+<p>Điểm</p>
+<input type="number" [(ngModel)]="student.mark"/>

@@ -1,0 +1,13 @@
+<app-navbar-component></app-navbar-component>
+<h2>Today's article</h2>
+<hr>
+
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a>
+  <p>{{art.likes}} likes</p>
+  <button (click)="sendLikes(art)">Like</button>
+</div>
+
+<br>
+<app-article (listArticle)="listArticle($event)" ></app-article>
+

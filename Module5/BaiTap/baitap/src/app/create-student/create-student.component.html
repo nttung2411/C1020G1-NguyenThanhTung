@@ -1,0 +1,30 @@
+<form [formGroup]="formCreate" (ngSubmit)="createStudent()">
+  <div class="form-group">
+    <label for="id">ID:</label>
+    <input type="text" formControlName="id" id="id" class="form-control">
+    <br>
+    <div *ngIf="formCreate.controls.id?.errors?.required && formCreate.controls.id.touched"
+         class="alert alert-danger" role="alert">
+      <p>
+        ID is required
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" formControlName="name" id="name" class="form-control">
+    <div *ngIf="formCreate.controls.name?.errors?.pattern && formCreate.controls.name.touched"
+         class="alert alert-danger" role="alert">
+      <p>Name not valid</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="text" formControlName="age" id="age" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="mark">Mark:</label>
+    <input type="text" formControlName="mark" id="mark" class="form-control">
+  </div>
+  <input type="submit" value="Create" class="btn btn-primary">
+</form>
